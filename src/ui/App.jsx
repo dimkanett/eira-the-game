@@ -13,6 +13,7 @@ import Reputation from "./Reputation.jsx";
 import LoreBook from "./LoreBook.jsx";
 import CombatPanel from "./CombatPanel.jsx";
 import CharacterPortrait from "./CharacterPortrait.jsx";
+import CharacterModal from "./CharacterModal.jsx";
 
 export default function App() {
   const [gameState, setGameState] = useState(initialGameState);
@@ -26,7 +27,7 @@ export default function App() {
       <Hud gameState={gameState} />
       <main className="main-layout">
         <section className="left-rail">
-          <CharacterPortrait character={gameState.hero} />
+          <CharacterPortrait character={gameState.hero} size="small" onClick={() => setModal("character")} />
           <button onClick={() => setModal("journal")}>Журнал</button>
           <button onClick={() => setModal("inventory")}>Инвентарь</button>
           <button onClick={() => setModal("reputation")}>Репутация</button>
@@ -50,6 +51,7 @@ export default function App() {
         onNextDay={() => runAction(actions.nextDay)}
       />
 
+      {modal === "character" && <Modal title={gameState.hero.name} onClose={() => setModal(null)}><CharacterModal character={gameState.hero} /></Modal>}
       {modal === "journal" && <Modal title="Журнал" onClose={() => setModal(null)}><Journal entries={gameState.journal} /></Modal>}
       {modal === "inventory" && <Modal title="Инвентарь" onClose={() => setModal(null)}><Inventory gameState={gameState} /></Modal>}
       {modal === "reputation" && <Modal title="Репутация" onClose={() => setModal(null)}><Reputation reputation={gameState.reputation} /></Modal>}

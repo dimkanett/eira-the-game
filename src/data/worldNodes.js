@@ -1,3 +1,16 @@
+export const WORLD_MAP_SIZE = {
+  width: 1402,
+  height: 1122,
+};
+
+export const worldMap = {
+  background: "/assets/maps/world_map.png",
+  ...WORLD_MAP_SIZE,
+};
+
+// Coordinates are intentionally kept in the same pixel coordinate system as
+// WORLD_MAP_SIZE. When legacy/map_nodes_correct.js is present, this file must
+// be regenerated from it without hand-adjusting individual points.
 export const worldNodes = [
   { id: "silverglade", name: "Сильверглейд / Лунный Трон", x: 230, y: 210, biome: "city", region: "Серебряный Предел", danger: 1, connections: ["moon_road", "mirven"] },
   { id: "moon_road", name: "Лунная дорога", x: 390, y: 265, biome: "road", region: "Серебряный Предел", danger: 1, connections: ["silverglade", "ancient_temple_ruins", "silver_cascades"] },
@@ -15,4 +28,3 @@ export const worldNodes = [
 ];
 
 export const worldNodeById = Object.fromEntries(worldNodes.map((node) => [node.id, node]));
-export const worldMap = { background: "/assets/maps/world_map.png", width: 1200, height: 900 };
