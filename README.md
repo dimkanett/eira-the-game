@@ -37,7 +37,7 @@ npm run dev
 # затем в браузере: http://localhost:5173/?tool=node-editor
 ```
 
-Редактор использует `src/data/worldNodes.js`, `WORLD_MAP_SIZE` и `/assets/maps/world_map.png`. В нём можно перетаскивать точки мышью, выбирать точки из списка, фильтровать по биому/региону, вручную задавать `x/y`, включать или скрывать подписи и связи, сохранять черновик в `localStorage`, делать undo/reset и экспортировать обновлённый `worldNodes.js`.
+Редактор использует `src/data/worldNodes.js`, `WORLD_MAP_SIZE` и `/assets/maps/world_map.png`. Количество загруженных точек видно в верхней панели редактора и в dev-консоли как `worldNodes loaded`. В нём можно перетаскивать точки мышью, выбирать точки из списка, фильтровать по биому/региону, вручную задавать `x/y`, включать/скрывать подписи, показывать все связи или только связи выбранной точки, проверять missing/one-way/long connections, редактировать connections, применять массовый Shift X/Y, сохранять черновик в `localStorage`, делать undo/reset и экспортировать обновлённый `worldNodes.js`.
 
 Чтобы применить результат, нажмите `Export worldNodes.js`, затем `Copy to Clipboard` или `Download worldNodes.js` и замените содержимое `src/data/worldNodes.js` экспортированным файлом.
 

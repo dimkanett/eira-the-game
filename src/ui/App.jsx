@@ -15,6 +15,9 @@ import CombatPanel from "./CombatPanel.jsx";
 import CharacterPortrait from "./CharacterPortrait.jsx";
 import CharacterModal from "./CharacterModal.jsx";
 import NodeEditor from "../tools/NodeEditor.jsx";
+import { worldNodes } from "../data/worldNodes.js";
+
+if (import.meta.env.DEV) console.log("worldNodes loaded:", worldNodes.length);
 
 export default function App() {
   const isNodeEditor = new URLSearchParams(window.location.search).get("tool") === "node-editor";
