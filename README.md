@@ -27,6 +27,20 @@ npm run build
 
 Если изображение отсутствует, карта или портрет не ломают игру: интерфейс показывает fallback-сообщение или безопасный placeholder-путь.
 
+
+## Dev: редактор точек глобальной карты
+
+Откройте редактор по query-параметру:
+
+```bash
+npm run dev
+# затем в браузере: http://localhost:5173/?tool=node-editor
+```
+
+Редактор использует `src/data/worldNodes.js`, `WORLD_MAP_SIZE` и `/assets/maps/world_map.png`. В нём можно перетаскивать точки мышью, выбирать точки из списка, фильтровать по биому/региону, вручную задавать `x/y`, включать или скрывать подписи и связи, сохранять черновик в `localStorage`, делать undo/reset и экспортировать обновлённый `worldNodes.js`.
+
+Чтобы применить результат, нажмите `Export worldNodes.js`, затем `Copy to Clipboard` или `Download worldNodes.js` и замените содержимое `src/data/worldNodes.js` экспортированным файлом.
+
 ## Где редактировать данные
 
 - Точки глобальной карты: `src/data/worldNodes.js`. При наличии `legacy/map_nodes_correct.js` этот legacy-файл является источником правды для `id`, `name`, `x`, `y`, `biome`, `region`, `danger` и `connections`.

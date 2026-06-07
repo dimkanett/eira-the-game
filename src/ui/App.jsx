@@ -14,8 +14,15 @@ import LoreBook from "./LoreBook.jsx";
 import CombatPanel from "./CombatPanel.jsx";
 import CharacterPortrait from "./CharacterPortrait.jsx";
 import CharacterModal from "./CharacterModal.jsx";
+import NodeEditor from "../tools/NodeEditor.jsx";
 
 export default function App() {
+  const isNodeEditor = new URLSearchParams(window.location.search).get("tool") === "node-editor";
+
+  return isNodeEditor ? <NodeEditor /> : <GameApp />;
+}
+
+function GameApp() {
   const [gameState, setGameState] = useState(initialGameState);
   const [panelCollapsed, setPanelCollapsed] = useState(false);
   const [modal, setModal] = useState(null);
