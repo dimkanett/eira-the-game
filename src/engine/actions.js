@@ -27,6 +27,17 @@ export const actions = {
 
     return state;
   },
+  enterLocalLocation(gameState) {
+    return { ...gameState, mode: "location", activeMessage: null };
+  },
+  leaveLocalLocation(gameState) {
+    return { ...gameState, mode: "world", activeEvent: null, activeMessage: "Ты возвращаешься к карте мира." };
+  },
+  triggerLocalEvent(gameState, eventId) {
+    const state = startEvent(gameState, eventId);
+    if (!state.activeEvent) return { ...state, activeMessage: "Это событие ещё не добавлено." };
+    return state;
+  },
   clickWorldNode: moveHeroToNode,
   resolveChoice(gameState, choiceId) {
     if (gameState.activeEvent?.id === "captain_in_bay") return resolveSeaTravelChoice(gameState, choiceId);

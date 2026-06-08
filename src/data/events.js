@@ -155,6 +155,70 @@ export const events = {
   ],
   story: [
     {
+      id: "emma_iron_bridge_village_hub",
+      title: "Деревня Железного моста",
+      biome: "village",
+      text: "Деревня живёт почти обычной жизнью. У кузницы звенит молот, у колодца спорят женщины, за домами кричат гуси. Только старый мост за рекой будто ждёт, когда на него снова посмотрят.",
+      choices: [
+        {
+          id: "hub_go_to_bridge",
+          label: "Вернуться к мосту",
+          success: {
+            text: "Эмма снова идёт к старому железному мосту.",
+            effects: [],
+            nextEventId: "emma_intro_bridge_whisper",
+          },
+        },
+        {
+          id: "hub_talk_to_elder",
+          label: "Поговорить со старостой Бренном",
+          success: {
+            text: "Эмма идёт к дому старосты.",
+            effects: [],
+            nextEventId: "emma_elder_brenn_talk",
+          },
+        },
+        {
+          id: "hub_find_timo",
+          label: "Найти мальчика Тимо",
+          success: {
+            text: "Эмма находит Тимо за домом прачки.",
+            effects: [],
+            nextEventId: "emma_timo_testimony",
+          },
+        },
+        {
+          id: "hub_visit_olma",
+          label: "Зайти к кузнецу Ольме",
+          success: {
+            text: "Эмма идёт к кузнице.",
+            effects: [],
+            nextEventId: "emma_olma_black_iron",
+          },
+        },
+        {
+          id: "hub_go_under_bridge",
+          label: "Спуститься под мост",
+          success: {
+            text: "Эмма спускается к старым опорам моста.",
+            effects: [],
+            nextEventId: "emma_bridge_storehouse",
+          },
+        },
+        {
+          id: "hub_leave_village",
+          label: "Покинуть деревню",
+          success: {
+            text: "Эмма оставляет деревню за спиной. Старый мост тихо звенит на ветру, почти как обычный.",
+            effects: [
+              { type: "reveal_node", nodeId: "asterwald_road" },
+              { type: "reveal_node", nodeId: "blackthorn" },
+            ],
+          },
+        },
+      ],
+    },
+    {
       id: "emma_intro_bridge_whisper",
       title: "Первый шёпот у моста",
       biome: "village",
@@ -171,10 +235,12 @@ export const events = {
               { type: "set_flag", flag: "emma_saw_black_line" },
               { type: "journal_entry", text: "Эмма заметила странную чёрную линию на железе моста." },
             ],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
           fail: {
             text: "На первый взгляд мост выглядит старым, но обычным. Только звук снизу повторяется ещё раз — тише, будто с насмешкой.",
             effects: [{ type: "trace", value: 1 }],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -187,11 +253,12 @@ export const events = {
               { type: "set_flag", flag: "emma_heard_about_timo" },
               { type: "journal_entry", text: "Жители говорят, что ночью мост звал мальчика Тимо." },
             ],
-            nextEventId: "emma_timo_testimony",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
           fail: {
             text: "Разговоры обрываются. В деревне не любят тех, кто вытаскивает страх на свет.",
             effects: [{ type: "reputation", target: "current_region", value: -1 }],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -235,7 +302,7 @@ export const events = {
               { type: "set_flag", flag: "emma_has_bridge_key" },
               { type: "journal_entry", text: "Староста дал Эмме ключ от старой кладовой под мостом." },
             ],
-            nextEventId: "emma_bridge_storehouse",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
           fail: {
             text: "Бренн становится жёстче. “Правда иногда убивает быстрее беды. Иди домой, Эмма.”",
@@ -243,6 +310,7 @@ export const events = {
               { type: "trace", value: 1 },
               { type: "set_flag", flag: "brenn_refused_key" },
             ],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -256,11 +324,12 @@ export const events = {
               { type: "reveal_npc_clue", npcId: "npc_olma" },
               { type: "journal_entry", text: "Бренн советует поговорить с Тимо и кузнецом Ольмой." },
             ],
-            nextEventId: "emma_timo_testimony",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
           fail: {
             text: "Староста отвечает вежливо, но пусто. Он умеет закрывать разговоры лучше, чем двери.",
             effects: [{ type: "reputation", target: "current_region", value: -1 }],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -275,7 +344,7 @@ export const events = {
               { type: "set_flag", flag: "emma_stole_bridge_key" },
               { type: "journal_entry", text: "Эмма украла чёрный ключ у старосты." },
             ],
-            nextEventId: "emma_bridge_storehouse",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
           fail: {
             text: "Бренн перехватывает её взгляд и накрывает ключ ладонью. “Не начинай путь с этого.”",
@@ -283,6 +352,7 @@ export const events = {
               { type: "sin", value: 1 },
               { type: "reputation", target: "current_region", value: -1 },
             ],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -291,7 +361,7 @@ export const events = {
           success: {
             text: "Бренн не останавливает Эмму. Только говорит ей в спину: “Если мост позовёт тебя по имени — не отвечай.”",
             effects: [{ type: "journal_entry", text: "Бренн предупредил: если мост позовёт по имени, нельзя отвечать." }],
-            nextEventId: "emma_timo_testimony",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
       ],
@@ -313,12 +383,12 @@ export const events = {
               { type: "set_flag", flag: "emma_has_iron_coin" },
               { type: "journal_entry", text: "Тимо отдал Эмме железную монету с трещиной в круге." },
             ],
-            nextEventId: "emma_olma_black_iron",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
           fail: {
             text: "Тимо сжимает кулак и мотает головой. Страх сильнее доверия.",
             effects: [{ type: "trace", value: 1 }],
-            nextEventId: "emma_olma_black_iron",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -332,7 +402,7 @@ export const events = {
               { type: "sin", value: 1 },
               { type: "journal_entry", text: "Тимо рассказал о северной опоре моста." },
             ],
-            nextEventId: "emma_bridge_storehouse",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
           fail: {
             text: "Мальчик убегает. Где-то в доме прачка начинает кричать на Эмму.",
@@ -340,6 +410,7 @@ export const events = {
               { type: "sin", value: 1 },
               { type: "reputation", target: "current_region", value: -1 },
             ],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -351,7 +422,7 @@ export const events = {
               { type: "set_flag", flag: "voice_remembers_promises" },
               { type: "journal_entry", text: "Голос под мостом говорил о тех, кто обещал вернуться." },
             ],
-            nextEventId: "emma_olma_black_iron",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -360,7 +431,7 @@ export const events = {
           success: {
             text: "Тимо облегчённо выдыхает. Иногда милосердие — это не вопрос, а молчание.",
             effects: [{ type: "reputation", target: "current_region", value: 1 }],
-            nextEventId: "emma_olma_black_iron",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
       ],
@@ -382,11 +453,12 @@ export const events = {
               { type: "set_flag", flag: "emma_has_rope" },
               { type: "journal_entry", text: "Ольма дала Эмме крюк и верёвку." },
             ],
-            nextEventId: "emma_bridge_storehouse",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
           fail: {
             text: "Ольма качает головой. “Нет. Сначала пойми, куда лезешь.”",
             effects: [],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -399,12 +471,12 @@ export const events = {
               { type: "set_flag", flag: "emma_understands_black_iron_pattern" },
               { type: "journal_entry", text: "Чёрное железо повторяет знак трещины в круге." },
             ],
-            nextEventId: "emma_bridge_storehouse",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
           fail: {
             text: "Чем дольше Эмма смотрит на заклёпку, тем сильнее кажется, что внутри металла что-то медленно поворачивается.",
             effects: [{ type: "personal_decay", value: 1 }],
-            nextEventId: "emma_bridge_storehouse",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -417,7 +489,7 @@ export const events = {
               { type: "reveal_node", nodeId: "asterwald_road" },
               { type: "journal_entry", text: "Ольма не смогла определить происхождение железной монеты." },
             ],
-            nextEventId: "emma_bridge_storehouse",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -426,7 +498,7 @@ export const events = {
           success: {
             text: "За спиной снова звенит молот. На этот раз его звук кажется слишком похожим на стук под мостом.",
             effects: [],
-            nextEventId: "emma_bridge_storehouse",
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
       ],
@@ -472,6 +544,7 @@ export const events = {
               { type: "fatigue", value: 1 },
               { type: "trace", value: 1 },
             ],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -480,6 +553,7 @@ export const events = {
           success: {
             text: "Эмма отходит от двери. Иногда здравый смысл звучит как трусость, но живые часто путают эти вещи.",
             effects: [{ type: "reveal_node", nodeId: "asterwald_road" }],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
       ],
@@ -499,6 +573,7 @@ export const events = {
               { type: "add_item", itemId: "radan_nameplate" },
               { type: "journal_entry", text: "Эмма нашла табличку с именем Радан." },
             ],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -511,10 +586,12 @@ export const events = {
               { type: "reveal_node", nodeId: "blackthorn" },
               { type: "journal_entry", text: "В трещине под мостом Эмма увидела дорогу к востоку." },
             ],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
           fail: {
             text: "На мгновение Эмме кажется, что трещина смотрит в ответ. Она отступает, чувствуя вкус ржавчины на языке.",
             effects: [{ type: "personal_decay", value: 1 }],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -529,6 +606,7 @@ export const events = {
               { type: "set_flag", flag: "emma_delayed_bridge_rift" },
               { type: "journal_entry", text: "Эмма временно закрыла трещину под мостом." },
             ],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
           fail: {
             text: "Камень выскальзывает из рук и падает в темноту. Звука удара нет.",
@@ -536,6 +614,7 @@ export const events = {
               { type: "world_decay", value: 1 },
               { type: "fatigue", value: 1 },
             ],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
         {
@@ -548,6 +627,7 @@ export const events = {
               { type: "reveal_node", nodeId: "blackthorn" },
               { type: "journal_entry", text: "Эмма вышла из кладовой под Железным мостом." },
             ],
+            nextEventId: "emma_iron_bridge_village_hub",
           },
         },
       ],

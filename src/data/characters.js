@@ -4,7 +4,7 @@ export const playableCharacters = [
     name: "Эмма",
     race: "Человек",
     startLocationId: "iron_bridge_village",
-    portrait: "/assets/characters/Эмма.jpg",
+    portrait: "/assets/characters/emma.jpg",
     shortDescription:
       "Молодая женщина из деревни Железного моста. Её путь начинается далеко от больших дворов и великих интриг, но именно такие люди первыми чувствуют, когда мир начинает гнить.",
     stats: {
@@ -32,7 +32,7 @@ export const playableCharacters = [
     name: "Лираэль",
     race: "Эльф",
     startLocationId: "silverglade",
-    portrait: "/assets/characters/Лираэль.jpg",
+    portrait: "/assets/characters/lirael.jpg",
     shortDescription:
       "Эльфийка из Сильверглейда. Холодная, собранная и опасная. Её путь начинается в Серебряном Пределе, среди красоты, древней гордыни и гниющей чистоты.",
     stats: {
@@ -60,7 +60,7 @@ export const playableCharacters = [
     name: "Лирия",
     race: "Человек",
     startLocationId: "free_port_hargan",
-    portrait: "/assets/characters/Лирия.jpg",
+    portrait: "/assets/characters/liria.jpg",
     shortDescription:
       "Человек из Свободного порта Харган. Вольные Архипелаги учат быстро понимать цену людей, сделок и предательств.",
     stats: {
@@ -88,7 +88,7 @@ export const playableCharacters = [
     name: "Хаген Железный",
     race: "Дворф",
     startLocationId: "golden_web",
-    portrait: "/assets/characters/Хаген Железный.jpg",
+    portrait: "/assets/characters/hagen.jpg",
     shortDescription:
       "Дворф из Золотой Паутины. Старый кузнец, привыкший платить за каждую клятву железом, кровью и памятью.",
     stats: {
@@ -116,7 +116,7 @@ export const playableCharacters = [
     name: "Селенира",
     race: "Дроу",
     startLocationId: "shaeliri_lower_gate",
-    portrait: "/assets/characters/Селенира.jpg",
+    portrait: "/assets/characters/selenira.jpg",
     shortDescription:
       "Дроу из нижних Домов Ша’Элири. Её путь начинается у подземных врат, где интрига, боль и власть считаются не пороками, а языком выживания.",
     stats: {
@@ -144,7 +144,7 @@ export const playableCharacters = [
     name: "Мара",
     race: "Человек",
     startLocationId: "blackthorn",
-    portrait: "/assets/characters/Мара.jpg",
+    portrait: "/assets/characters/mara.jpg",
     shortDescription:
       "Человек из Блэкторна. Она начинает путь там, где страх давно стал частью повседневности, а клинок в руке иногда честнее молитвы.",
     stats: {

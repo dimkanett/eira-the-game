@@ -53,7 +53,13 @@ function GameApp() {
         <section className="play-area">
           {gameState.mode === "world" && <WorldMap gameState={gameState} onNodeClick={(nodeId) => runAction(actions.clickWorldNode, nodeId)} />}
           {gameState.mode === "city" && <CityMap gameState={gameState} onNodeClick={(nodeId) => runAction(actions.clickCityNode, nodeId)} />}
-          {gameState.mode === "location" && <LocationMap gameState={gameState} />}
+          {gameState.mode === "location" && (
+            <LocationMap
+              gameState={gameState}
+              onTriggerEvent={(eventId) => runAction(actions.triggerLocalEvent, eventId)}
+              onLeave={() => runAction(actions.leaveLocalLocation)}
+            />
+          )}
           {gameState.mode === "combat" && <CombatPanel gameState={gameState} onFinish={(result) => runAction(actions.combatFinish, result)} />}
         </section>
       </main>
@@ -64,6 +70,7 @@ function GameApp() {
         onToggle={() => setPanelCollapsed((value) => !value)}
         onChoice={(choiceId) => runAction(actions.resolveChoice, choiceId)}
         onEnterCity={() => runAction(actions.enterCurrentCity)}
+        onEnterLocalLocation={() => runAction(actions.enterLocalLocation)}
         onNextDay={() => runAction(actions.nextDay)}
       />
 
