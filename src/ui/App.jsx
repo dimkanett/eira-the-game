@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { initialGameState } from "../engine/gameState.js";
 import { actions } from "../engine/actions.js";
+import { playableCharacters } from "../data/characters.js";
 import WorldMap from "./WorldMap.jsx";
 import CityMap from "./CityMap.jsx";
 import LocationMap from "./LocationMap.jsx";
@@ -14,6 +15,7 @@ import LoreBook from "./LoreBook.jsx";
 import CombatPanel from "./CombatPanel.jsx";
 import CharacterPortrait from "./CharacterPortrait.jsx";
 import CharacterModal from "./CharacterModal.jsx";
+import CharacterSelect from "./CharacterSelect.jsx";
 import NodeEditor from "../tools/NodeEditor.jsx";
 import { worldNodes } from "../data/worldNodes.js";
 
@@ -31,6 +33,10 @@ function GameApp() {
   const [modal, setModal] = useState(null);
   const unreadLoreCount = useMemo(() => gameState.lore.unreadFragments.length, [gameState.lore.unreadFragments.length]);
   const runAction = (action, ...args) => setGameState((state) => action(state, ...args));
+
+  if (gameState.mode === "character_select") {
+    return <CharacterSelect characters={playableCharacters} onSelect={(id) => runAction(actions.selectCharacter, id)} />;
+  }
 
   return (
     <div className="app-shell">
