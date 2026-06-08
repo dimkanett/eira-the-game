@@ -18,10 +18,8 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 1,
     "connections": [
-      "eternal_moon_temple",
-      "old_forest",
-      "eternal_mist_hills",
       "ancient_temple_ruins",
+      "eternal_moon_temple",
       "moon_road",
       "silver_tears_forest"
     ]
@@ -35,10 +33,8 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 4,
     "connections": [
-      "silver_tears_forest",
-      "north_coast_1",
-      "silverglade",
-      "silver_cascades"
+      "eternal_mist_hills",
+      "silverglade"
     ]
   },
   {
@@ -50,10 +46,9 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 3,
     "connections": [
-      "ancient_temple_ruins",
       "silver_cascades",
       "silverglade",
-      "eternal_moon_temple"
+      "west_cliffs_1"
     ]
   },
   {
@@ -66,9 +61,7 @@ export const worldNodes = [
     "danger": 2,
     "connections": [
       "silver_tears_forest",
-      "silver_wall_west",
-      "eternal_moon_temple",
-      "ancient_temple_ruins"
+      "silver_wall_west"
     ]
   },
   {
@@ -80,10 +73,9 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 3,
     "connections": [
-      "old_forest",
-      "silverglade",
-      "eliandor",
-      "moon_meadow"
+      "ancient_temple_ruins",
+      "north_coast_1",
+      "old_forest"
     ]
   },
   {
@@ -96,10 +88,7 @@ export const worldNodes = [
     "danger": 3,
     "connections": [
       "eliandor",
-      "moon_meadow",
-      "eternal_mist_hills",
-      "silverglade",
-      "renewal_grove"
+      "eternal_mist_hills"
     ]
   },
   {
@@ -112,10 +101,7 @@ export const worldNodes = [
     "danger": 1,
     "connections": [
       "old_forest",
-      "moon_meadow",
-      "renewal_grove",
-      "moon_road",
-      "eternal_mist_hills"
+      "renewal_grove"
     ]
   },
   {
@@ -128,9 +114,6 @@ export const worldNodes = [
     "danger": 2,
     "connections": [
       "eliandor",
-      "whispering_trees_valley",
-      "old_forest",
-      "moon_meadow",
       "north_forest"
     ]
   },
@@ -143,10 +126,8 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 3,
     "connections": [
-      "tenebris_forest_deep",
-      "tenebris_forest_edge",
-      "whispering_trees_valley",
-      "renewal_grove"
+      "renewal_grove",
+      "tenebris_forest_edge"
     ]
   },
   {
@@ -158,11 +139,8 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 2,
     "connections": [
-      "moon_meadow",
-      "eternal_moon_temple",
       "mirven",
-      "seven_stars_glade",
-      "eliandor",
+      "moon_meadow",
       "silverglade"
     ]
   },
@@ -175,12 +153,9 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 2,
     "connections": [
-      "moon_road",
-      "old_forest",
-      "eliandor",
       "mirven",
-      "renewal_grove",
-      "eternal_mist_hills"
+      "moon_road",
+      "whispering_trees_valley"
     ]
   },
   {
@@ -192,10 +167,7 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 2,
     "connections": [
-      "silverglade",
-      "moon_road",
-      "silver_cascades",
-      "silver_tears_forest"
+      "silverglade"
     ]
   },
   {
@@ -207,10 +179,8 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 3,
     "connections": [
-      "mirven",
-      "tenebris_forest_deep",
-      "renewal_grove",
-      "north_forest"
+      "moon_meadow",
+      "tenebris_forest_edge"
     ]
   },
   {
@@ -222,10 +192,9 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 4,
     "connections": [
-      "tenebris_forest_deep",
-      "silverka_ford",
       "north_forest",
-      "rivenholl"
+      "tenebris_forest_deep",
+      "whispering_trees_valley"
     ]
   },
   {
@@ -237,10 +206,7 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 6,
     "connections": [
-      "tenebris_forest_edge",
-      "north_forest",
-      "whispering_trees_valley",
-      "silverka_ford"
+      "tenebris_forest_edge"
     ]
   },
   {
@@ -252,11 +218,11 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 1,
     "connections": [
-      "seven_stars_glade",
-      "silver_wall_east",
-      "whispering_trees_valley",
+      "moon_meadow",
       "moon_road",
-      "moon_meadow"
+      "seven_stars_glade",
+      "silverka_ford",
+      "vaitfordj"
     ]
   },
   {
@@ -269,9 +235,7 @@ export const worldNodes = [
     "danger": 3,
     "connections": [
       "mirven",
-      "silver_wall_east",
-      "moon_road",
-      "south_forest_path"
+      "silver_wall_east"
     ]
   },
   {
@@ -283,7 +247,9 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 3,
     "connections": [
-      "silver_cascades"
+      "silver_cascades",
+      "silver_wall_east",
+      "south_forest_path"
     ]
   },
   {
@@ -295,12 +261,8 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 3,
     "connections": [
-      "vaitfordj",
       "seven_stars_glade",
-      "crow_hills",
-      "mirven",
-      "silverka_ford",
-      "south_forest_path"
+      "silver_wall_west"
     ]
   },
   {
@@ -313,10 +275,8 @@ export const worldNodes = [
     "danger": 2,
     "connections": [
       "crow_hills",
-      "tenebris_forest_edge",
-      "silver_wall_east",
-      "rivenholl",
-      "tenebris_forest_deep"
+      "mirven",
+      "rivenholl"
     ]
   },
   {
@@ -328,11 +288,8 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 3,
     "connections": [
-      "vaitfordj",
       "silverka_ford",
-      "silver_wall_east",
-      "three_names_castle",
-      "west_a_sterwald_road"
+      "vaitfordj"
     ]
   },
   {
@@ -344,10 +301,8 @@ export const worldNodes = [
     "region": "Серебряный Предел",
     "danger": 3,
     "connections": [
-      "red_wine_village",
-      "vaitfordj",
-      "seven_stars_glade",
-      "silver_wall_east"
+      "silver_wall_west",
+      "vaitfordj"
     ]
   },
   {
@@ -359,8 +314,8 @@ export const worldNodes = [
     "region": "Внутреннее море",
     "danger": 2,
     "connections": [
-      "ancient_temple_ruins",
-      "west_cliffs_1"
+      "eternal_mist_hills",
+      "inner_sea_north"
     ]
   },
   {
@@ -372,8 +327,9 @@ export const worldNodes = [
     "region": "Внутреннее море",
     "danger": 3,
     "connections": [
-      "north_coast_1",
-      "inner_sea_north"
+      "inner_sea_north",
+      "silver_tears_forest",
+      "skull_reef"
     ]
   },
   {
@@ -385,11 +341,10 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 2,
     "connections": [
+      "gray_stone_village",
+      "mountain_gate",
       "north_a_sterwald_road",
-      "silverka_ford",
-      "tenebris_forest_edge",
-      "west_a_sterwald_road",
-      "asterwald"
+      "silverka_ford"
     ]
   },
   {
@@ -402,10 +357,10 @@ export const worldNodes = [
     "danger": 2,
     "connections": [
       "crow_hills",
-      "silver_wall_east",
+      "mirven",
+      "red_wine_village",
       "south_forest_path",
-      "three_names_castle",
-      "red_wine_village"
+      "west_a_sterwald_road"
     ]
   },
   {
@@ -417,10 +372,9 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 2,
     "connections": [
-      "south_forest_path",
+      "coast_fort",
       "three_names_castle",
-      "vaitfordj",
-      "forgotten_oaths_forest"
+      "vaitfordj"
     ]
   },
   {
@@ -432,11 +386,8 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 3,
     "connections": [
-      "vaitfordj",
-      "red_wine_village",
-      "crow_hills",
-      "forgotten_oaths_forest",
-      "lanvill"
+      "lanvill",
+      "red_wine_village"
     ]
   },
   {
@@ -448,9 +399,9 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 4,
     "connections": [
-      "coast_fort",
-      "red_wine_village",
-      "three_names_castle"
+      "black_bog_west",
+      "eshwood",
+      "lanvill"
     ]
   },
   {
@@ -462,10 +413,9 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 2,
     "connections": [
-      "south_a_sterwald_road",
+      "coast_south_landing",
+      "forgotten_oaths_forest",
       "four_winds_crossroad",
-      "eshwood",
-      "west_a_sterwald_road",
       "three_names_castle"
     ]
   },
@@ -478,11 +428,8 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 3,
     "connections": [
-      "lanvill",
       "eshwood",
-      "whispering_blood_lake",
-      "black_bog_north",
-      "south_a_sterwald_road"
+      "lanvill"
     ]
   },
   {
@@ -494,11 +441,10 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 3,
     "connections": [
-      "golden_river_bank",
-      "secret_valley",
-      "south_a_sterwald_road",
+      "forgotten_oaths_forest",
       "four_winds_crossroad",
-      "lanvill"
+      "south_a_sterwald_road",
+      "valdek"
     ]
   },
   {
@@ -510,7 +456,7 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 2,
     "connections": [
-      "eshwood",
+      "asterwald",
       "secret_valley"
     ]
   },
@@ -524,11 +470,10 @@ export const worldNodes = [
     "danger": 1,
     "connections": [
       "east_a_sterwald_road",
-      "west_a_sterwald_road",
-      "south_a_sterwald_road",
-      "golden_ford",
+      "golden_river_bank",
       "north_a_sterwald_road",
-      "rivenholl"
+      "south_a_sterwald_road",
+      "west_a_sterwald_road"
     ]
   },
   {
@@ -540,12 +485,8 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 3,
     "connections": [
-      "golden_ford",
       "golden_river_bank",
-      "burning_hearth_village",
-      "eshwood",
-      "razlomgrad",
-      "valdek"
+      "south_a_sterwald_road"
     ]
   },
   {
@@ -556,15 +497,7 @@ export const worldNodes = [
     "biome": "road",
     "region": "Венценосные земли",
     "danger": 2,
-    "connections": [
-      "secret_valley",
-      "blakthorn",
-      "east_a_sterwald_road",
-      "quiet_ashes",
-      "burning_hearth_village",
-      "asterwald",
-      "roshefort"
-    ]
+    "connections": []
   },
   {
     "id": "roshefort",
@@ -575,12 +508,11 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 2,
     "connections": [
-      "weeping_widows_hill",
       "east_a_sterwald_road",
       "quiet_ashes",
-      "gray_stone_village",
-      "golden_ford",
-      "north_a_sterwald_road"
+      "valdek",
+      "veysmar",
+      "weeping_widows_hill"
     ]
   },
   {
@@ -592,11 +524,9 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 3,
     "connections": [
-      "weeping_widows_hill",
       "red_rill_source",
-      "roshefort",
-      "iron_bridge_village",
-      "north_a_sterwald_road"
+      "rivenholl",
+      "weeping_widows_hill"
     ]
   },
   {
@@ -608,10 +538,8 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 4,
     "connections": [
-      "roshefort",
       "gray_stone_village",
-      "quiet_ashes",
-      "east_a_sterwald_road"
+      "roshefort"
     ]
   },
   {
@@ -624,10 +552,7 @@ export const worldNodes = [
     "danger": 4,
     "connections": [
       "blakthorn",
-      "roshefort",
-      "weeping_widows_hill",
-      "golden_ford",
-      "raider_camp"
+      "roshefort"
     ]
   },
   {
@@ -640,9 +565,7 @@ export const worldNodes = [
     "danger": 4,
     "connections": [
       "quiet_ashes",
-      "warm_river_bank",
-      "golden_ford",
-      "black_tent"
+      "valdek"
     ]
   },
   {
@@ -654,11 +577,11 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 2,
     "connections": [
+      "blakthorn",
       "burning_hearth_village",
-      "warm_river_bank",
-      "razlomgrad",
-      "heart_rift",
-      "secret_valley"
+      "eshwood",
+      "roshefort",
+      "warm_river_bank"
     ]
   },
   {
@@ -671,9 +594,7 @@ export const worldNodes = [
     "danger": 4,
     "connections": [
       "valdek",
-      "razlomgrad",
-      "secret_valley",
-      "golden_ford"
+      "warm_river_bank"
     ]
   },
   {
@@ -685,7 +606,9 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 3,
     "connections": [
-      "blakthorn",
+      "burning_hearth_village",
+      "riftlands_edge",
+      "swamp_edge",
       "valdek"
     ]
   },
@@ -698,11 +621,8 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 2,
     "connections": [
-      "south_a_sterwald_road",
       "asterwald",
-      "crow_hills",
-      "lanvill",
-      "rivenholl"
+      "vaitfordj"
     ]
   },
   {
@@ -714,11 +634,8 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 2,
     "connections": [
-      "rivenholl",
       "asterwald",
-      "east_a_sterwald_road",
-      "roshefort",
-      "gray_stone_village"
+      "rivenholl"
     ]
   },
   {
@@ -731,10 +648,7 @@ export const worldNodes = [
     "danger": 2,
     "connections": [
       "asterwald",
-      "roshefort",
-      "golden_ford",
-      "weeping_widows_hill",
-      "north_a_sterwald_road"
+      "roshefort"
     ]
   },
   {
@@ -746,11 +660,9 @@ export const worldNodes = [
     "region": "Венценосные земли",
     "danger": 2,
     "connections": [
-      "lanvill",
-      "west_a_sterwald_road",
-      "eshwood",
       "asterwald",
-      "four_winds_crossroad"
+      "eshwood",
+      "secret_valley"
     ]
   },
   {
@@ -763,10 +675,8 @@ export const worldNodes = [
     "danger": 4,
     "connections": [
       "iron_bridge_village",
-      "khar_west_pass",
-      "steel_hall",
-      "dead_hooves_pass",
-      "khar_gholm"
+      "red_rill_source",
+      "rivenholl"
     ]
   },
   {
@@ -778,9 +688,8 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 3,
     "connections": [
-      "mountain_gate",
-      "red_rill_source",
-      "gray_stone_village"
+      "khar_west_pass",
+      "mountain_gate"
     ]
   },
   {
@@ -792,8 +701,8 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 5,
     "connections": [
-      "thunder_echo_hills",
-      "mountain_gate"
+      "khar_west_pass",
+      "thunder_echo_hills"
     ]
   },
   {
@@ -805,7 +714,8 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 4,
     "connections": [
-      "dead_hooves_pass"
+      "dead_hooves_pass",
+      "khar_gholm"
     ]
   },
   {
@@ -817,11 +727,10 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 2,
     "connections": [
+      "iron_root",
       "khar_west_pass",
       "kharadun_beard",
-      "steel_hall",
-      "mountain_gate",
-      "iron_root"
+      "thunder_echo_hills"
     ]
   },
   {
@@ -833,10 +742,8 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 4,
     "connections": [
-      "iron_root",
       "khar_gholm",
-      "steel_hall",
-      "khar_west_pass"
+      "steel_hall"
     ]
   },
   {
@@ -848,11 +755,8 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 3,
     "connections": [
-      "dark_smith",
       "deep_forge",
-      "kharadun_beard",
-      "mountain_gate",
-      "khar_gholm"
+      "kharadun_beard"
     ]
   },
   {
@@ -863,11 +767,7 @@ export const worldNodes = [
     "biome": "mountain",
     "region": "Кхардунские подгорные царства",
     "danger": 4,
-    "connections": [
-      "steel_hall",
-      "deep_forge",
-      "khar_east_pass"
-    ]
+    "connections": []
   },
   {
     "id": "deep_forge",
@@ -878,8 +778,7 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 5,
     "connections": [
-      "dark_smith",
-      "red_rill_source",
+      "khar_east_pass",
       "steel_hall"
     ]
   },
@@ -893,8 +792,6 @@ export const worldNodes = [
     "danger": 4,
     "connections": [
       "bloody_granite_west",
-      "khar_east_pass",
-      "kharadun_beard",
       "khar_gholm"
     ]
   },
@@ -907,9 +804,8 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 6,
     "connections": [
-      "iron_root",
-      "khar_east_pass",
-      "golden_web"
+      "bloody_granite_east",
+      "iron_root"
     ]
   },
   {
@@ -921,7 +817,7 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 6,
     "connections": [
-      "golden_web"
+      "bloody_granite_west"
     ]
   },
   {
@@ -933,9 +829,8 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 5,
     "connections": [
-      "stone_shelter",
-      "bloody_granite_west",
-      "bloody_granite_east"
+      "khar_east_pass",
+      "stone_shelter"
     ]
   },
   {
@@ -947,7 +842,8 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 3,
     "connections": [
-      "golden_web"
+      "golden_web",
+      "hargan"
     ]
   },
   {
@@ -959,9 +855,9 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 4,
     "connections": [
-      "mountain_gate",
-      "khar_gholm",
-      "kharadun_beard"
+      "dead_hooves_pass",
+      "iron_bridge_village",
+      "khar_gholm"
     ]
   },
   {
@@ -973,9 +869,9 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 5,
     "connections": [
-      "bloody_granite_west",
-      "iron_root",
-      "dark_smith"
+      "deep_forge",
+      "east_pass",
+      "golden_web"
     ]
   },
   {
@@ -987,9 +883,9 @@ export const worldNodes = [
     "region": "Кхардунские подгорные царства",
     "danger": 5,
     "connections": [
-      "deep_forge",
+      "east_pass",
       "gray_stone_village",
-      "iron_bridge_village"
+      "mountain_gate"
     ]
   },
   {
@@ -1002,10 +898,9 @@ export const worldNodes = [
     "danger": 3,
     "connections": [
       "east_dry_steppe_1",
+      "east_pass",
       "raider_camp",
-      "east_salt_road",
-      "east_dry_steppe_2",
-      "east_pass"
+      "roshefort"
     ]
   },
   {
@@ -1017,10 +912,10 @@ export const worldNodes = [
     "region": "Восточные Марки",
     "danger": 5,
     "connections": [
-      "east_dry_steppe_2",
-      "east_dry_steppe_1",
-      "veysmar",
-      "blood_sand"
+      "hargan",
+      "khar_east_pass",
+      "red_rill_source",
+      "veysmar"
     ]
   },
   {
@@ -1032,7 +927,9 @@ export const worldNodes = [
     "region": "Восточные Марки",
     "danger": 3,
     "connections": [
-      "blood_sand"
+      "blood_sand",
+      "east_pass",
+      "stone_shelter"
     ]
   },
   {
@@ -1044,8 +941,8 @@ export const worldNodes = [
     "region": "Восточные Марки",
     "danger": 6,
     "connections": [
-      "hargan",
-      "east_pass"
+      "east_dry_steppe_2",
+      "hargan"
     ]
   },
   {
@@ -1058,8 +955,7 @@ export const worldNodes = [
     "danger": 6,
     "connections": [
       "black_tent",
-      "veysmar",
-      "quiet_ashes"
+      "veysmar"
     ]
   },
   {
@@ -1072,9 +968,7 @@ export const worldNodes = [
     "danger": 5,
     "connections": [
       "broken_oaths_village",
-      "raider_camp",
-      "blakthorn",
-      "east_salt_road"
+      "raider_camp"
     ]
   },
   {
@@ -1087,8 +981,7 @@ export const worldNodes = [
     "danger": 5,
     "connections": [
       "black_tent",
-      "dust_pit",
-      "east_salt_road"
+      "dust_pit"
     ]
   },
   {
@@ -1100,10 +993,9 @@ export const worldNodes = [
     "region": "Восточные Марки",
     "danger": 5,
     "connections": [
-      "east_salt_road",
       "broken_oaths_village",
-      "bandit_stan",
-      "cursed_village"
+      "cursed_village",
+      "east_salt_road"
     ]
   },
   {
@@ -1114,12 +1006,7 @@ export const worldNodes = [
     "biome": "desert",
     "region": "Восточные Марки",
     "danger": 6,
-    "connections": [
-      "cursed_village",
-      "east_dry_steppe_2",
-      "east_salt_road",
-      "dust_pit"
-    ]
+    "connections": []
   },
   {
     "id": "cursed_village",
@@ -1130,10 +1017,8 @@ export const worldNodes = [
     "region": "Восточные Марки",
     "danger": 6,
     "connections": [
-      "bandit_stan",
-      "gallows_hills",
       "dust_pit",
-      "forgotten_oasis"
+      "gallows_hills"
     ]
   },
   {
@@ -1158,8 +1043,7 @@ export const worldNodes = [
     "region": "Восточные Марки",
     "danger": 3,
     "connections": [
-      "gallows_hills",
-      "cursed_village"
+      "gallows_hills"
     ]
   },
   {
@@ -1171,9 +1055,8 @@ export const worldNodes = [
     "region": "Восточные Марки",
     "danger": 4,
     "connections": [
-      "veysmar",
-      "east_pass",
-      "east_dry_steppe_2"
+      "east_dry_steppe_2",
+      "veysmar"
     ]
   },
   {
@@ -1185,10 +1068,8 @@ export const worldNodes = [
     "region": "Восточные Марки",
     "danger": 4,
     "connections": [
-      "east_pass",
-      "bandit_stan",
-      "east_dry_steppe_1",
-      "veysmar"
+      "blood_sand",
+      "east_dry_steppe_1"
     ]
   },
   {
@@ -1201,10 +1082,7 @@ export const worldNodes = [
     "danger": 4,
     "connections": [
       "dust_pit",
-      "bandit_stan",
-      "broken_oaths_village",
-      "black_tent",
-      "veysmar"
+      "riftlands_edge"
     ]
   },
   {
@@ -1216,7 +1094,9 @@ export const worldNodes = [
     "region": "Разломный край",
     "danger": 7,
     "connections": [
-      "dead_voices_bog"
+      "east_salt_road",
+      "rift_edge",
+      "warm_river_bank"
     ]
   },
   {
@@ -1228,8 +1108,9 @@ export const worldNodes = [
     "region": "Чёрные Болота",
     "danger": 5,
     "connections": [
-      "blood_mires",
-      "black_bog_west"
+      "black_bog_north",
+      "misty_backwater",
+      "warm_river_bank"
     ]
   },
   {
@@ -1241,11 +1122,9 @@ export const worldNodes = [
     "region": "Чёрные Болота",
     "danger": 5,
     "connections": [
-      "blood_mires",
-      "nameless_temple",
-      "black_bog_north",
       "black_bog_west",
-      "black_bog_south"
+      "blood_mires",
+      "swamp_edge"
     ]
   },
   {
@@ -1258,9 +1137,7 @@ export const worldNodes = [
     "danger": 6,
     "connections": [
       "misty_backwater",
-      "black_bog_west",
-      "nameless_temple",
-      "swamp_edge"
+      "nameless_temple"
     ]
   },
   {
@@ -1272,10 +1149,7 @@ export const worldNodes = [
     "region": "Чёрные Болота",
     "danger": 6,
     "connections": [
-      "black_bog_south",
-      "misty_backwater",
       "blood_mires",
-      "black_bog_west",
       "cursed_thicket"
     ]
   },
@@ -1288,7 +1162,6 @@ export const worldNodes = [
     "region": "Чёрные Болота",
     "danger": 6,
     "connections": [
-      "black_bog_south",
       "nameless_temple",
       "whispering_blood_lake"
     ]
@@ -1302,10 +1175,8 @@ export const worldNodes = [
     "region": "Чёрные Болота",
     "danger": 7,
     "connections": [
-      "four_winds_crossroad",
-      "flesh_island",
-      "black_bog_north",
-      "cursed_thicket"
+      "cursed_thicket",
+      "flesh_island"
     ]
   },
   {
@@ -1317,6 +1188,7 @@ export const worldNodes = [
     "region": "Чёрные Болота",
     "danger": 7,
     "connections": [
+      "razlomgrad",
       "whispering_blood_lake"
     ]
   },
@@ -1329,11 +1201,10 @@ export const worldNodes = [
     "region": "Великий Южный Разлом",
     "danger": 7,
     "connections": [
-      "burning_hearth_village",
-      "valdek",
-      "heart_rift",
-      "secret_valley",
-      "shadow_rift"
+      "ancient_rift_ruins",
+      "black_bog_north",
+      "flesh_island",
+      "heart_rift"
     ]
   },
   {
@@ -1345,10 +1216,8 @@ export const worldNodes = [
     "region": "Великий Южный Разлом",
     "danger": 9,
     "connections": [
-      "shadow_rift",
       "razlomgrad",
-      "valdek",
-      "bloody_rift"
+      "shadow_rift"
     ]
   },
   {
@@ -1360,10 +1229,8 @@ export const worldNodes = [
     "region": "Великий Южный Разлом",
     "danger": 9,
     "connections": [
-      "heart_rift",
       "bloody_rift",
-      "razlomgrad",
-      "ancient_rift_ruins"
+      "heart_rift"
     ]
   },
   {
@@ -1375,9 +1242,7 @@ export const worldNodes = [
     "region": "Великий Южный Разлом",
     "danger": 9,
     "connections": [
-      "shadow_rift",
-      "rift_edge",
-      "heart_rift"
+      "shadow_rift"
     ]
   },
   {
@@ -1389,8 +1254,8 @@ export const worldNodes = [
     "region": "Великий Южный Разлом",
     "danger": 8,
     "connections": [
-      "bloody_factories",
-      "shadow_rift"
+      "dead_voices_bog",
+      "razlomgrad"
     ]
   },
   {
@@ -1402,8 +1267,8 @@ export const worldNodes = [
     "region": "Чёрные Болота",
     "danger": 7,
     "connections": [
-      "bloody_factories",
-      "riftlands_edge"
+      "ancient_rift_ruins",
+      "bloody_factories"
     ]
   },
   {
@@ -1415,8 +1280,8 @@ export const worldNodes = [
     "region": "Великий Южный Разлом",
     "danger": 8,
     "connections": [
-      "ancient_rift_ruins",
-      "dead_voices_bog"
+      "dead_voices_bog",
+      "rift_edge"
     ]
   },
   {
@@ -1428,7 +1293,8 @@ export const worldNodes = [
     "region": "Разломный край",
     "danger": 8,
     "connections": [
-      "bloody_rift"
+      "bloody_factories",
+      "riftlands_edge"
     ]
   },
   {
@@ -1440,9 +1306,8 @@ export const worldNodes = [
     "region": "Чёрные Болота",
     "danger": 5,
     "connections": [
-      "four_winds_crossroad",
-      "whispering_blood_lake",
-      "misty_backwater"
+      "razlomgrad",
+      "swamp_edge"
     ]
   },
   {
@@ -1454,11 +1319,9 @@ export const worldNodes = [
     "region": "Чёрные Болота",
     "danger": 5,
     "connections": [
-      "blood_mires",
-      "swamp_edge",
-      "nameless_temple",
-      "misty_backwater",
-      "black_bog_south"
+      "coast_south_landing",
+      "forgotten_oaths_forest",
+      "misty_backwater"
     ]
   },
   {
@@ -1469,12 +1332,7 @@ export const worldNodes = [
     "biome": "swamp",
     "region": "Чёрные Болота",
     "danger": 6,
-    "connections": [
-      "nameless_temple",
-      "cursed_thicket",
-      "black_bog_west",
-      "misty_backwater"
-    ]
+    "connections": []
   },
   {
     "id": "coast_fort",
@@ -1485,7 +1343,10 @@ export const worldNodes = [
     "region": "Внутреннее море",
     "danger": 2,
     "connections": [
-      "forgotten_oaths_forest"
+      "anchor_island",
+      "inner_sea_north",
+      "red_wine_village",
+      "storm_island"
     ]
   },
   {
@@ -1497,6 +1358,9 @@ export const worldNodes = [
     "region": "Внутреннее море",
     "danger": 3,
     "connections": [
+      "anchor_island",
+      "coast_fort",
+      "north_coast_1",
       "skull_reef",
       "west_cliffs_1"
     ]
@@ -1510,8 +1374,10 @@ export const worldNodes = [
     "region": "Внутреннее море",
     "danger": 6,
     "connections": [
-      "anchor_island",
-      "inner_sea_north"
+      "inner_sea_north",
+      "pirate_bay",
+      "storm_island",
+      "west_cliffs_1"
     ]
   },
   {
@@ -1523,9 +1389,10 @@ export const worldNodes = [
     "region": "Внутреннее море",
     "danger": 3,
     "connections": [
+      "coast_fort",
+      "inner_sea_north",
       "pirate_bay",
-      "storm_island",
-      "skull_reef"
+      "storm_island"
     ]
   },
   {
@@ -1537,11 +1404,10 @@ export const worldNodes = [
     "region": "Внутреннее море",
     "danger": 5,
     "connections": [
-      "southwest_sea_lane",
-      "archipelago_crossing",
       "anchor_island",
+      "coast_fort",
       "pirate_bay",
-      "coast_south_landing"
+      "skull_reef"
     ]
   },
   {
@@ -1554,7 +1420,7 @@ export const worldNodes = [
     "danger": 6,
     "connections": [
       "anchor_island",
-      "archipelago_crossing",
+      "skull_reef",
       "storm_island",
       "tar_key"
     ]
@@ -1568,9 +1434,8 @@ export const worldNodes = [
     "region": "Вольные Архипелаги",
     "danger": 4,
     "connections": [
-      "rotten_rocks",
-      "archipelago_crossing",
-      "pirate_bay"
+      "pirate_bay",
+      "rotten_rocks"
     ]
   },
   {
@@ -1582,6 +1447,7 @@ export const worldNodes = [
     "region": "Вольные Архипелаги",
     "danger": 5,
     "connections": [
+      "archipelago_crossing",
       "tar_key"
     ]
   },
@@ -1594,11 +1460,8 @@ export const worldNodes = [
     "region": "Вольные Архипелаги",
     "danger": 4,
     "connections": [
-      "storm_island",
-      "southwest_sea_lane",
-      "tar_key",
-      "pirate_bay",
-      "coast_south_landing"
+      "rotten_rocks",
+      "southwest_sea_lane"
     ]
   },
   {
@@ -1610,9 +1473,8 @@ export const worldNodes = [
     "region": "Вольные Архипелаги",
     "danger": 4,
     "connections": [
-      "storm_island",
-      "coast_south_landing",
-      "archipelago_crossing"
+      "archipelago_crossing",
+      "coast_south_landing"
     ]
   },
   {
@@ -1624,9 +1486,9 @@ export const worldNodes = [
     "region": "Внутреннее море",
     "danger": 3,
     "connections": [
-      "southwest_sea_lane",
-      "storm_island",
-      "archipelago_crossing"
+      "black_bog_west",
+      "lanvill",
+      "southwest_sea_lane"
     ]
   }
 ];
