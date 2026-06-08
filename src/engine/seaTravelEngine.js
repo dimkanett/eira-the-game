@@ -2,6 +2,31 @@ import { worldNodeById } from "../data/worldNodes.js";
 import { cloneState } from "./gameState.js";
 import { rollCheck } from "./eventEngine.js";
 
+export function isSeaNode(node) {
+  return node?.biome === "sea" || node?.type === "sea";
+}
+
+export function isPortLikeNode(node) {
+  if (!node) return false;
+  const text = `${node.id || ""} ${node.name || ""}`.toLowerCase();
+  return (
+    node.biome === "port" ||
+    node.biome === "coast" ||
+    text.includes("порт") ||
+    text.includes("бухт") ||
+    text.includes("берег") ||
+    text.includes("утёс") ||
+    text.includes("утес") ||
+    text.includes("port") ||
+    text.includes("bay") ||
+    text.includes("coast")
+  );
+}
+
+export function shouldAskCaptain(fromNode, toNode) {
+  return !isSeaNode(fromNode) && isSeaNode(toNode);
+}
+
 export function startSeaCaptainEvent(gameState, targetNodeId) {
   const state = cloneState(gameState);
   const target = worldNodeById[targetNodeId];

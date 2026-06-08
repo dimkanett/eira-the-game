@@ -1,32 +1,16 @@
 import { WORLD_MAP_SIZE, worldMap } from "../data/worldNodes.js";
+import { biomeColors, getBiomeColor } from "../data/biomeColors.js";
 
 export const NODE_EDITOR_DRAFT_KEY = "eyra_node_editor_draft";
 export const LONG_CONNECTION_THRESHOLD = 250;
 
-export const BIOME_COLORS = {
-  city: "#ffd166",
-  road: "#c084fc",
-  forest: "#57cc99",
-  plain: "#b5e48c",
-  mountain: "#b08968",
-  sea: "#4dabf7",
-  desert: "#f4a261",
-  swamp: "#87986a",
-  rift: "#ef476f",
-  ruins: "#adb5bd",
-  temple: "#f8f9fa",
-  wilds: "#95d5b2",
-  wall: "#ced4da",
-  default: "#adb5bd",
-};
+export const BIOME_COLORS = biomeColors;
 
 export function cloneNodes(nodes) {
   return nodes.map((node) => ({ ...node, connections: [...(node.connections || [])] }));
 }
 
-export function getBiomeColor(biome) {
-  return BIOME_COLORS[biome] || BIOME_COLORS.default;
-}
+export { getBiomeColor };
 
 export function clampPoint(point) {
   return {

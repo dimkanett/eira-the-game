@@ -1,7 +1,7 @@
 import { worldNodeById } from "../data/worldNodes.js";
 import { cloneState } from "./gameState.js";
 import { startRandomEventForBiome } from "./eventEngine.js";
-import { startSeaCaptainEvent } from "./seaTravelEngine.js";
+import { shouldAskCaptain, startSeaCaptainEvent } from "./seaTravelEngine.js";
 import { revealArrivalNodeAndNeighbors, shouldStartTravelEvent, startTravelEvent } from "./travelEngine.js";
 
 export function isNodeVisible(gameState, nodeId) {
@@ -23,9 +23,9 @@ export function moveHeroToNode(gameState, nodeId, options = {}) {
   if (state.world.revealedByRumor.includes(nodeId) && !isNodeDirectlyReachable(state, nodeId)) return { ...state, activeMessage: "Ты слышал об этом месте, но дороги туда пока не знаешь." };
   if (state.hero.actionsLeft <= 0 && !options.free) return { ...state, activeMessage: "На сегодня действий не осталось. Нужен следующий день." };
   if (!options.ignoreReachability && !isNodeDirectlyReachable(state, nodeId) && state.hero.location !== nodeId) return { ...state, activeMessage: "Отсюда нельзя пройти туда напрямую." };
-  if (!options.skipSeaGate && target.biome === "sea") return startSeaCaptainEvent(state, nodeId);
-
   const fromNode = worldNodeById[state.hero.location];
+  if (!options.skipSeaGate && shouldAskCaptain(fromNode, target)) return startSeaCaptainEvent(state, nodeId);
+
   if (!options.free && shouldStartTravelEvent(state, fromNode, target, options)) return startTravelEvent(state, state.hero.location, nodeId);
 
   state.hero.location = nodeId;

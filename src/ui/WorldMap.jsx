@@ -1,3 +1,4 @@
+import { getBiomeColor } from "../data/biomeColors.js";
 import { WORLD_MAP_SIZE, worldMap, worldNodes, worldNodeById } from "../data/worldNodes.js";
 import { isNodeDirectlyReachable, isNodeVisible } from "../engine/movementEngine.js";
 
@@ -29,7 +30,7 @@ export default function WorldMap({ gameState, onNodeClick }) {
                 <button
                   key={node.id}
                   className={`map-node ${isCurrent ? "current" : ""} ${reachable ? "reachable" : ""} ${rumored ? "rumored" : ""}`}
-                  style={{ left: `${node.x}px`, top: `${node.y}px` }}
+                  style={{ left: `${node.x}px`, top: `${node.y}px`, "--node-color": getBiomeColor(node.biome) }}
                   onClick={() => onNodeClick(node.id)}
                   title={`${node.name}${rumored ? " — слух" : ""}`}
                 >
