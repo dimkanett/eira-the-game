@@ -12,6 +12,10 @@ export function rollCheck(character, check) {
   return { roll, total, success: total >= check.dc };
 }
 
+function clampValue(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
 function allEvents() {
   return [...Object.values(events).flat(), ...travelEvents];
 }
@@ -56,6 +60,9 @@ export function applyEffects(gameState, effects = []) {
     if (effect.type === "hp" && effect.target === "hero") state.hero.hp = Math.min(state.hero.maxHp, Math.max(0, state.hero.hp + effect.value));
     if (effect.type === "fatigue") state.hero.fatigue = Math.max(0, state.hero.fatigue + effect.value);
     if (effect.type === "trace") state.hero.trace = Math.max(0, state.hero.trace + effect.value);
+    if (effect.type === "world_decay") state.worldDecay = clampValue((state.worldDecay || 0) + effect.value, 0, 100);
+    if (effect.type === "sin") state.sin = clampValue((state.sin || 0) + effect.value, 0, 100);
+    if (effect.type === "personal_decay") state.personalDecay = clampValue((state.personalDecay || 0) + effect.value, 0, 100);
     if (effect.type === "reputation") {
       const region = effect.target === "current_region" ? worldNodeById[state.hero.location]?.region || "unknown" : effect.target;
       state.reputation[region] = (state.reputation[region] || 0) + effect.value;
