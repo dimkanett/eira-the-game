@@ -38,6 +38,7 @@ export const initialGameState = {
   world: { knownNodes: [], visitedNodes: [], revealedByRumor: [], threat: 1 },
   npcPlayers: [],
   reputation: {},
+  flags: {},
   activeEvent: null,
   activeCombat: null,
   travel: { active: false, fromNodeId: null, toNodeId: null, daysRemaining: 0, eventResolved: false },
@@ -84,6 +85,7 @@ export function createInitialStateForCharacter(character) {
     },
     npcPlayers: [],
     reputation: {},
+    flags: {},
     activeEvent: null,
     activeCombat: null,
     travel: {

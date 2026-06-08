@@ -1,4 +1,5 @@
 import { worldNodeById } from "../data/worldNodes.js";
+import { isChoiceAvailable } from "../engine/eventEngine.js";
 import { getTravelStatusMessage } from "../engine/travelEngine.js";
 
 export default function EventPanel({ gameState, collapsed, onToggle, onChoice, onEnterCity, onNextDay }) {
@@ -16,7 +17,9 @@ export default function EventPanel({ gameState, collapsed, onToggle, onChoice, o
         <div className="panel-body">
           <h2>{title}</h2>
           {gameState.activeEvent ? <p>{gameState.activeEvent.text}</p> : <><p>{message}</p>{travelMessage && gameState.activeMessage && <p className="panel-hint">{travelMessage}</p>}</>}
-          {gameState.activeEvent?.choices?.map((choice) => <button key={choice.id} onClick={() => onChoice(choice.id)}>{choice.label}</button>)}
+          {gameState.activeEvent?.choices
+            ?.filter((choice) => isChoiceAvailable(gameState, choice))
+            .map((choice) => <button key={choice.id} onClick={() => onChoice(choice.id)}>{choice.label}</button>)}
           {gameState.travel?.active && !gameState.activeEvent && <p className="panel-hint">Нажми “Следующий день”, чтобы продолжить путь.</p>}
           {canEnterCity && <button onClick={onEnterCity}>Войти в город</button>}
           {nextDayDisabled ? (

@@ -153,6 +153,406 @@ export const events = {
       ],
     },
   ],
+  story: [
+    {
+      id: "emma_intro_bridge_whisper",
+      title: "Первый шёпот у моста",
+      biome: "village",
+      text: "Утро начинается почти обычно. Мельница скрипит, у кузницы спорят о цене угля, кто-то ругает гусей у колодца. Только мост молчит. Обычно старое железо звенит на ветру. Сегодня — нет. Когда Эмма проходит мимо реки, под настилом тихо стучит одинокий звук. Раз. Пауза. Раз. Пауза. Будто кто-то снизу проверяет, слышат ли его наверху.",
+      choices: [
+        {
+          id: "inspect_bridge",
+          label: "Осмотреть мост",
+          check: { stat: "perception", dc: 9 },
+          success: {
+            text: "Эмма замечает между заклёпками тонкую чёрную линию. Не трещину — скорее знак, слишком ровный для случайной ржавчины.",
+            effects: [
+              { type: "reveal_node", nodeId: "asterwald_road" },
+              { type: "set_flag", flag: "emma_saw_black_line" },
+              { type: "journal_entry", text: "Эмма заметила странную чёрную линию на железе моста." },
+            ],
+          },
+          fail: {
+            text: "На первый взгляд мост выглядит старым, но обычным. Только звук снизу повторяется ещё раз — тише, будто с насмешкой.",
+            effects: [{ type: "trace", value: 1 }],
+          },
+        },
+        {
+          id: "ask_villagers",
+          label: "Расспросить жителей",
+          check: { stat: "charisma", dc: 10 },
+          success: {
+            text: "Люди отвечают неохотно, но одна прачка крестится и говорит, что ночью мост “позвал” мальчика Тимо.",
+            effects: [
+              { type: "set_flag", flag: "emma_heard_about_timo" },
+              { type: "journal_entry", text: "Жители говорят, что ночью мост звал мальчика Тимо." },
+            ],
+            nextEventId: "emma_timo_testimony",
+          },
+          fail: {
+            text: "Разговоры обрываются. В деревне не любят тех, кто вытаскивает страх на свет.",
+            effects: [{ type: "reputation", target: "current_region", value: -1 }],
+          },
+        },
+        {
+          id: "go_to_elder",
+          label: "Пойти к старосте",
+          success: {
+            text: "Староста Бренн встречает Эмму у порога и сразу понимает, зачем она пришла. Это видно по тому, как он не смотрит в сторону моста.",
+            effects: [],
+            nextEventId: "emma_elder_brenn_talk",
+          },
+        },
+        {
+          id: "ignore_and_leave",
+          label: "Не вмешиваться и уйти к тракту",
+          success: {
+            text: "Эмма уходит от моста. За спиной железо тихо звенит. Не громко. Не угрожающе. Почти обиженно.",
+            effects: [
+              { type: "world_decay", value: 1 },
+              { type: "reveal_node", nodeId: "asterwald_road" },
+              { type: "set_flag", flag: "iron_bridge_unresolved" },
+              { type: "journal_entry", text: "Эмма решила не вмешиваться в странность у Железного моста." },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      id: "emma_elder_brenn_talk",
+      title: "Разговор со старостой",
+      biome: "village",
+      text: "В доме старосты пахнет сухими травами, старой бумагой и печным дымом. Бренн закрывает дверь раньше, чем Эмма успевает сесть. — Не надо будить деревню раньше времени, — говорит он. — Мост старый. Старые вещи иногда звучат. На столе перед ним лежит связка ключей. Один ключ потемнел так, будто его держали в огне.",
+      choices: [
+        {
+          id: "press_elder_truth",
+          label: "Потребовать правду",
+          check: { stat: "will", dc: 11 },
+          success: {
+            text: "Бренн долго молчит. Потом снимает с кольца чёрный ключ и кладёт на стол. “Под мостом есть старая кладовая. Её не открывали с тех пор, как исчез Радан.”",
+            effects: [
+              { type: "add_item", itemId: "black_bridge_key" },
+              { type: "set_flag", flag: "emma_has_bridge_key" },
+              { type: "journal_entry", text: "Староста дал Эмме ключ от старой кладовой под мостом." },
+            ],
+            nextEventId: "emma_bridge_storehouse",
+          },
+          fail: {
+            text: "Бренн становится жёстче. “Правда иногда убивает быстрее беды. Иди домой, Эмма.”",
+            effects: [
+              { type: "trace", value: 1 },
+              { type: "set_flag", flag: "brenn_refused_key" },
+            ],
+          },
+        },
+        {
+          id: "speak_calmly",
+          label: "Говорить спокойно",
+          check: { stat: "charisma", dc: 10 },
+          success: {
+            text: "Бренн устало прикрывает глаза. “Я не хочу второй пропажи. Если полезешь туда — не одна.” Он разрешает поговорить с Тимо и Ольмой.",
+            effects: [
+              { type: "reveal_npc_clue", npcId: "npc_timo" },
+              { type: "reveal_npc_clue", npcId: "npc_olma" },
+              { type: "journal_entry", text: "Бренн советует поговорить с Тимо и кузнецом Ольмой." },
+            ],
+            nextEventId: "emma_timo_testimony",
+          },
+          fail: {
+            text: "Староста отвечает вежливо, но пусто. Он умеет закрывать разговоры лучше, чем двери.",
+            effects: [{ type: "reputation", target: "current_region", value: -1 }],
+          },
+        },
+        {
+          id: "steal_key",
+          label: "Попробовать украсть ключ",
+          check: { stat: "agility", dc: 13 },
+          success: {
+            text: "Ключ исчезает в рукаве Эммы. Бренн ничего не замечает — или делает вид, что не замечает.",
+            effects: [
+              { type: "add_item", itemId: "black_bridge_key" },
+              { type: "sin", value: 1 },
+              { type: "set_flag", flag: "emma_stole_bridge_key" },
+              { type: "journal_entry", text: "Эмма украла чёрный ключ у старосты." },
+            ],
+            nextEventId: "emma_bridge_storehouse",
+          },
+          fail: {
+            text: "Бренн перехватывает её взгляд и накрывает ключ ладонью. “Не начинай путь с этого.”",
+            effects: [
+              { type: "sin", value: 1 },
+              { type: "reputation", target: "current_region", value: -1 },
+            ],
+          },
+        },
+        {
+          id: "leave_elder",
+          label: "Уйти",
+          success: {
+            text: "Бренн не останавливает Эмму. Только говорит ей в спину: “Если мост позовёт тебя по имени — не отвечай.”",
+            effects: [{ type: "journal_entry", text: "Бренн предупредил: если мост позовёт по имени, нельзя отвечать." }],
+            nextEventId: "emma_timo_testimony",
+          },
+        },
+      ],
+    },
+    {
+      id: "emma_timo_testimony",
+      title: "Мальчик, который слышал имя",
+      biome: "village",
+      text: "Тимо сидит на перевёрнутом ведре за домом прачки и ковыряет палкой землю. Увидев Эмму, он сразу говорит: — Я не врал. Потом тише: — Оно знало моё имя.",
+      choices: [
+        {
+          id: "comfort_timo",
+          label: "Успокоить Тимо",
+          check: { stat: "charisma", dc: 9 },
+          success: {
+            text: "Тимо достаёт из кармана маленькую железную монету. На ней нет лица, только круг с трещиной. “Я нашёл её под мостом. После этого оно и заговорило.”",
+            effects: [
+              { type: "add_item", itemId: "cracked_iron_coin" },
+              { type: "set_flag", flag: "emma_has_iron_coin" },
+              { type: "journal_entry", text: "Тимо отдал Эмме железную монету с трещиной в круге." },
+            ],
+            nextEventId: "emma_olma_black_iron",
+          },
+          fail: {
+            text: "Тимо сжимает кулак и мотает головой. Страх сильнее доверия.",
+            effects: [{ type: "trace", value: 1 }],
+            nextEventId: "emma_olma_black_iron",
+          },
+        },
+        {
+          id: "scare_timo",
+          label: "Припугнуть его",
+          check: { stat: "will", dc: 10 },
+          success: {
+            text: "Тимо быстро рассказывает, где именно стоял ночью. Но после этого он больше не смотрит Эмме в глаза.",
+            effects: [
+              { type: "reveal_clue", clueId: "bridge_north_support" },
+              { type: "sin", value: 1 },
+              { type: "journal_entry", text: "Тимо рассказал о северной опоре моста." },
+            ],
+            nextEventId: "emma_bridge_storehouse",
+          },
+          fail: {
+            text: "Мальчик убегает. Где-то в доме прачка начинает кричать на Эмму.",
+            effects: [
+              { type: "sin", value: 1 },
+              { type: "reputation", target: "current_region", value: -1 },
+            ],
+          },
+        },
+        {
+          id: "ask_what_voice_said",
+          label: "Спросить, что сказал голос",
+          success: {
+            text: "Тимо шепчет: “Он сказал, что мост помнит всех, кто уходил и обещал вернуться.”",
+            effects: [
+              { type: "set_flag", flag: "voice_remembers_promises" },
+              { type: "journal_entry", text: "Голос под мостом говорил о тех, кто обещал вернуться." },
+            ],
+            nextEventId: "emma_olma_black_iron",
+          },
+        },
+        {
+          id: "leave_timo_alone",
+          label: "Оставить мальчика в покое",
+          success: {
+            text: "Тимо облегчённо выдыхает. Иногда милосердие — это не вопрос, а молчание.",
+            effects: [{ type: "reputation", target: "current_region", value: 1 }],
+            nextEventId: "emma_olma_black_iron",
+          },
+        },
+      ],
+    },
+    {
+      id: "emma_olma_black_iron",
+      title: "Кузнец и чёрное железо",
+      biome: "village",
+      text: "Кузница Ольмы жаркая, шумная и почти успокаивающая. Здесь железо ведёт себя честно: краснеет, гнётся, остывает. Почти всё железо. На верстаке лежит заклёпка с моста. Она не ржавая. Она чёрная внутри, будто металл что-то впитал. Ольма кивает на неё: — Если скажешь, что это проклятие, я тебя выгоню. Если скажешь, что это плохое железо, тоже выгоню. Это что-то третье.",
+      choices: [
+        {
+          id: "ask_for_tools",
+          label: "Попросить инструменты",
+          check: { stat: "charisma", dc: 10 },
+          success: {
+            text: "Ольма даёт Эмме крюк, короткую верёвку и старую рукавицу. “Если полезешь под мост, хотя бы не делай это голыми руками.”",
+            effects: [
+              { type: "add_item", itemId: "hook_and_rope" },
+              { type: "set_flag", flag: "emma_has_rope" },
+              { type: "journal_entry", text: "Ольма дала Эмме крюк и верёвку." },
+            ],
+            nextEventId: "emma_bridge_storehouse",
+          },
+          fail: {
+            text: "Ольма качает головой. “Нет. Сначала пойми, куда лезешь.”",
+            effects: [],
+          },
+        },
+        {
+          id: "study_black_iron",
+          label: "Осмотреть чёрную заклёпку",
+          check: { stat: "intellect", dc: 11 },
+          success: {
+            text: "Эмма замечает: чёрный цвет не лежит на металле. Он повторяет форму знака, похожего на трещину в круге.",
+            effects: [
+              { type: "set_flag", flag: "emma_understands_black_iron_pattern" },
+              { type: "journal_entry", text: "Чёрное железо повторяет знак трещины в круге." },
+            ],
+            nextEventId: "emma_bridge_storehouse",
+          },
+          fail: {
+            text: "Чем дольше Эмма смотрит на заклёпку, тем сильнее кажется, что внутри металла что-то медленно поворачивается.",
+            effects: [{ type: "personal_decay", value: 1 }],
+            nextEventId: "emma_bridge_storehouse",
+          },
+        },
+        {
+          id: "tell_olma_about_coin",
+          label: "Показать железную монету",
+          condition: { item: "cracked_iron_coin" },
+          success: {
+            text: "Ольма перестаёт улыбаться. “Это не деревенская работа. И не королевская.” Она заворачивает монету в ткань, но ткань сразу темнеет.",
+            effects: [
+              { type: "reveal_node", nodeId: "asterwald_road" },
+              { type: "journal_entry", text: "Ольма не смогла определить происхождение железной монеты." },
+            ],
+            nextEventId: "emma_bridge_storehouse",
+          },
+        },
+        {
+          id: "leave_forge",
+          label: "Уйти",
+          success: {
+            text: "За спиной снова звенит молот. На этот раз его звук кажется слишком похожим на стук под мостом.",
+            effects: [],
+            nextEventId: "emma_bridge_storehouse",
+          },
+        },
+      ],
+    },
+    {
+      id: "emma_bridge_storehouse",
+      title: "Старая кладовая под мостом",
+      biome: "village",
+      text: "Под мостом холоднее, чем должно быть. Река течёт рядом, но её почти не слышно. Между каменными опорами видна низкая железная дверь, наполовину скрытая корнями и илом. На двери нет замка в обычном месте. Только круглая выемка, похожая на след от монеты.",
+      choices: [
+        {
+          id: "open_with_key",
+          label: "Открыть дверь чёрным ключом",
+          condition: { item: "black_bridge_key" },
+          success: {
+            text: "Ключ входит не в замок, а в узкую щель между заклёпками. Дверь открывается без скрипа. Внутри пахнет сухим железом и старой водой.",
+            effects: [],
+            nextEventId: "emma_storehouse_inside",
+          },
+        },
+        {
+          id: "use_iron_coin",
+          label: "Вставить железную монету в выемку",
+          condition: { item: "cracked_iron_coin" },
+          success: {
+            text: "Монета ложится в круг идеально. Чёрная трещина на ней на мгновение становится глубже. Дверь открывается, но Эмма чувствует, будто кто-то запомнил её руку.",
+            effects: [{ type: "personal_decay", value: 1 }],
+            nextEventId: "emma_storehouse_inside",
+          },
+        },
+        {
+          id: "force_door",
+          label: "Попытаться открыть силой",
+          check: { stat: "strength", dc: 13 },
+          success: {
+            text: "Железо сопротивляется, но сдаётся. Дверь открывается рывком, и изнутри вырывается сухой холод.",
+            effects: [{ type: "fatigue", value: 1 }],
+            nextEventId: "emma_storehouse_inside",
+          },
+          fail: {
+            text: "Дверь не двигается. Зато мост над головой тихо отвечает одним ударом.",
+            effects: [
+              { type: "fatigue", value: 1 },
+              { type: "trace", value: 1 },
+            ],
+          },
+        },
+        {
+          id: "step_back",
+          label: "Отступить",
+          success: {
+            text: "Эмма отходит от двери. Иногда здравый смысл звучит как трусость, но живые часто путают эти вещи.",
+            effects: [{ type: "reveal_node", nodeId: "asterwald_road" }],
+          },
+        },
+      ],
+    },
+    {
+      id: "emma_storehouse_inside",
+      title: "Внутри кладовой",
+      biome: "village",
+      text: "Кладовая оказывается меньше, чем казалась снаружи. Каменные стены сухие, хотя за ними река. На полу лежат старые инструменты, связка сгнивших верёвок и деревянная табличка с выцветшим именем: РАДАН. Под табличкой кто-то недавно процарапал свежую строку: “Я вернулся, но не целиком.” В дальней стене видна узкая трещина. Из неё тянет воздухом, пахнущим дождём и золой.",
+      choices: [
+        {
+          id: "take_radan_tag",
+          label: "Взять табличку с именем",
+          success: {
+            text: "Дерево тёплое, будто его держали в руках совсем недавно. Снаружи кто-то проходит по мосту, но шагов не слышно.",
+            effects: [
+              { type: "add_item", itemId: "radan_nameplate" },
+              { type: "journal_entry", text: "Эмма нашла табличку с именем Радан." },
+            ],
+          },
+        },
+        {
+          id: "inspect_crack",
+          label: "Осмотреть трещину в стене",
+          check: { stat: "will", dc: 12 },
+          success: {
+            text: "Эмма смотрит в трещину и видит не проход, а отражение моста в дождливую ночь. Кто-то стоит на середине и ждёт.",
+            effects: [
+              { type: "reveal_node", nodeId: "blackthorn" },
+              { type: "journal_entry", text: "В трещине под мостом Эмма увидела дорогу к востоку." },
+            ],
+          },
+          fail: {
+            text: "На мгновение Эмме кажется, что трещина смотрит в ответ. Она отступает, чувствуя вкус ржавчины на языке.",
+            effects: [{ type: "personal_decay", value: 1 }],
+          },
+        },
+        {
+          id: "cover_crack",
+          label: "Завалить трещину камнями",
+          check: { stat: "strength", dc: 10 },
+          success: {
+            text: "Камни ложатся неровно, но холод становится слабее. Это не решение. Но, возможно, отсрочка.",
+            effects: [
+              { type: "world_decay", value: -1 },
+              { type: "fatigue", value: 1 },
+              { type: "set_flag", flag: "emma_delayed_bridge_rift" },
+              { type: "journal_entry", text: "Эмма временно закрыла трещину под мостом." },
+            ],
+          },
+          fail: {
+            text: "Камень выскальзывает из рук и падает в темноту. Звука удара нет.",
+            effects: [
+              { type: "world_decay", value: 1 },
+              { type: "fatigue", value: 1 },
+            ],
+          },
+        },
+        {
+          id: "leave_storehouse",
+          label: "Выйти наружу",
+          success: {
+            text: "Снаружи день кажется обычным. Кто-то зовёт кур, на дороге ругается возчик, а старый мост снова тихо звенит на ветру. Почти как раньше.",
+            effects: [
+              { type: "reveal_node", nodeId: "asterwald_road" },
+              { type: "reveal_node", nodeId: "blackthorn" },
+              { type: "journal_entry", text: "Эмма вышла из кладовой под Железным мостом." },
+            ],
+          },
+        },
+      ],
+    },
+  ],
   intro: [
     {
       id: "iron_bridge_intro",
