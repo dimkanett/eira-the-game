@@ -37,6 +37,7 @@ export const initialGameState = {
   reputation: {},
   activeEvent: null,
   activeCombat: null,
+  travel: { active: false, fromNodeId: null, toNodeId: null, daysRemaining: 0, eventResolved: false },
   activeMessage: "Ты стоишь у ворот Сильверглейда. Соседние дороги проступают из тумана войны.",
   lore: { discoveredFragments: [], discoveredCollections: [], unreadFragments: [] },
   journal: ["День 1. Путь начинается в Сильверглейде."],

@@ -14,6 +14,7 @@ export const actions = {
     return resolveEventChoice(gameState, choiceId);
   },
   enterCurrentCity(gameState) {
+    if (gameState.travel?.active) return { ...gameState, activeMessage: "Ты уже в пути. Сначала заверши текущее путешествие." };
     const node = worldNodeById[gameState.hero.location];
     if (node?.biome !== "city") return { ...gameState, activeMessage: "Здесь нет городских ворот." };
     return enterCity(gameState, node.id);

@@ -1,5 +1,6 @@
 import { worldNodeById } from "../data/worldNodes.js";
 import { cloneState } from "./gameState.js";
+import { advanceTravelDay } from "./travelEngine.js";
 
 export function advanceNpcPlayers(gameState) {
   const state = cloneState(gameState);
@@ -14,9 +15,18 @@ export function advanceNpcPlayers(gameState) {
 }
 
 export function nextDay(gameState) {
-  const state = advanceNpcPlayers(gameState);
+  if (gameState.travel?.active && !gameState.travel.eventResolved) {
+    const state = cloneState(gameState);
+    state.activeMessage = "Сначала нужно решить дорожное событие, прежде чем продолжить путь.";
+    return state;
+  }
+
+  let state = advanceNpcPlayers(gameState);
   state.hero.day += 1;
   state.hero.actionsLeft = state.hero.actionsMax;
+
+  if (state.travel?.active) return advanceTravelDay(state);
+
   state.activeMessage = `День ${state.hero.day}. NPC сделали скрытые ходы. Их маршруты неизвестны.`;
   state.journal.push(state.activeMessage);
   return state;

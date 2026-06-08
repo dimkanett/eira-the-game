@@ -1,4 +1,5 @@
 import { events } from "../data/events.js";
+import { travelEvents } from "../data/travelEvents.js";
 import { worldNodes, worldNodeById } from "../data/worldNodes.js";
 import { cloneState } from "./gameState.js";
 import { startCombat } from "./combatEngine.js";
@@ -12,7 +13,7 @@ export function rollCheck(character, check) {
 }
 
 function allEvents() {
-  return Object.values(events).flat();
+  return [...Object.values(events).flat(), ...travelEvents];
 }
 
 export function startEvent(gameState, eventId) {
@@ -40,8 +41,9 @@ export function resolveEventChoice(gameState, choiceId) {
   const choice = event?.choices?.find((item) => item.id === choiceId);
   if (!event || !choice) return gameState;
   const checkResult = rollCheck(gameState.hero, choice.check);
-  const branch = checkResult.success ? choice.success : choice.fail;
+  const branch = checkResult.success ? choice.success : choice.fail || choice.success;
   let state = applyEffects(gameState, branch.effects || []);
+  if (event.type === "travel" && state.travel?.active) state.travel.eventResolved = true;
   state.activeEvent = null;
   state.activeMessage = `${branch.text}${choice.check ? ` (d20: ${checkResult.roll}, итог: ${checkResult.total}, DC ${choice.check.dc})` : ""}`;
   state.journal.push(`${event.title}: ${state.activeMessage}`);
@@ -67,6 +69,25 @@ export function applyEffects(gameState, effects = []) {
     if (effect.type === "add_lore") state = discoverLoreFragment(state, effect.fragmentId);
     if (effect.type === "add_random_lore") state = discoverRandomLoreFragment(state, effect.filters || {});
     if (effect.type === "start_combat") state = startCombat(state, effect.enemyGroupId);
+    if (effect.type === "travel_delay" && state.travel?.active) {
+      state.travel.daysRemaining += effect.days || 0;
+      state.journal.push(`Путешествие задержалось на ${effect.days || 0} дн.`);
+    }
+    if (effect.type === "complete_travel" && state.travel?.active) {
+      const destinationId = state.travel.toNodeId;
+      state.hero.location = destinationId;
+      state.hero.cityLocation = null;
+      state.currentCity = null;
+      if (!state.world.visitedNodes.includes(destinationId)) state.world.visitedNodes.push(destinationId);
+      for (const nextId of worldNodeById[destinationId]?.connections || []) {
+        if (!state.world.knownNodes.includes(nextId)) state.world.knownNodes.push(nextId);
+      }
+      state.travel = { active: false, fromNodeId: null, toNodeId: null, daysRemaining: 0, eventResolved: false };
+    }
+    if (effect.type === "cancel_travel" && state.travel?.active) {
+      state.hero.location = state.travel.fromNodeId;
+      state.travel = { active: false, fromNodeId: null, toNodeId: null, daysRemaining: 0, eventResolved: false };
+    }
   }
   return state;
 }
