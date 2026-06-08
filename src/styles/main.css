@@ -81,3 +81,98 @@ button:disabled { cursor: not-allowed; opacity: 0.55; }
   .event-panel.collapsed { left: auto; }
   .character-modal-content { grid-template-columns: 1fr; }
 }
+
+.character-select-screen {
+  min-height: 100vh;
+  padding: 2rem;
+  background: radial-gradient(circle at top, rgba(58, 79, 112, 0.55), rgba(7, 9, 13, 0.96) 62%);
+}
+.character-select-header {
+  max-width: 920px;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+.character-select-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+.character-select-header p {
+  margin: 0;
+  color: #d7dfeb;
+}
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  max-width: 1420px;
+  margin: 0 auto;
+}
+.character-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid rgba(141, 183, 217, 0.38);
+  border-radius: 18px;
+  background: rgba(6, 13, 22, 0.78);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.28);
+}
+.character-card-portrait {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: linear-gradient(135deg, #25384f, #111823);
+  color: #e8f2ff;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.character-card-portrait-fallback {
+  padding: 1rem;
+  text-align: center;
+}
+.character-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1rem;
+}
+.character-card-body h2,
+.character-card-body p {
+  margin: 0;
+}
+.character-card-body p {
+  color: #d7dfeb;
+  line-height: 1.45;
+}
+.character-race,
+.character-start {
+  color: #b8d7f2;
+  font-size: 0.92rem;
+}
+.character-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 0.45rem;
+  margin: 0;
+}
+.character-stats div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+}
+.character-stats dt {
+  color: #dcecff;
+  font-size: 0.78rem;
+}
+.character-stats dd {
+  margin: 0;
+  font-weight: 700;
+}
+.character-card-body button {
+  margin-top: auto;
+}
