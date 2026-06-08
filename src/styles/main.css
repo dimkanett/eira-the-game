@@ -29,14 +29,14 @@ button:disabled { cursor: not-allowed; opacity: 0.55; }
 .routes-layer { pointer-events: none; }
 .nodes-layer { pointer-events: none; }
 .path-line { stroke: rgba(190, 225, 255, 0.62); stroke-width: 2; stroke-dasharray: 8 10; vector-effect: non-scaling-stroke; }
-.map-node, .city-node { position: absolute; z-index: 5; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 0.24rem; max-width: 180px; padding: 0; border-color: transparent; background: transparent; font-size: 0.74rem; pointer-events: auto; }
-.node-dot { width: 9px; height: 9px; flex: 0 0 auto; border: 1px solid rgba(255,255,255,0.88); border-radius: 999px; background: #93a4b8; box-shadow: 0 0 8px currentColor; }
+.map-node, .city-node { position: absolute; z-index: 5; transform: translate(-50%, -50%); display: block; width: 18px; height: 18px; padding: 0; border: 0; border-radius: 999px; background: transparent; font-size: 0.74rem; pointer-events: auto; overflow: visible; }
+.node-dot { position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; transform: translate(-50%, -50%); border: 1px solid rgba(255,255,255,0.88); border-radius: 999px; background: #93a4b8; box-shadow: 0 0 8px currentColor; }
 .map-node:hover .node-dot, .city-node:hover .node-dot { width: 12px; height: 12px; }
 .map-node.current .node-dot, .city-node.current .node-dot { width: 15px; height: 15px; background: #fff1a8; color: #fff1a8; box-shadow: 0 0 0 4px rgba(255, 241, 168, 0.25); }
 .map-node.reachable .node-dot { background: #81e6a8; color: #81e6a8; }
 .map-node.rumored .node-dot { background: #d5a6ff; color: #d5a6ff; }
-.node-label { display: none; padding: 0.1rem 0.24rem; border-radius: 5px; background: rgba(0,0,0,0.68); text-shadow: 0 1px 2px #000; white-space: nowrap; pointer-events: none; }
-.map-node:hover .node-label, .map-node.current .node-label, .city-node:hover .node-label, .city-node.current .node-label { display: inline-block; }
+.node-label { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); display: none; padding: 0.1rem 0.24rem; border-radius: 5px; background: rgba(0,0,0,0.68); text-shadow: 0 1px 2px #000; white-space: nowrap; pointer-events: none; }
+.map-node:hover .node-label, .map-node.current .node-label, .city-node:hover .node-label, .city-node.current .node-label { display: block; }
 
 .event-panel { position: fixed; right: 1rem; bottom: 1rem; z-index: 30; width: min(420px, calc(100vw - 2rem)); border: 1px solid rgba(141, 183, 217, 0.45); border-radius: 18px; background: rgba(6, 13, 22, 0.94); box-shadow: 0 16px 45px rgba(0, 0, 0, 0.42); pointer-events: auto; }
 .event-panel.collapsed { width: auto; max-width: calc(100vw - 2rem); background: transparent; border-color: transparent; box-shadow: none; pointer-events: none; }
