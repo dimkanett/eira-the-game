@@ -24,6 +24,24 @@ function findEvent(eventId) {
   return allEvents().find((item) => item.id === eventId);
 }
 
+function updateEmmaDeliveryProgress(state) {
+  state.flags ||= {};
+  if (
+    state.flags.emma_delivery_marta_done &&
+    state.flags.emma_delivery_hagen_done &&
+    state.flags.emma_delivery_oren_done &&
+    state.flags.emma_delivery_oswin_done &&
+    !state.flags.emma_delivery_finished
+  ) {
+    state.flags.emma_delivery_finished = true;
+    state.flags.emma_evening_stage_unlocked = true;
+    state.activeMessage = "Эмма развезла всю муку. День клонится к вечеру, и теперь можно решить, куда пойти дальше.";
+    state.journal.push("Эмма закончила доставку муки по деревне.");
+  }
+
+  return state;
+}
+
 function hasAllValues(source = [], value) {
   if (Array.isArray(value)) return value.every((item) => source.includes(item));
   return source.includes(value);
@@ -53,7 +71,10 @@ export function isConditionMet(gameState, condition) {
   if (condition.flag && !hasAllFlags(flags, condition.flag)) return false;
   if (condition.notFlag && hasAnyFlag(flags, condition.notFlag)) return false;
   if (condition.flagMin) {
-    for (const [flag, minValue] of Object.entries(condition.flagMin)) {
+    const entries = Array.isArray(condition.flagMin)
+      ? (Array.isArray(condition.flagMin[0]) ? condition.flagMin : [condition.flagMin])
+      : Object.entries(condition.flagMin);
+    for (const [flag, minValue] of entries) {
       if ((Number(flags[flag]) || 0) < minValue) return false;
     }
   }
@@ -100,12 +121,14 @@ export function resolveEventChoice(gameState, choiceId) {
   const effects = branch.effects || [];
   const nextEventId = branch.nextEventId || effects.find((effect) => effect.type === "start_event")?.eventId;
   let state = applyEffects(gameState, effects);
+  state = updateEmmaDeliveryProgress(state);
+  const effectMessage = state.activeMessage;
   if (event.type === "travel" && state.travel?.active) state.travel.eventResolved = true;
   state.activeEvent = null;
-  state.activeMessage = `${branch.text}${choice.check ? ` (d20: ${checkResult.roll}, итог: ${checkResult.total}, DC ${choice.check.dc})` : ""}`;
-  state.journal.push(`${event.title}: ${state.activeMessage}`);
+  const resultMessage = `${branch.text}${choice.check ? ` (d20: ${checkResult.roll}, итог: ${checkResult.total}, DC ${choice.check.dc})` : ""}`;
+  state.journal.push(`${event.title}: ${resultMessage}`);
   if (nextEventId) return startEvent(state, nextEventId);
-  if (state.mode === "location") state.activeMessage = branch.locationMessage ?? null;
+  state.activeMessage = state.mode === "location" ? effectMessage ?? branch.locationMessage ?? null : effectMessage ?? resultMessage;
   return state;
 }
 
@@ -129,6 +152,13 @@ export function applyEffects(gameState, effects = []) {
       state.hero.cityLocation = null;
       state.currentCity = null;
       state.activeEvent = null;
+      state.activeMessage = effect.message ?? null;
+    }
+    if (effect.type === "return_to_local_map") {
+      state.mode = "location";
+      state.activeEvent = null;
+      state.hero.cityLocation = null;
+      state.currentCity = null;
       state.activeMessage = effect.message ?? null;
     }
     if (effect.type === "reveal_clue") state.flags[effect.clueId] = true;

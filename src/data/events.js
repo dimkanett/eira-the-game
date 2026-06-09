@@ -172,6 +172,11 @@ export const events = {
               { type: "inc_flag", flag: "father_relation", value: 1 },
               { type: "inc_flag", flag: "emma_pragmatism", value: 1 },
               { type: "set_flag", flag: "emma_has_flour_errands", value: true },
+              { type: "set_flag", flag: "emma_delivery_started", value: true },
+              { type: "set_flag", flag: "emma_delivery_marta_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_hagen_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_oren_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_oswin_needed", value: true },
               { type: "journal_entry", text: "Отец поручил Эмме развезти муку по деревне: Марте, Хагену, Орену и старосте Освину." },
               { type: "enter_location", locationId: "iron_bridge_village" }
             ],
@@ -191,6 +196,11 @@ export const events = {
               { type: "inc_flag", flag: "emma_suspicion", value: 1 },
               { type: "set_flag", flag: "silver_trace_seen", value: true },
               { type: "set_flag", flag: "emma_has_flour_errands", value: true },
+              { type: "set_flag", flag: "emma_delivery_started", value: true },
+              { type: "set_flag", flag: "emma_delivery_marta_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_hagen_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_oren_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_oswin_needed", value: true },
               { type: "journal_entry", text: "Эмма заметила странную серебристую пыль у отца, но он назвал это капризом старого колеса." },
               { type: "enter_location", locationId: "iron_bridge_village" }
             ],
@@ -203,6 +213,11 @@ export const events = {
               { type: "add_item", itemId: "flour_sacks" },
               { type: "inc_flag", flag: "emma_fear", value: 1 },
               { type: "set_flag", flag: "emma_has_flour_errands", value: true },
+              { type: "set_flag", flag: "emma_delivery_started", value: true },
+              { type: "set_flag", flag: "emma_delivery_marta_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_hagen_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_oren_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_oswin_needed", value: true },
               { type: "journal_entry", text: "Эмма получила утренние поручения от отца." },
               { type: "enter_location", locationId: "iron_bridge_village" }
             ],
@@ -220,10 +235,455 @@ export const events = {
               { type: "inc_flag", flag: "father_relation", value: 2 },
               { type: "inc_flag", flag: "emma_kindness", value: 1 },
               { type: "set_flag", flag: "emma_has_flour_errands", value: true },
+              { type: "set_flag", flag: "emma_delivery_started", value: true },
+              { type: "set_flag", flag: "emma_delivery_marta_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_hagen_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_oren_needed", value: true },
+              { type: "set_flag", flag: "emma_delivery_oswin_needed", value: true },
               { type: "journal_entry", text: "Эмма пообещала отцу быть осторожной и отправилась развозить муку." },
               { type: "enter_location", locationId: "iron_bridge_village" }
             ],
             locationMessage: "Эмме нужно развезти муку по деревне. Выбери, куда пойти."
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_tavern_marta_flour",
+      title: "Трактир Марты: мешок для кухни",
+      biome: "village",
+      text:
+        "Трактир Марты встречает Эмму запахом кислого теста, жареного лука и мокрых плащей. Утро ещё не разошлось, но в зале уже спорят о колёсах, ценах и том, кто вчера обещал заплатить за вторую кружку. Марта стоит у стойки так, будто держит на плечах не трактир, а всю деревенскую привычку не разваливаться до обеда.\n\nОна замечает корзину с мукой и кивает на кухонную дверь.\n\n— От отца? Хорошо. Только не ставь у порога: возчики затопчут даже собственную совесть, если она лежит между ними и завтраком.",
+      textVariants: [
+        {
+          condition: { flag: "emma_delivery_marta_done" },
+          text: "В трактире уже пахнет тестом из отцовской муки. Марта замечает Эмму и машет ложкой вместо приветствия.\n\n— Сюда ты уже донесла, не переживай. Если хочешь помочь — помогай молча, но новых мешков я из тебя не вытрясу."
+        }
+      ],
+      choices: [
+        {
+          id: "give_flour_and_help",
+          label: "Отдать муку и помочь на кухне",
+          condition: { notFlag: "emma_delivery_marta_done", item: "flour_sacks" },
+          success: {
+            text: "Марта принимает мешок, взвешивает его ладонью и тут же вручает Эмме противень. Здесь благодарность выглядит как новая работа.\n\n— Подержи. Передай. Не стой под ногами. И если кто спросит, почему блины не готовы, скажи: потому что мир ещё не заслужил.",
+            effects: [
+              { type: "set_flag", flag: "emma_delivery_marta_needed", value: false },
+              { type: "inc_flag", flag: "marta_relation", value: 1 },
+              { type: "inc_flag", flag: "emma_kindness", value: 1 }
+            ],
+            nextEventId: "emma_tavern_kitchen_help"
+          }
+        },
+        {
+          id: "ask_river_rumors",
+          label: "Расспросить Марту о слухах у реки",
+          condition: { notFlag: "emma_delivery_marta_done" },
+          success: {
+            text: "Эмма спрашивает негромко, пока Марта пересыпает муку в деревянный ларь. Та не отвечает сразу: сначала закрывает крышку, потом смотрит, не слушает ли кто из возчиков слишком внимательно.",
+            effects: [
+              { type: "inc_flag", flag: "emma_suspicion", value: 1 },
+              { type: "inc_flag", flag: "old_secrets_interest", value: 1 }
+            ],
+            nextEventId: "emma_tavern_river_rumors"
+          }
+        },
+        {
+          id: "marta_done_return",
+          label: "Вернуться к поручениям",
+          condition: { flag: "emma_delivery_marta_done" },
+          success: {
+            text: "Марта уже получила муку. Эмме пора к остальным поручениям.",
+            effects: [{ type: "return_to_local_map", message: "Марта уже получила муку. Остальные поручения ждут." }]
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_tavern_kitchen_help",
+      title: "Трактир Марты: кухня",
+      biome: "village",
+      text:
+        "На кухне жарко, тесно и честно. Тесто липнет к пальцам, ножи стучат по доске, Марта ругается на печь так, будто печь может исправиться из уважения. Эмма держит противень, подаёт соль, отодвигает ведро от прохода и постепенно понимает: в трактире новости не рассказывают, их роняют между делом.\n\nВозчик за стеной говорит, что у берега утром видели светлую полосу на воде. Другой смеётся. Марта не смеётся.",
+      choices: [
+        {
+          id: "finish_kitchen_help",
+          label: "Закончить помощь и забрать Мартино предупреждение",
+          success: {
+            text: "Марта наконец отбирает у Эммы противень и ставит его на стол.\n\n— Если пойдёшь к реке, не зови толпу, — говорит она. — Толпа делает из лужи пророчество, а из пророчества драку.\n\nОна говорит сухо, но в голосе слышна забота: не мягкая, зато настоящая.",
+            effects: [
+              { type: "inc_flag", flag: "marta_relation", value: 1 },
+              { type: "inc_flag", flag: "village_trust", value: 1 },
+              { type: "journal_entry", text: "Марта приняла муку и предупредила Эмму не раздувать слухи у реки." }
+            ],
+            nextEventId: "emma_tavern_delivery_done"
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_tavern_river_rumors",
+      title: "Трактир Марты: слухи у окна",
+      biome: "village",
+      text:
+        "Марта выводит Эмму к узкому окну у задней двери. Отсюда видна полоска дороги к реке и край старого моста.\n\n— Слухи, — говорит она, — это когда человек видел одно, понял второе, а рассказывает третье. Но рыбаки правда вернулись рано. И дети правда перестали бегать к берегу наперегонки. Для деревни это уже почти колокол.\n\nОна бросает взгляд на зал, где возчики снова смеются слишком громко.",
+      choices: [
+        {
+          id: "promise_discretion",
+          label: "Пообещать не устраивать паники",
+          success: {
+            text: "— Вот и хорошо, — Марта кивает. — Твой отец умеет молоть зерно. Попробуй сегодня перемолоть слухи в что-то полезное.\n\nОна возвращает Эмму к стойке и громко объявляет, что мука принята. Для остальных это просто хозяйственная фраза. Для Эммы — знак, что разговор окончен.",
+            effects: [
+              { type: "inc_flag", flag: "marta_relation", value: 1 },
+              { type: "inc_flag", flag: "village_denial_level", value: 1 },
+              { type: "journal_entry", text: "Марта рассказала о раннем возвращении рыбаков и попросила Эмму не поднимать панику." }
+            ],
+            nextEventId: "emma_tavern_delivery_done"
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_tavern_delivery_done",
+      title: "Трактир Марты: мука принята",
+      biome: "village",
+      text:
+        "Мешок отцовской муки исчезает в трактирном ларе, словно всегда там и должен был быть. Марта уже командует кухней, возчики спорят, печь шипит, а утро продолжает делать вид, что оно простое.\n\nОдно поручение выполнено.",
+      choices: [
+        {
+          id: "return_from_tavern",
+          label: "Вернуться на деревенскую улицу",
+          success: {
+            text: "Эмма выходит из трактира с запахом дыма на рукавах и новым кусочком тревоги в голове.",
+            effects: [
+              { type: "set_flag", flag: "emma_delivery_marta_done", value: true },
+              { type: "set_flag", flag: "emma_delivery_marta_needed", value: false },
+              { type: "return_to_local_map", message: "Марта получила муку. Можно выбрать следующее поручение." }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_forge_hagen_flour",
+      title: "Кузница Хагена: мука для замазки",
+      biome: "village",
+      text:
+        "Кузница Хагена стоит чуть в стороне от рыночного шума: даже гуси, кажется, обходят её с уважением. Внутри пахнет углём, маслом и горячим железом. Хаген принимает мешок муки не как еду, а как материал — щурится, мнёт край ткани, будто проверяет клинок.\n\n— Для замазки, — поясняет он. — Не для пирогов. Хотя твой отец и пирогом дыру в крыше заделал бы лучше Освиновых обещаний.",
+      textVariants: [
+        { condition: { flag: "emma_delivery_hagen_done" }, text: "Хаген уже убрал муку на полку у горна.\n\n— Сюда донесла, — бурчит он. — Не таскай один и тот же мешок по кругу, а то деревня решит, что у нас праздник бюрократии." }
+      ],
+      choices: [
+        {
+          id: "deliver_to_hagen",
+          label: "Отдать муку Хагену",
+          condition: { notFlag: "emma_delivery_hagen_done", item: "flour_sacks" },
+          success: {
+            text: "Хаген ставит мешок рядом с мелом и угольной пылью. На верстаке Эмма замечает тёмное влажное пятно на другом мешочке муки — будто ткань успела побывать у реки, хотя лежала у жара.",
+            effects: [
+              { type: "set_flag", flag: "emma_delivery_hagen_needed", value: false },
+              { type: "inc_flag", flag: "hagen_relation", value: 1 },
+              { type: "inc_flag", flag: "emma_suspicion", value: 1 }
+            ],
+            nextEventId: "emma_forge_wet_flour_notice"
+          }
+        },
+        {
+          id: "ask_hagen_warning_first",
+          label: "Спросить, почему он смотрит на мост",
+          condition: { notFlag: "emma_delivery_hagen_done" },
+          success: {
+            text: "Хаген не сразу отвечает. Он берёт клещи, хотя они ему не нужны, и смотрит в сторону дверей — туда, где за домами угадывается железный пролёт.\n\n— Потому что некоторые вещи первыми меняют звук, — говорит он. — А люди замечают только тогда, когда уже поздно чинить.",
+            effects: [
+              { type: "inc_flag", flag: "old_secrets_interest", value: 1 },
+              { type: "set_flag", flag: "hagen_warning_unlocked", value: true }
+            ],
+            nextEventId: "emma_forge_river_warning"
+          }
+        },
+        {
+          id: "hagen_done_return",
+          label: "Вернуться к поручениям",
+          condition: { flag: "emma_delivery_hagen_done" },
+          success: { text: "Хаген уже получил муку.", effects: [{ type: "return_to_local_map", message: "Хаген уже получил муку. Остальные поручения ждут." }] }
+        }
+      ]
+    },
+    {
+      id: "emma_forge_wet_flour_notice",
+      title: "Кузница Хагена: влажный след",
+      biome: "village",
+      text:
+        "Эмма кивает на влажный мешочек. Хаген не ругается и не шутит, что само по себе тревожнее любого крика. Он развязывает ткань и показывает серую муку, сбившуюся комками.\n\n— Принесли с берега, — говорит он. — Хотел посмотреть, почему она пахнет железом. Не ржавчиной. Железом, которое только что вспомнило, что оно было рудой.",
+      choices: [
+        {
+          id: "listen_hagen_river_warning",
+          label: "Выслушать предупреждение Хагена",
+          success: {
+            text: "— Если увидишь светлый след на мосту или у воды, не трогай, — говорит Хаген. — Позови того, кто умеет бояться правильно.\n\nОн усмехается уголком рта.\n\n— То есть не Освина.",
+            effects: [
+              { type: "set_flag", flag: "hagen_warning_unlocked", value: true },
+              { type: "inc_flag", flag: "hagen_relation", value: 1 },
+              { type: "journal_entry", text: "Хаген предупредил Эмму не трогать светлые следы на железе или у воды." }
+            ],
+            nextEventId: "emma_forge_delivery_done"
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_forge_river_warning",
+      title: "Кузница Хагена: предупреждение о воде",
+      biome: "village",
+      text:
+        "Хаген проводит пальцем над пластиной железа, не касаясь её. На металле видна тонкая серебристая риска.\n\n— Река под мостом тащит не только ил. Иногда она приносит то, что лучше оставить лежать. Но дети любят блестящее, взрослые любят отрицать, а старосты любят отчёты без пятен.",
+      choices: [
+        {
+          id: "accept_hagen_warning",
+          label: "Пообещать быть осторожной",
+          success: {
+            text: "Хаген коротко кивает. Для него это почти благодарность.\n\n— Осторожность не трусость, Эмма. Трусость — это когда видишь трещину и называешь её узором.",
+            effects: [
+              { type: "set_flag", flag: "hagen_warning_unlocked", value: true },
+              { type: "inc_flag", flag: "hagen_relation", value: 1 },
+              { type: "inc_flag", flag: "emma_pragmatism", value: 1 }
+            ],
+            nextEventId: "emma_forge_delivery_done"
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_forge_delivery_done",
+      title: "Кузница Хагена: мука убрана",
+      biome: "village",
+      text: "Хаген убирает отцовскую муку на верхнюю полку, подальше от искр. Молот снова ударяет по железу, и звук кажется Эмме слишком важным для обычного утра.",
+      choices: [
+        {
+          id: "return_from_forge",
+          label: "Вернуться на улицу",
+          success: {
+            text: "Эмма выходит из кузницы. За спиной молот Хагена снова делает деревню настоящей: звонкой, горячей и упрямой.",
+            effects: [
+              { type: "set_flag", flag: "emma_delivery_hagen_done", value: true },
+              { type: "set_flag", flag: "emma_delivery_hagen_needed", value: false },
+              { type: "return_to_local_map", message: "Хаген получил муку. Можно выбрать следующее поручение." }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_temple_oren_flour",
+      title: "Храм Орена: хлеб для Витаэль",
+      biome: "village",
+      text:
+        "Храм Орена меньше амбара и тише кладовой. Внутри пахнет сухими травами, старым деревом и мёдом. Орен подметает пол короткой метлой, двигаясь так осторожно, будто даже пыль может обидеться.\n\n— Мука для утреннего хлеба? — спрашивает он. — Хорошо. Людям легче благодарить богов, когда благодарность можно испечь.",
+      textVariants: [
+        { condition: { flag: "emma_delivery_oren_done" }, text: "Орен уже замешивает храмовый хлеб из принесённой муки. Он приветствует Эмму тихим кивком.\n\n— Поручение выполнено. Иногда этого достаточно для начала молитвы." }
+      ],
+      choices: [
+        {
+          id: "deliver_to_oren",
+          label: "Передать муку Орену",
+          condition: { notFlag: "emma_delivery_oren_done", item: "flour_sacks" },
+          success: {
+            text: "Орен принимает муку обеими руками и ставит её у чаши с мёдом. В этот миг лампа у знака Витаэль дрожит, хотя двери закрыты, а ветра нет.",
+            effects: [
+              { type: "set_flag", flag: "emma_delivery_oren_needed", value: false },
+              { type: "inc_flag", flag: "oren_relation", value: 1 },
+              { type: "set_flag", flag: "oren_confidence", value: true }
+            ],
+            nextEventId: "emma_temple_lamp_fails"
+          }
+        },
+        {
+          id: "ask_oren_dreams_first",
+          label: "Спросить, почему он выглядит невыспавшимся",
+          condition: { notFlag: "emma_delivery_oren_done" },
+          success: {
+            text: "Орен улыбается так, будто вопрос попал слишком точно.\n\n— Потому что сны иногда громче колокола. Но это не разговор для порога.",
+            effects: [{ type: "inc_flag", flag: "emma_kindness", value: 1 }],
+            nextEventId: "emma_temple_oren_dreams"
+          }
+        },
+        {
+          id: "oren_done_return",
+          label: "Вернуться к поручениям",
+          condition: { flag: "emma_delivery_oren_done" },
+          success: { text: "Орен уже получил муку.", effects: [{ type: "return_to_local_map", message: "Орен уже получил муку. Остальные поручения ждут." }] }
+        }
+      ]
+    },
+    {
+      id: "emma_temple_lamp_fails",
+      title: "Храм Орена: лампа гаснет",
+      biome: "village",
+      text:
+        "Огонёк в лампе вытягивается тонкой иглой и гаснет. Орен замирает с рукой над мешком муки. Снаружи кто-то смеётся, тележное колесо стучит по камню, деревня живёт дальше — а внутри храма на миг становится слишком тихо.\n\n— Масло старое, — говорит Орен. И оба понимают, что это объяснение выбрано не потому, что оно лучшее, а потому что оно удобное.",
+      choices: [
+        {
+          id: "relight_lamp",
+          label: "Помочь снова зажечь лампу",
+          success: {
+            text: "Эмма держит фитиль, Орен подносит огонь. Лампа вспыхивает не сразу, но всё-таки вспыхивает. Орен выдыхает.\n\n— Спасибо. Не за лампу. За то, что не стала делать вид, будто ничего не заметила.",
+            effects: [
+              { type: "inc_flag", flag: "oren_relation", value: 1 },
+              { type: "inc_flag", flag: "village_trust", value: 1 },
+              { type: "journal_entry", text: "В храме Витаэль погасла лампа, и Эмма помогла Орену зажечь её снова." }
+            ],
+            nextEventId: "emma_temple_delivery_done"
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_temple_oren_dreams",
+      title: "Храм Орена: сны",
+      biome: "village",
+      text:
+        "Орен говорит тихо, почти без выражения, от чего слова становятся тяжелее. Ему снилась река, но вода в ней не текла: стояла, как стекло. На мосту были люди, и каждый держал в руках хлеб, который не мог разломить.\n\n— Глупый сон, — говорит он. — Но я проснулся с запахом мокрой муки в комнате.",
+      choices: [
+        {
+          id: "keep_oren_confidence",
+          label: "Пообещать сохранить разговор",
+          success: {
+            text: "Орен благодарно склоняет голову.\n\n— Тогда пусть это будет пока сном, — говорит он. — Утро и без того занято настоящими делами.",
+            effects: [
+              { type: "inc_flag", flag: "oren_relation", value: 1 },
+              { type: "inc_flag", flag: "old_secrets_interest", value: 1 },
+              { type: "journal_entry", text: "Орен рассказал Эмме сон о неподвижной реке и хлебе, который нельзя разломить." }
+            ],
+            nextEventId: "emma_temple_delivery_done"
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_temple_delivery_done",
+      title: "Храм Орена: мука у чаши",
+      biome: "village",
+      text: "Мука остаётся у чаши с мёдом. Орен снова берёт метлу, но теперь храм кажется Эмме не пустым, а настороженно живым.",
+      choices: [
+        {
+          id: "return_from_temple",
+          label: "Вернуться на площадь",
+          success: {
+            text: "Эмма выходит из храма на дневной свет. Поручение выполнено, хотя в голове осталось больше вопросов, чем было на входе.",
+            effects: [
+              { type: "set_flag", flag: "emma_delivery_oren_done", value: true },
+              { type: "set_flag", flag: "emma_delivery_oren_needed", value: false },
+              { type: "return_to_local_map", message: "Орен получил муку. Можно выбрать следующее поручение." }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_elder_oswin_flour",
+      title: "Дом старосты Освина: запись в книге",
+      biome: "village",
+      text:
+        "Дом Освина крепче соседских домов и явно знает об этом. На крыльце чисто, ставни выкрашены ровно, у двери стоит бочка для дождевой воды. Староста встречает Эмму на пороге: так можно принять муку и не приглашать человека внутрь.\n\n— От мельницы? Хорошо. Передай отцу, что оплату внесу в запись вечером. И что разговоры о реке лучше оставить тем, у кого нет работы.",
+      textVariants: [
+        { condition: { flag: "emma_delivery_oswin_done" }, text: "У дома Освина всё так же чисто и ровно. Староста уже получил муку и теперь делает вид, что Эмма пришла без причины.\n\n— Поручение выполнено, — напоминает он. — Остальное, надеюсь, тоже будет выполнено без лишнего шума." }
+      ],
+      choices: [
+        {
+          id: "deliver_to_oswin",
+          label: "Передать муку и дождаться записи",
+          condition: { notFlag: "emma_delivery_oswin_done", item: "flour_sacks" },
+          success: {
+            text: "Освин принимает мешочек и всё-таки вынужден отступить в прихожую к столу с книгой. Эмма видит на стене старую карту деревни: мост на ней нарисован толще домов, а у реки есть отметка, которой нет на нынешних указателях.",
+            effects: [
+              { type: "set_flag", flag: "emma_delivery_oswin_needed", value: false },
+              { type: "inc_flag", flag: "oswin_relation", value: 1 },
+              { type: "inc_flag", flag: "emma_suspicion", value: 1 }
+            ],
+            nextEventId: "emma_elder_old_map"
+          }
+        },
+        {
+          id: "challenge_oswin_rumors",
+          label: "Спросить, почему он боится слухов",
+          condition: { notFlag: "emma_delivery_oswin_done" },
+          success: {
+            text: "Освин закрывает книгу чуть громче, чем нужно.\n\n— Я боюсь не слухов, а людей, которые начинают принимать их за распоряжения. Деревне нужен порядок, Эмма. Даже если порядок иногда приходится держать зубами.",
+            effects: [
+              { type: "inc_flag", flag: "oswin_relation", value: -1 },
+              { type: "inc_flag", flag: "village_denial_level", value: 1 }
+            ],
+            nextEventId: "emma_elder_warning_about_rumors"
+          }
+        },
+        {
+          id: "oswin_done_return",
+          label: "Вернуться к поручениям",
+          condition: { flag: "emma_delivery_oswin_done" },
+          success: { text: "Освин уже получил муку.", effects: [{ type: "return_to_local_map", message: "Освин уже получил муку. Остальные поручения ждут." }] }
+        }
+      ]
+    },
+    {
+      id: "emma_elder_old_map",
+      title: "Дом старосты Освина: старая карта",
+      biome: "village",
+      text:
+        "Освин замечает взгляд Эммы и становится в пол-оборота, закрывая карту плечом. Слишком поздно: она уже увидела старую подпись у берега — 'нижняя кладка'. Сейчас это место никто так не называет.\n\n— Карта старая, — говорит староста. — Старые карты любят врать из чувства важности.",
+      choices: [
+        {
+          id: "do_not_press_map",
+          label: "Не давить на Освина сейчас",
+          success: {
+            text: "Эмма кивает, позволяя Освину думать, что разговор закрыт. Иногда лучший способ открыть дверь — не толкать её, пока на тебя смотрят.\n\nСтароста делает запись об оплате аккуратным почерком и возвращает ей пустую ткань от мешочка.",
+            effects: [
+              { type: "inc_flag", flag: "emma_pragmatism", value: 1 },
+              { type: "inc_flag", flag: "old_secrets_interest", value: 1 },
+              { type: "journal_entry", text: "У Освина Эмма заметила старую карту с отметкой у реки." }
+            ],
+            nextEventId: "emma_elder_delivery_done"
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_elder_warning_about_rumors",
+      title: "Дом старосты Освина: порядок и слухи",
+      biome: "village",
+      text:
+        "Освин говорит тихо, но каждое слово кладёт на место, как камень в стену.\n\n— Если завтра люди решат, что река дурная, никто не выйдет чинить берег. Если берег не чинить, вода заберёт огороды. Потом все скажут, что виноваты знаки, а не лень.\n\nОн смотрит на Эмму устало, почти честно.\n\n— Я не отрицаю беду. Я не даю ей стать базаром.",
+      choices: [
+        {
+          id: "accept_order_for_now",
+          label: "Принять это как предупреждение",
+          success: {
+            text: "Эмма не обещает молчать, но и не спорит дальше. Освин принимает это за победу. Возможно, зря.\n\nОн записывает муку в книгу и отпускает её коротким кивком.",
+            effects: [
+              { type: "inc_flag", flag: "village_denial_level", value: 1 },
+              { type: "inc_flag", flag: "emma_pragmatism", value: 1 },
+              { type: "journal_entry", text: "Освин объяснил, что боится не реки, а деревенской паники." }
+            ],
+            nextEventId: "emma_elder_delivery_done"
+          }
+        }
+      ]
+    },
+    {
+      id: "emma_elder_delivery_done",
+      title: "Дом старосты Освина: поручение закрыто",
+      biome: "village",
+      text: "Запись сделана. Мука принята. Освин закрывает книгу так, будто вместе с ней можно закрыть и все неудобные вопросы утра.",
+      choices: [
+        {
+          id: "return_from_oswin",
+          label: "Вернуться на улицу",
+          success: {
+            text: "Эмма спускается с крыльца. За спиной дом старосты снова выглядит безупречно, но теперь эта безупречность кажется частью разговора.",
+            effects: [
+              { type: "set_flag", flag: "emma_delivery_oswin_done", value: true },
+              { type: "set_flag", flag: "emma_delivery_oswin_needed", value: false },
+              { type: "return_to_local_map", message: "Освин получил муку. Можно выбрать следующее поручение." }
+            ]
           }
         }
       ]

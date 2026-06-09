@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { localLocations } from "../data/localLocations.js";
+import { isConditionMet } from "../engine/eventEngine.js";
 
 export default function LocationMap({ gameState, onNodeClick, onLeave }) {
   const [missingImage, setMissingImage] = useState(false);
@@ -34,7 +35,9 @@ export default function LocationMap({ gameState, onNodeClick, onLeave }) {
           )}
           <div className="local-map-fallback">Локальная карта деревни пока не загружена.</div>
 
-          {location.nodes.map((node) => (
+          {location.nodes
+            .filter((node) => isConditionMet(gameState, node.condition))
+            .map((node) => (
             <button
               key={node.id}
               className="local-map-node"
