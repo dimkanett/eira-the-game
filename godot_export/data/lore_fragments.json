@@ -1,0 +1,57 @@
+[
+  {
+    "id": "silverglade_foundation_01",
+    "title": "Основание Сильверглейда",
+    "collection": "silverglade_history",
+    "region": "Серебряный Предел",
+    "source_type": "archive",
+    "rarity": "common",
+    "order": 1,
+    "text": "Первые серебряные башни были подняты вокруг лунного камня, который не гас даже в беззвёздную ночь.",
+    "discovered": false
+  },
+  {
+    "id": "moon_throne_01",
+    "title": "Лунный Трон",
+    "collection": "silverglade_history",
+    "region": "Серебряный Предел",
+    "source_type": "temple",
+    "rarity": "common",
+    "order": 2,
+    "text": "Лунный Трон считается не просто символом власти, а местом договора между городом и ночным небом.",
+    "discovered": false
+  },
+  {
+    "id": "tenebris_warning_01",
+    "title": "Предостережение о Тенебрисе",
+    "collection": "shadowed_lands",
+    "region": "Тенебрис",
+    "source_type": "rumor",
+    "rarity": "uncommon",
+    "order": 1,
+    "text": "Старые тропы Тенебриса помнят чужие следы и иногда ведут путника в обратную сторону его страха.",
+    "discovered": false
+  },
+  {
+    "id": "ancient_temple_01",
+    "title": "Письмена древнего храма",
+    "collection": "ancient_ruins",
+    "region": "Серебряный Предел",
+    "source_type": "ruins",
+    "rarity": "uncommon",
+    "order": 1,
+    "text": "На обломках алтаря повторяется знак, похожий на треснувшую луну над корнями дерева.",
+    "discovered": false
+  },
+  {
+    "id": "southern_rift_01",
+    "title": "Южный разлом",
+    "collection": "rifts",
+    "region": "Южные Острова",
+    "source_type": "archive",
+    "rarity": "rare",
+    "order": 1,
+    "text": "Моряки Элиандора уверяют, что возле Южного разлома компасы указывают не север, а прошлую ошибку владельца.",
+    "discovered": false
+  }
+]

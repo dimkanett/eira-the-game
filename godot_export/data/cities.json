@@ -1,0 +1,130 @@
+[
+  {
+    "id": "silverglade",
+    "name": "Сильверглейд / Лунный Трон",
+    "background": "/assets/cities/Silverglade.png",
+    "fallback_background": "/assets/locations/Silverglade.png",
+    "width": 1200,
+    "height": 900,
+    "start_node": "silverglade_square",
+    "nodes": [
+      {
+        "id": "silverglade_square",
+        "name": "Лунная площадь",
+        "type": "square",
+        "position": {
+          "x": 575,
+          "y": 485
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Площадь, где сходятся слухи, стража и лунный свет.",
+        "conditions": []
+      },
+      {
+        "id": "silverglade_throne",
+        "name": "Лунный Трон",
+        "type": "throne",
+        "position": {
+          "x": 600,
+          "y": 220
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Сердце власти Сильверглейда и будущей основной сюжетной ветки.",
+        "conditions": []
+      },
+      {
+        "id": "silverglade_temple",
+        "name": "Святилище Луны",
+        "type": "temple",
+        "position": {
+          "x": 850,
+          "y": 335
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Тихое святилище, где усталость отступает под серебряными сводами.",
+        "conditions": []
+      },
+      {
+        "id": "silverglade_market",
+        "name": "Серебряный рынок",
+        "type": "market",
+        "position": {
+          "x": 360,
+          "y": 600
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Рынок редких трав, тонкой работы, старых карт и вещей, которые продавцы называют почти не проклятыми.",
+        "conditions": []
+      },
+      {
+        "id": "silverglade_forge",
+        "name": "Кузница звёздного железа",
+        "type": "forge",
+        "position": {
+          "x": 255,
+          "y": 410
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Здесь позже появятся ремонт, улучшение оружия и работа с редкими металлами.",
+        "conditions": []
+      },
+      {
+        "id": "silverglade_healer",
+        "name": "Дом лекаря",
+        "type": "healer",
+        "position": {
+          "x": 785,
+          "y": 620
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Дом лекаря восстанавливает здоровье без траты дня.",
+        "conditions": []
+      },
+      {
+        "id": "silverglade_archives",
+        "name": "Архивы Серебряной памяти",
+        "type": "archives",
+        "position": {
+          "x": 710,
+          "y": 430
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Полки с летописями, картами и фрагментами старого знания.",
+        "conditions": []
+      },
+      {
+        "id": "silverglade_songs",
+        "name": "Дом тихих песен",
+        "type": "songs",
+        "position": {
+          "x": 450,
+          "y": 320
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Место отдыха, слухов и будущих встреч со спутниками.",
+        "conditions": []
+      },
+      {
+        "id": "silverglade_gates",
+        "name": "Ворота к лесным дорогам",
+        "type": "exit",
+        "position": {
+          "x": 585,
+          "y": 790
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Выход обратно на глобальную карту.",
+        "conditions": []
+      }
+    ]
+  }
+]

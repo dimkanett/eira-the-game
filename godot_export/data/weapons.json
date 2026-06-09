@@ -1,0 +1,15 @@
+{
+  "short_bow": {
+    "id": "short_bow",
+    "name": "Короткий лук",
+    "type": "weapon",
+    "slot": "mainHand",
+    "damage": "1d6",
+    "stat": "agility",
+    "range": "ranged",
+    "allowed_if": {
+      "requires_at_least_one_working_arm": true
+    },
+    "effects": []
+  }
+}

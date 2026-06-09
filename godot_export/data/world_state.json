@@ -1,0 +1,37 @@
+{
+  "day": 1,
+  "actions_max": 1,
+  "actions_left": 1,
+  "world_decay": 10,
+  "sin": 0,
+  "personal_decay": 0,
+  "flags": {},
+  "journal": [],
+  "known_locations": [],
+  "visited_locations": [],
+  "revealed_locations": [],
+  "reputation": {},
+  "active_event_id": null,
+  "current_location_id": null,
+  "current_city_id": null,
+  "current_mode": "character_select",
+  "selected_character_id": null,
+  "world": {
+    "known_locations": [],
+    "visited_locations": [],
+    "revealed_locations": [],
+    "threat": 1
+  },
+  "travel": {
+    "active": false,
+    "from_node_id": null,
+    "to_node_id": null,
+    "days_remaining": 0,
+    "event_resolved": false
+  },
+  "lore": {
+    "discovered_fragments": [],
+    "discovered_collections": [],
+    "unread_fragments": []
+  }
+}
