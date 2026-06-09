@@ -21,6 +21,15 @@ export const actions = {
       if (!state.world.knownNodes.includes(nextId)) state.world.knownNodes.push(nextId);
     }
 
+    if (character.id === "emma") {
+      return {
+        ...state,
+        mode: "location",
+        activeEvent: null,
+        activeMessage: "Утро в Деревне Железного моста. Выбери, с чего начнётся день.",
+      };
+    }
+
     if (node?.introEventId) {
       state = startEvent(state, node.introEventId);
     }

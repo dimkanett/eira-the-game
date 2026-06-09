@@ -24,12 +24,45 @@ function findEvent(eventId) {
   return allEvents().find((item) => item.id === eventId);
 }
 
-export function isChoiceAvailable(gameState, choice) {
-  const condition = choice?.condition;
+function hasAllValues(source = [], value) {
+  if (Array.isArray(value)) return value.every((item) => source.includes(item));
+  return source.includes(value);
+}
+
+function hasAnyValue(source = [], value) {
+  if (Array.isArray(value)) return value.some((item) => source.includes(item));
+  return source.includes(value);
+}
+
+function hasAllFlags(flags = {}, value) {
+  if (Array.isArray(value)) return value.every((flag) => Boolean(flags[flag]));
+  return Boolean(flags[value]);
+}
+
+function hasAnyFlag(flags = {}, value) {
+  if (Array.isArray(value)) return value.some((flag) => Boolean(flags[flag]));
+  return Boolean(flags[value]);
+}
+
+export function isConditionMet(gameState, condition) {
   if (!condition) return true;
-  if (condition.item && !gameState.hero.inventory.includes(condition.item)) return false;
-  if (condition.flag && !gameState.flags?.[condition.flag]) return false;
+  const inventory = gameState.hero?.inventory || [];
+  const flags = gameState.flags || {};
+  if (condition.item && !hasAllValues(inventory, condition.item)) return false;
+  if (condition.notItem && hasAnyValue(inventory, condition.notItem)) return false;
+  if (condition.flag && !hasAllFlags(flags, condition.flag)) return false;
+  if (condition.notFlag && hasAnyFlag(flags, condition.notFlag)) return false;
   return true;
+}
+
+export function isChoiceAvailable(gameState, choice) {
+  return isConditionMet(gameState, choice?.condition);
+}
+
+export function getEventText(gameState, event) {
+  if (!event) return "";
+  const variant = event.textVariants?.find((item) => isConditionMet(gameState, item.condition));
+  return variant?.text || event.text;
 }
 
 export function startEvent(gameState, eventId) {
@@ -67,6 +100,7 @@ export function resolveEventChoice(gameState, choiceId) {
   state.activeMessage = `${branch.text}${choice.check ? ` (d20: ${checkResult.roll}, итог: ${checkResult.total}, DC ${choice.check.dc})` : ""}`;
   state.journal.push(`${event.title}: ${state.activeMessage}`);
   if (nextEventId) return startEvent(state, nextEventId);
+  if (state.mode === "location") state.activeMessage = null;
   return state;
 }
 
