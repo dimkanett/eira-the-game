@@ -1,36 +1,54 @@
-import { locationMaps } from "../data/locationMaps.js";
+import { useState } from "react";
+import { localLocations } from "../data/localLocations.js";
 
-const ironBridgeActions = [
-  { id: "bridge", label: "Старый мост", eventId: "emma_intro_bridge_whisper" },
-  { id: "elder", label: "Дом старосты Бренна", eventId: "emma_elder_brenn_talk" },
-  { id: "timo", label: "Найти Тимо", eventId: "emma_timo_testimony" },
-  { id: "olma", label: "Кузница Ольмы", eventId: "emma_olma_black_iron" },
-  { id: "under_bridge", label: "Спуск под мост", eventId: "emma_bridge_storehouse" },
-];
+export default function LocationMap({ gameState, onNodeClick, onLeave }) {
+  const [missingImage, setMissingImage] = useState(false);
+  const location = localLocations[gameState.hero.location];
 
-export default function LocationMap({ gameState, onTriggerEvent, onLeave }) {
-  const map = locationMaps[gameState.hero.location];
-
-  if (gameState.hero.location === "iron_bridge_village") {
+  if (!location) {
     return (
-      <section className="placeholder-panel local-location-panel">
-        <h2>Деревня Железного моста</h2>
-        <p>Мельница скрипит, у кузницы звенит молот, а старый мост за рекой будто ждёт нового взгляда.</p>
-        <div className="local-actions">
-          {ironBridgeActions.map((action) => (
-            <button key={action.id} type="button" onClick={() => onTriggerEvent(action.eventId)}>{action.label}</button>
-          ))}
-          <button type="button" onClick={onLeave}>Покинуть деревню</button>
-        </div>
+      <section className="local-map-card">
+        <h2>Локальная карта недоступна</h2>
+        <p>Для этой точки пока нет внутренней карты.</p>
+        <button type="button" onClick={onLeave}>Вернуться к глобальной карте</button>
       </section>
     );
   }
 
   return (
-    <section className="placeholder-panel">
-      <h2>Режим интересного места</h2>
-      <p>{map ? `Подготовлена внутренняя карта: ${map.name}.` : "Архитектура режима location создана; конкретная карта будет включена позже."}</p>
-      <button type="button" onClick={onLeave}>Вернуться к карте мира</button>
+    <section className="local-map-card">
+      <header className="local-map-header">
+        <h2>{location.name}</h2>
+        <button type="button" onClick={onLeave}>Глобальная карта</button>
+      </header>
+
+      <div className="local-map-viewport">
+        <div className="local-map-canvas" style={{ width: `${location.width}px`, height: `${location.height}px` }}>
+          {!missingImage && (
+            <img
+              src={location.mapImage}
+              alt={location.name}
+              className="local-map-image"
+              onError={() => setMissingImage(true)}
+            />
+          )}
+          <div className="local-map-fallback">Локальная карта деревни пока не загружена.</div>
+
+          {location.nodes.map((node) => (
+            <button
+              key={node.id}
+              className="local-map-node"
+              style={{ left: `${node.x}px`, top: `${node.y}px` }}
+              onClick={() => onNodeClick(node)}
+              title={node.name}
+              type="button"
+            >
+              <span className="local-node-dot" />
+              <span className="local-node-label">{node.name}</span>
+            </button>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

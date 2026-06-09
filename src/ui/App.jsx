@@ -56,7 +56,7 @@ function GameApp() {
           {gameState.mode === "location" && (
             <LocationMap
               gameState={gameState}
-              onTriggerEvent={(eventId) => runAction(actions.triggerLocalEvent, eventId)}
+              onNodeClick={(node) => runAction(actions.clickLocalNode, node)}
               onLeave={() => runAction(actions.leaveLocalLocation)}
             />
           )}

@@ -33,8 +33,9 @@ export const actions = {
   leaveLocalLocation(gameState) {
     return { ...gameState, mode: "world", activeEvent: null, activeMessage: "Ты возвращаешься к карте мира." };
   },
-  triggerLocalEvent(gameState, eventId) {
-    const state = startEvent(gameState, eventId);
+  clickLocalNode(gameState, localNode) {
+    if (!localNode?.eventId) return { ...gameState, activeMessage: "Здесь пока ничего не происходит." };
+    const state = startEvent(gameState, localNode.eventId);
     if (!state.activeEvent) return { ...state, activeMessage: "Это событие ещё не добавлено." };
     return state;
   },

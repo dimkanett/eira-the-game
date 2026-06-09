@@ -782,7 +782,7 @@ export const worldNodes = [
       "asterwald_road",
       "blackthorn"
     ],
-    "introEventId": "emma_intro_bridge_whisper"
+    "introEventId": "emma_morning_home"
   },
   {
     "id": "dead_hooves_pass",
