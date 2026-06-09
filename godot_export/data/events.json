@@ -1,0 +1,5356 @@
+[
+  {
+    "id": "city_square_rumors",
+    "category": "city",
+    "location_id": null,
+    "title": "Городская площадь",
+    "biome": "city",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Шум, торг, слухи и строгие взгляды стражи смешиваются в один городской гул.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "gather_rumors",
+        "text": "Собрать слухи",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 10
+        },
+        "success": {
+          "text": "Ты узнаёшь о дальнем месте. Оно отмечено на карте, но путь к нему неизвестен.",
+          "effects": [
+            {
+              "type": "reveal_random_city"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Тебя принимают за чужака, и разговоры быстро стихают.",
+          "effects": [
+            {
+              "type": "reputation",
+              "target": "current_region",
+              "value": -1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "road_old_tracks",
+    "category": "road",
+    "location_id": null,
+    "title": "Старые следы",
+    "biome": "road",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "На дороге видны следы чужого отряда.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "follow_tracks",
+        "text": "Осмотреть следы",
+        "condition": null,
+        "check": {
+          "stat": "perception",
+          "dc": 11
+        },
+        "success": {
+          "text": "Ты обходишь опасный участок и сам оставляешь меньше следов.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": -1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Ты теряешь время и оставляешь заметный след.",
+          "effects": [
+            {
+              "type": "fatigue",
+              "value": 1
+            },
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "forest_wolves",
+    "category": "forest",
+    "location_id": null,
+    "title": "Глаза в чаще",
+    "biome": "forest",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Между стволами вспыхивают волчьи глаза.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "avoid_wolves",
+        "text": "Тихо отступить",
+        "condition": null,
+        "check": {
+          "stat": "agility",
+          "dc": 13
+        },
+        "success": {
+          "text": "Ты исчезаешь в тени деревьев.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Волки бросаются следом. Бой пока включён как тестовая архитектура.",
+          "effects": [
+            {
+              "type": "hp",
+              "target": "hero",
+              "value": -3
+            },
+            {
+              "type": "start_combat",
+              "enemy_group_id": "wolves_01"
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "ruins_moon_script",
+    "category": "ruins",
+    "location_id": null,
+    "title": "Лунные письмена",
+    "biome": "ruins",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "На камнях проступают древние знаки.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "read_script",
+        "text": "Прочесть письмена",
+        "condition": null,
+        "check": {
+          "stat": "intellect",
+          "dc": 12
+        },
+        "success": {
+          "text": "Ты находишь фрагмент старого знания.",
+          "effects": [
+            {
+              "type": "add_lore",
+              "fragment_id": "ancient_temple_01"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Знаки ускользают, а холод камня вытягивает силы.",
+          "effects": [
+            {
+              "type": "fatigue",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "temple_blessing",
+    "category": "temple",
+    "location_id": null,
+    "title": "Тихое святилище",
+    "biome": "temple",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Лунный свет ложится на ладони.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "pray",
+        "text": "Сосредоточиться",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 10
+        },
+        "success": {
+          "text": "Ты чувствуешь благословение и находишь запись о Лунном Троне.",
+          "effects": [
+            {
+              "type": "fatigue",
+              "value": -1
+            },
+            {
+              "type": "add_lore",
+              "fragment_id": "moon_throne_01"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Молитва не складывается в слова.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "wilds_bad_weather",
+    "category": "wilds",
+    "location_id": null,
+    "title": "Холодный дождь",
+    "biome": "wilds",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Серебряная вода становится ледяной стеной.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "push_forward",
+        "text": "Идти дальше",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 12
+        },
+        "success": {
+          "text": "Ты проходишь сквозь дождь без потерь.",
+          "effects": [],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Холод выматывает тебя.",
+          "effects": [
+            {
+              "type": "fatigue",
+              "value": 1
+            },
+            {
+              "type": "hp",
+              "target": "hero",
+              "value": -2
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "wall_patrol",
+    "category": "wall",
+    "location_id": null,
+    "title": "Патруль у стены",
+    "biome": "wall",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Патруль требует назвать цель пути.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "answer_patrol",
+        "text": "Говорить спокойно",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 12
+        },
+        "success": {
+          "text": "Тебя пропускают без лишних вопросов.",
+          "effects": [
+            {
+              "type": "reputation",
+              "target": "current_region",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Патруль запоминает твоё лицо.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "rift_whisper",
+    "category": "rift",
+    "location_id": null,
+    "title": "Шёпот разлома",
+    "biome": "rift",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Воздух дрожит, будто мир вспоминает боль.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "listen",
+        "text": "Прислушаться",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 15
+        },
+        "success": {
+          "text": "Ты получаешь редкий фрагмент знания о разломах.",
+          "effects": [
+            {
+              "type": "add_lore",
+              "fragment_id": "southern_rift_01"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Шёпот ранит разум и тело.",
+          "effects": [
+            {
+              "type": "hp",
+              "target": "hero",
+              "value": -4
+            },
+            {
+              "type": "fatigue",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "village_closed_shutters",
+    "category": "village",
+    "location_id": null,
+    "title": "Закрытые ставни",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Ставни закрываются раньше заката. Люди делают вид, что не слышат шаги за околицей.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "ask_villagers",
+        "text": "Расспросить жителей",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 10
+        },
+        "success": {
+          "text": "Один старик шепчет тебе о дороге, где ночью звенит железо.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "asterwald_road"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Тебе не открывают. Здесь чужаков боятся больше, чем тьмы.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "port_black_sails",
+    "category": "port",
+    "location_id": null,
+    "title": "Чёрные паруса",
+    "biome": "port",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "В гавани спорят о корабле, который вошёл в туман и вернулся без команды.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "listen_port_rumors",
+        "text": "Слушать портовые слухи",
+        "condition": null,
+        "check": {
+          "stat": "perception",
+          "dc": 10
+        },
+        "success": {
+          "text": "Ты слышишь название бухты, которую моряки стараются не произносить.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "smugglers_cove"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Слухи рассыпаются в пьяный смех.",
+          "effects": [
+            {
+              "type": "fatigue",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "underground_city_debt",
+    "category": "underground_city",
+    "location_id": null,
+    "title": "Долговая клятва",
+    "biome": "underground_city",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "В подземном городе спорят тише, чем наверху молятся. Здесь каждое слово может стать долгом.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "read_contract",
+        "text": "Прочесть старый договор",
+        "condition": null,
+        "check": {
+          "stat": "intellect",
+          "dc": 11
+        },
+        "success": {
+          "text": "Ты замечаешь строку, написанную кровными чернилами.",
+          "effects": [
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Смысл ускользает, но подпись будто смотрит на тебя.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "underground_gate_watch",
+    "category": "underground_gate",
+    "location_id": null,
+    "title": "Стража нижних ворот",
+    "biome": "underground_gate",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Стражи не спрашивают имени. Они смотрят, как ты держишь спину.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "walk_confidently",
+        "text": "Идти уверенно",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 11
+        },
+        "success": {
+          "text": "Тебя пропускают без слов.",
+          "effects": [],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Один из стражей запоминает твою слабость.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "frontier_town_stare",
+    "category": "frontier_town",
+    "location_id": null,
+    "title": "Взгляд Блэкторна",
+    "biome": "frontier_town",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "На улицах смотрят не в лицо, а на руки. Здесь важно, как быстро ты достанешь клинок.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "avoid_trouble",
+        "text": "Не искать конфликта",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 10
+        },
+        "success": {
+          "text": "Ты проходишь мимо чужой драки и сохраняешь силы.",
+          "effects": [],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Чужая драка всё равно задевает тебя краем.",
+          "effects": [
+            {
+              "type": "hp",
+              "target": "hero",
+              "value": -2
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "mountain_iron_wind",
+    "category": "mountain",
+    "location_id": null,
+    "title": "Железный ветер",
+    "biome": "mountain",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Ветер в горах звучит так, будто кто-то точит клинок о камень.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "push_through_wind",
+        "text": "Идти сквозь ветер",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 12
+        },
+        "success": {
+          "text": "Ты проходишь перевал без потерь.",
+          "effects": [],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Ветер выматывает тебя.",
+          "effects": [
+            {
+              "type": "fatigue",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "underground_echo",
+    "category": "underground",
+    "location_id": null,
+    "title": "Эхо глубин",
+    "biome": "underground",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "В темноте шаги звучат дважды. Второе эхо не принадлежит тебе.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "listen_echo",
+        "text": "Прислушаться",
+        "condition": null,
+        "check": {
+          "stat": "perception",
+          "dc": 12
+        },
+        "success": {
+          "text": "Ты понимаешь, что эхо идёт из бокового прохода.",
+          "effects": [],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Эхо будто входит тебе под кожу.",
+          "effects": [
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_mill_morning",
+    "category": "story",
+    "location_id": null,
+    "title": "Утро на мельнице",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Мельница проснулась раньше деревни. Сначала за стеной вздохнуло старое колесо, потом внизу заскрипели жернова, и только после этого в ставни осторожно постучал свет. Воздух был полон мучной пыли: она ложилась на волосы, на ресницы, на рукава и делала любое утро чуть похожим на зиму.\n\nЭмма спустилась босиком по тёплым от вчерашнего дня доскам. Внизу отец уже стоял у мешков, с завязанными рукавами и тем выражением лица, с которым он обычно спорил не с людьми, а с самой работой. На столе лежали три маленьких узла муки, перевязанных грубой нитью: трактир Марты, кузница Хагена, храм Орена. Рядом — отдельный плотный мешочек для дома старосты Освина.\n\n— Не смотри так, — сказал отец, не оборачиваясь. — Это не подвиг. Это поручения. Подвиги редко пахнут овсом и требуют вернуть сдачу.\n\nОн кашлянул, провёл ладонью по мешку и наконец посмотрел на Эмму. Усталость в его лице была обычной, домашней, почти безопасной. Но за ней пряталось что-то ещё: то ли тревога из-за долгов, то ли нежелание говорить о том, почему мельничное колесо ночью пару раз останавливалось без ветра и без причины.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "ask_father_about_work",
+        "text": "Спросить отца, что нужно сделать",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Отец перечисляет поручения так обстоятельно, будто от правильного порядка зависит не только день, но и мир в доме. Марту нельзя заставлять ждать: к полудню в трактире будут возчики. Хагену нужна тонкая мука для клея и для его странных кузнечных смесей. Орен просил принести жертвенный хлебный замес к храму, а Освин, как всегда, хочет получить своё без лишних разговоров.\n\n— Порядок выбирай сама, — говорит отец. — Только не бегай с мешками как с пожаром. Деревня любит, когда ей дают думать, что день идёт как надо.\n\nОн кладёт узлы в корзину и задерживает руку на её краю. Это почти благословение, только без красивых слов.",
+          "effects": [
+            {
+              "type": "add_item",
+              "item_id": "flour_sacks"
+            },
+            {
+              "type": "inc_flag",
+              "flag": "father_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_pragmatism",
+              "value": 1
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_has_flour_errands",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_started",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_marta_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_hagen_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oren_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oswin_needed",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Отец поручил Эмме развезти муку по деревне: Марте, Хагену, Орену и старосте Освину."
+            },
+            {
+              "type": "enter_location",
+              "location_id": "iron_bridge_village"
+            }
+          ],
+          "next_event_id": null,
+          "location_message": "Эмме нужно развезти муку по деревне. Выбери, куда пойти."
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "notice_father_tired",
+        "text": "Заметить усталость отца",
+        "condition": null,
+        "check": {
+          "stat": "perception",
+          "dc": 9
+        },
+        "success": {
+          "text": "Эмма видит, как отец бережёт левую руку, когда поднимает мешок. Видит и то, что он собирался скрыть: у запястья белеет тонкая серебристая пыль, не похожая на муку. Он замечает её взгляд и быстро стирает след о фартук.\n\n— Ничего, — говорит он слишком быстро. — Старое колесо капризничает. Старые люди тоже.\n\nПотом мягче добавляет:\n\n— Отнеси муку. А если Хаген начнёт ворчать про железо у моста — не спорь. Он ворчит лучше, когда думает, что его слушают.",
+          "effects": [
+            {
+              "type": "add_item",
+              "item_id": "flour_sacks"
+            },
+            {
+              "type": "inc_flag",
+              "flag": "father_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_suspicion",
+              "value": 1
+            },
+            {
+              "type": "set_flag",
+              "flag": "silver_trace_seen",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_has_flour_errands",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_started",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_marta_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_hagen_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oren_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oswin_needed",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма заметила странную серебристую пыль у отца, но он назвал это капризом старого колеса."
+            },
+            {
+              "type": "enter_location",
+              "location_id": "iron_bridge_village"
+            }
+          ],
+          "next_event_id": null,
+          "location_message": "Эмме нужно развезти муку по деревне. Выбери, куда пойти."
+        },
+        "fail": {
+          "text": "Отец выглядит усталым, но в мельнице все выглядят усталыми до первого завтрака. Он привычно подтягивает мешки ближе к двери и говорит Эмме не спорить с Мартой о цене, с Хагеном о железе, с Ореном о богах и с Освином вообще ни о чём лишнем.\n\n— Это, — заключает он, — и есть взрослая жизнь. Носишь муку и выбираешь, с кем сегодня не ругаться.",
+          "effects": [
+            {
+              "type": "add_item",
+              "item_id": "flour_sacks"
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_fear",
+              "value": 1
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_has_flour_errands",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_started",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_marta_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_hagen_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oren_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oswin_needed",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма получила утренние поручения от отца."
+            },
+            {
+              "type": "enter_location",
+              "location_id": "iron_bridge_village"
+            }
+          ],
+          "next_event_id": null,
+          "location_message": "Эмме нужно развезти муку по деревне. Выбери, куда пойти."
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "promise_be_careful",
+        "text": "Пообещать не искать неприятностей",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "— Я не ищу неприятностей, — говорит Эмма.\n\nОтец фыркает, но не зло.\n\n— Никто их не ищет. Их обычно находят по дороге за водой, за мукой или за чужими ответами. Поэтому если день будет обычным — цени. Обычные дни держат людей крепче, чем клятвы.\n\nОн отдаёт ей корзину. Мука тянет вниз приятно и понятно. Вес поручения всегда легче, когда его можно взять двумя руками.",
+          "effects": [
+            {
+              "type": "add_item",
+              "item_id": "flour_sacks"
+            },
+            {
+              "type": "inc_flag",
+              "flag": "father_relation",
+              "value": 2
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_kindness",
+              "value": 1
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_has_flour_errands",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_started",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_marta_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_hagen_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oren_needed",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oswin_needed",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма пообещала отцу быть осторожной и отправилась развозить муку."
+            },
+            {
+              "type": "enter_location",
+              "location_id": "iron_bridge_village"
+            }
+          ],
+          "next_event_id": null,
+          "location_message": "Эмме нужно развезти муку по деревне. Выбери, куда пойти."
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_tavern_marta_flour",
+    "category": "story",
+    "location_id": null,
+    "title": "Трактир Марты: мешок для кухни",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Трактир Марты встречает Эмму запахом кислого теста, жареного лука и мокрых плащей. Утро ещё не разошлось, но в зале уже спорят о колёсах, ценах и том, кто вчера обещал заплатить за вторую кружку. Марта стоит у стойки так, будто держит на плечах не трактир, а всю деревенскую привычку не разваливаться до обеда.\n\nОна замечает корзину с мукой и кивает на кухонную дверь.\n\n— От отца? Хорошо. Только не ставь у порога: возчики затопчут даже собственную совесть, если она лежит между ними и завтраком.",
+    "text_variants": [
+      {
+        "condition": {
+          "flag": "emma_delivery_marta_done"
+        },
+        "text": "В трактире уже пахнет тестом из отцовской муки. Марта замечает Эмму и машет ложкой вместо приветствия.\n\n— Сюда ты уже донесла, не переживай. Если хочешь помочь — помогай молча, но новых мешков я из тебя не вытрясу."
+      }
+    ],
+    "choices": [
+      {
+        "id": "give_flour_and_help",
+        "text": "Отдать муку и помочь на кухне",
+        "condition": {
+          "not_flag": "emma_delivery_marta_done",
+          "item": "flour_sacks"
+        },
+        "check": null,
+        "success": {
+          "text": "Марта принимает мешок, взвешивает его ладонью и тут же вручает Эмме противень. Здесь благодарность выглядит как новая работа.\n\n— Подержи. Передай. Не стой под ногами. И если кто спросит, почему блины не готовы, скажи: потому что мир ещё не заслужил.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_marta_needed",
+              "value": false
+            },
+            {
+              "type": "inc_flag",
+              "flag": "marta_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_kindness",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_tavern_kitchen_help"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ask_river_rumors",
+        "text": "Расспросить Марту о слухах у реки",
+        "condition": {
+          "not_flag": "emma_delivery_marta_done"
+        },
+        "check": null,
+        "success": {
+          "text": "Эмма спрашивает негромко, пока Марта пересыпает муку в деревянный ларь. Та не отвечает сразу: сначала закрывает крышку, потом смотрит, не слушает ли кто из возчиков слишком внимательно.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "emma_suspicion",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "old_secrets_interest",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_tavern_river_rumors"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "marta_done_return",
+        "text": "Вернуться к поручениям",
+        "condition": {
+          "flag": "emma_delivery_marta_done"
+        },
+        "check": null,
+        "success": {
+          "text": "Марта уже получила муку. Эмме пора к остальным поручениям.",
+          "effects": [
+            {
+              "type": "return_to_local_map",
+              "message": "Марта уже получила муку. Остальные поручения ждут."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_tavern_kitchen_help",
+    "category": "story",
+    "location_id": null,
+    "title": "Трактир Марты: кухня",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "На кухне жарко, тесно и честно. Тесто липнет к пальцам, ножи стучат по доске, Марта ругается на печь так, будто печь может исправиться из уважения. Эмма держит противень, подаёт соль, отодвигает ведро от прохода и постепенно понимает: в трактире новости не рассказывают, их роняют между делом.\n\nВозчик за стеной говорит, что у берега утром видели светлую полосу на воде. Другой смеётся. Марта не смеётся.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "finish_kitchen_help",
+        "text": "Закончить помощь и забрать Мартино предупреждение",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Марта наконец отбирает у Эммы противень и ставит его на стол.\n\n— Если пойдёшь к реке, не зови толпу, — говорит она. — Толпа делает из лужи пророчество, а из пророчества драку.\n\nОна говорит сухо, но в голосе слышна забота: не мягкая, зато настоящая.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "marta_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "village_trust",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Марта приняла муку и предупредила Эмму не раздувать слухи у реки."
+            }
+          ],
+          "next_event_id": "emma_tavern_delivery_done"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_tavern_river_rumors",
+    "category": "story",
+    "location_id": null,
+    "title": "Трактир Марты: слухи у окна",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Марта выводит Эмму к узкому окну у задней двери. Отсюда видна полоска дороги к реке и край старого моста.\n\n— Слухи, — говорит она, — это когда человек видел одно, понял второе, а рассказывает третье. Но рыбаки правда вернулись рано. И дети правда перестали бегать к берегу наперегонки. Для деревни это уже почти колокол.\n\nОна бросает взгляд на зал, где возчики снова смеются слишком громко.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "promise_discretion",
+        "text": "Пообещать не устраивать паники",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "— Вот и хорошо, — Марта кивает. — Твой отец умеет молоть зерно. Попробуй сегодня перемолоть слухи в что-то полезное.\n\nОна возвращает Эмму к стойке и громко объявляет, что мука принята. Для остальных это просто хозяйственная фраза. Для Эммы — знак, что разговор окончен.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "marta_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "village_denial_level",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Марта рассказала о раннем возвращении рыбаков и попросила Эмму не поднимать панику."
+            }
+          ],
+          "next_event_id": "emma_tavern_delivery_done"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_tavern_delivery_done",
+    "category": "story",
+    "location_id": null,
+    "title": "Трактир Марты: мука принята",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Мешок отцовской муки исчезает в трактирном ларе, словно всегда там и должен был быть. Марта уже командует кухней, возчики спорят, печь шипит, а утро продолжает делать вид, что оно простое.\n\nОдно поручение выполнено.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "return_from_tavern",
+        "text": "Вернуться на деревенскую улицу",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма выходит из трактира с запахом дыма на рукавах и новым кусочком тревоги в голове.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_marta_done",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_marta_needed",
+              "value": false
+            },
+            {
+              "type": "return_to_local_map",
+              "message": "Марта получила муку. Можно выбрать следующее поручение."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_forge_hagen_flour",
+    "category": "story",
+    "location_id": null,
+    "title": "Кузница Хагена: мука для замазки",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Кузница Хагена стоит чуть в стороне от рыночного шума: даже гуси, кажется, обходят её с уважением. Внутри пахнет углём, маслом и горячим железом. Хаген принимает мешок муки не как еду, а как материал — щурится, мнёт край ткани, будто проверяет клинок.\n\n— Для замазки, — поясняет он. — Не для пирогов. Хотя твой отец и пирогом дыру в крыше заделал бы лучше Освиновых обещаний.",
+    "text_variants": [
+      {
+        "condition": {
+          "flag": "emma_delivery_hagen_done"
+        },
+        "text": "Хаген уже убрал муку на полку у горна.\n\n— Сюда донесла, — бурчит он. — Не таскай один и тот же мешок по кругу, а то деревня решит, что у нас праздник бюрократии."
+      }
+    ],
+    "choices": [
+      {
+        "id": "deliver_to_hagen",
+        "text": "Отдать муку Хагену",
+        "condition": {
+          "not_flag": "emma_delivery_hagen_done",
+          "item": "flour_sacks"
+        },
+        "check": null,
+        "success": {
+          "text": "Хаген ставит мешок рядом с мелом и угольной пылью. На верстаке Эмма замечает тёмное влажное пятно на другом мешочке муки — будто ткань успела побывать у реки, хотя лежала у жара.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_hagen_needed",
+              "value": false
+            },
+            {
+              "type": "inc_flag",
+              "flag": "hagen_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_suspicion",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_forge_wet_flour_notice"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ask_hagen_warning_first",
+        "text": "Спросить, почему он смотрит на мост",
+        "condition": {
+          "not_flag": "emma_delivery_hagen_done"
+        },
+        "check": null,
+        "success": {
+          "text": "Хаген не сразу отвечает. Он берёт клещи, хотя они ему не нужны, и смотрит в сторону дверей — туда, где за домами угадывается железный пролёт.\n\n— Потому что некоторые вещи первыми меняют звук, — говорит он. — А люди замечают только тогда, когда уже поздно чинить.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "old_secrets_interest",
+              "value": 1
+            },
+            {
+              "type": "set_flag",
+              "flag": "hagen_warning_unlocked",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_forge_river_warning"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "hagen_done_return",
+        "text": "Вернуться к поручениям",
+        "condition": {
+          "flag": "emma_delivery_hagen_done"
+        },
+        "check": null,
+        "success": {
+          "text": "Хаген уже получил муку.",
+          "effects": [
+            {
+              "type": "return_to_local_map",
+              "message": "Хаген уже получил муку. Остальные поручения ждут."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_forge_wet_flour_notice",
+    "category": "story",
+    "location_id": null,
+    "title": "Кузница Хагена: влажный след",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Эмма кивает на влажный мешочек. Хаген не ругается и не шутит, что само по себе тревожнее любого крика. Он развязывает ткань и показывает серую муку, сбившуюся комками.\n\n— Принесли с берега, — говорит он. — Хотел посмотреть, почему она пахнет железом. Не ржавчиной. Железом, которое только что вспомнило, что оно было рудой.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "listen_hagen_river_warning",
+        "text": "Выслушать предупреждение Хагена",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "— Если увидишь светлый след на мосту или у воды, не трогай, — говорит Хаген. — Позови того, кто умеет бояться правильно.\n\nОн усмехается уголком рта.\n\n— То есть не Освина.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "hagen_warning_unlocked",
+              "value": true
+            },
+            {
+              "type": "inc_flag",
+              "flag": "hagen_relation",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Хаген предупредил Эмму не трогать светлые следы на железе или у воды."
+            }
+          ],
+          "next_event_id": "emma_forge_delivery_done"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_forge_river_warning",
+    "category": "story",
+    "location_id": null,
+    "title": "Кузница Хагена: предупреждение о воде",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Хаген проводит пальцем над пластиной железа, не касаясь её. На металле видна тонкая серебристая риска.\n\n— Река под мостом тащит не только ил. Иногда она приносит то, что лучше оставить лежать. Но дети любят блестящее, взрослые любят отрицать, а старосты любят отчёты без пятен.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "accept_hagen_warning",
+        "text": "Пообещать быть осторожной",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Хаген коротко кивает. Для него это почти благодарность.\n\n— Осторожность не трусость, Эмма. Трусость — это когда видишь трещину и называешь её узором.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "hagen_warning_unlocked",
+              "value": true
+            },
+            {
+              "type": "inc_flag",
+              "flag": "hagen_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_pragmatism",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_forge_delivery_done"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_forge_delivery_done",
+    "category": "story",
+    "location_id": null,
+    "title": "Кузница Хагена: мука убрана",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Хаген убирает отцовскую муку на верхнюю полку, подальше от искр. Молот снова ударяет по железу, и звук кажется Эмме слишком важным для обычного утра.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "return_from_forge",
+        "text": "Вернуться на улицу",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма выходит из кузницы. За спиной молот Хагена снова делает деревню настоящей: звонкой, горячей и упрямой.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_hagen_done",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_hagen_needed",
+              "value": false
+            },
+            {
+              "type": "return_to_local_map",
+              "message": "Хаген получил муку. Можно выбрать следующее поручение."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_temple_oren_flour",
+    "category": "story",
+    "location_id": null,
+    "title": "Храм Орена: хлеб для Витаэль",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Храм Орена меньше амбара и тише кладовой. Внутри пахнет сухими травами, старым деревом и мёдом. Орен подметает пол короткой метлой, двигаясь так осторожно, будто даже пыль может обидеться.\n\n— Мука для утреннего хлеба? — спрашивает он. — Хорошо. Людям легче благодарить богов, когда благодарность можно испечь.",
+    "text_variants": [
+      {
+        "condition": {
+          "flag": "emma_delivery_oren_done"
+        },
+        "text": "Орен уже замешивает храмовый хлеб из принесённой муки. Он приветствует Эмму тихим кивком.\n\n— Поручение выполнено. Иногда этого достаточно для начала молитвы."
+      }
+    ],
+    "choices": [
+      {
+        "id": "deliver_to_oren",
+        "text": "Передать муку Орену",
+        "condition": {
+          "not_flag": "emma_delivery_oren_done",
+          "item": "flour_sacks"
+        },
+        "check": null,
+        "success": {
+          "text": "Орен принимает муку обеими руками и ставит её у чаши с мёдом. В этот миг лампа у знака Витаэль дрожит, хотя двери закрыты, а ветра нет.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oren_needed",
+              "value": false
+            },
+            {
+              "type": "inc_flag",
+              "flag": "oren_relation",
+              "value": 1
+            },
+            {
+              "type": "set_flag",
+              "flag": "oren_confidence",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_temple_lamp_fails"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ask_oren_dreams_first",
+        "text": "Спросить, почему он выглядит невыспавшимся",
+        "condition": {
+          "not_flag": "emma_delivery_oren_done"
+        },
+        "check": null,
+        "success": {
+          "text": "Орен улыбается так, будто вопрос попал слишком точно.\n\n— Потому что сны иногда громче колокола. Но это не разговор для порога.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "emma_kindness",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_temple_oren_dreams"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "oren_done_return",
+        "text": "Вернуться к поручениям",
+        "condition": {
+          "flag": "emma_delivery_oren_done"
+        },
+        "check": null,
+        "success": {
+          "text": "Орен уже получил муку.",
+          "effects": [
+            {
+              "type": "return_to_local_map",
+              "message": "Орен уже получил муку. Остальные поручения ждут."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_temple_lamp_fails",
+    "category": "story",
+    "location_id": null,
+    "title": "Храм Орена: лампа гаснет",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Огонёк в лампе вытягивается тонкой иглой и гаснет. Орен замирает с рукой над мешком муки. Снаружи кто-то смеётся, тележное колесо стучит по камню, деревня живёт дальше — а внутри храма на миг становится слишком тихо.\n\n— Масло старое, — говорит Орен. И оба понимают, что это объяснение выбрано не потому, что оно лучшее, а потому что оно удобное.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "relight_lamp",
+        "text": "Помочь снова зажечь лампу",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма держит фитиль, Орен подносит огонь. Лампа вспыхивает не сразу, но всё-таки вспыхивает. Орен выдыхает.\n\n— Спасибо. Не за лампу. За то, что не стала делать вид, будто ничего не заметила.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "oren_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "village_trust",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "В храме Витаэль погасла лампа, и Эмма помогла Орену зажечь её снова."
+            }
+          ],
+          "next_event_id": "emma_temple_delivery_done"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_temple_oren_dreams",
+    "category": "story",
+    "location_id": null,
+    "title": "Храм Орена: сны",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Орен говорит тихо, почти без выражения, от чего слова становятся тяжелее. Ему снилась река, но вода в ней не текла: стояла, как стекло. На мосту были люди, и каждый держал в руках хлеб, который не мог разломить.\n\n— Глупый сон, — говорит он. — Но я проснулся с запахом мокрой муки в комнате.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "keep_oren_confidence",
+        "text": "Пообещать сохранить разговор",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Орен благодарно склоняет голову.\n\n— Тогда пусть это будет пока сном, — говорит он. — Утро и без того занято настоящими делами.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "oren_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "old_secrets_interest",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Орен рассказал Эмме сон о неподвижной реке и хлебе, который нельзя разломить."
+            }
+          ],
+          "next_event_id": "emma_temple_delivery_done"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_temple_delivery_done",
+    "category": "story",
+    "location_id": null,
+    "title": "Храм Орена: мука у чаши",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Мука остаётся у чаши с мёдом. Орен снова берёт метлу, но теперь храм кажется Эмме не пустым, а настороженно живым.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "return_from_temple",
+        "text": "Вернуться на площадь",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма выходит из храма на дневной свет. Поручение выполнено, хотя в голове осталось больше вопросов, чем было на входе.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oren_done",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oren_needed",
+              "value": false
+            },
+            {
+              "type": "return_to_local_map",
+              "message": "Орен получил муку. Можно выбрать следующее поручение."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_elder_oswin_flour",
+    "category": "story",
+    "location_id": null,
+    "title": "Дом старосты Освина: запись в книге",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Дом Освина крепче соседских домов и явно знает об этом. На крыльце чисто, ставни выкрашены ровно, у двери стоит бочка для дождевой воды. Староста встречает Эмму на пороге: так можно принять муку и не приглашать человека внутрь.\n\n— От мельницы? Хорошо. Передай отцу, что оплату внесу в запись вечером. И что разговоры о реке лучше оставить тем, у кого нет работы.",
+    "text_variants": [
+      {
+        "condition": {
+          "flag": "emma_delivery_oswin_done"
+        },
+        "text": "У дома Освина всё так же чисто и ровно. Староста уже получил муку и теперь делает вид, что Эмма пришла без причины.\n\n— Поручение выполнено, — напоминает он. — Остальное, надеюсь, тоже будет выполнено без лишнего шума."
+      }
+    ],
+    "choices": [
+      {
+        "id": "deliver_to_oswin",
+        "text": "Передать муку и дождаться записи",
+        "condition": {
+          "not_flag": "emma_delivery_oswin_done",
+          "item": "flour_sacks"
+        },
+        "check": null,
+        "success": {
+          "text": "Освин принимает мешочек и всё-таки вынужден отступить в прихожую к столу с книгой. Эмма видит на стене старую карту деревни: мост на ней нарисован толще домов, а у реки есть отметка, которой нет на нынешних указателях.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oswin_needed",
+              "value": false
+            },
+            {
+              "type": "inc_flag",
+              "flag": "oswin_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_suspicion",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_elder_old_map"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "challenge_oswin_rumors",
+        "text": "Спросить, почему он боится слухов",
+        "condition": {
+          "not_flag": "emma_delivery_oswin_done"
+        },
+        "check": null,
+        "success": {
+          "text": "Освин закрывает книгу чуть громче, чем нужно.\n\n— Я боюсь не слухов, а людей, которые начинают принимать их за распоряжения. Деревне нужен порядок, Эмма. Даже если порядок иногда приходится держать зубами.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "oswin_relation",
+              "value": -1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "village_denial_level",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_elder_warning_about_rumors"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "oswin_done_return",
+        "text": "Вернуться к поручениям",
+        "condition": {
+          "flag": "emma_delivery_oswin_done"
+        },
+        "check": null,
+        "success": {
+          "text": "Освин уже получил муку.",
+          "effects": [
+            {
+              "type": "return_to_local_map",
+              "message": "Освин уже получил муку. Остальные поручения ждут."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_elder_old_map",
+    "category": "story",
+    "location_id": null,
+    "title": "Дом старосты Освина: старая карта",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Освин замечает взгляд Эммы и становится в пол-оборота, закрывая карту плечом. Слишком поздно: она уже увидела старую подпись у берега — 'нижняя кладка'. Сейчас это место никто так не называет.\n\n— Карта старая, — говорит староста. — Старые карты любят врать из чувства важности.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "do_not_press_map",
+        "text": "Не давить на Освина сейчас",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма кивает, позволяя Освину думать, что разговор закрыт. Иногда лучший способ открыть дверь — не толкать её, пока на тебя смотрят.\n\nСтароста делает запись об оплате аккуратным почерком и возвращает ей пустую ткань от мешочка.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "emma_pragmatism",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "old_secrets_interest",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "У Освина Эмма заметила старую карту с отметкой у реки."
+            }
+          ],
+          "next_event_id": "emma_elder_delivery_done"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_elder_warning_about_rumors",
+    "category": "story",
+    "location_id": null,
+    "title": "Дом старосты Освина: порядок и слухи",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Освин говорит тихо, но каждое слово кладёт на место, как камень в стену.\n\n— Если завтра люди решат, что река дурная, никто не выйдет чинить берег. Если берег не чинить, вода заберёт огороды. Потом все скажут, что виноваты знаки, а не лень.\n\nОн смотрит на Эмму устало, почти честно.\n\n— Я не отрицаю беду. Я не даю ей стать базаром.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "accept_order_for_now",
+        "text": "Принять это как предупреждение",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма не обещает молчать, но и не спорит дальше. Освин принимает это за победу. Возможно, зря.\n\nОн записывает муку в книгу и отпускает её коротким кивком.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "village_denial_level",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_pragmatism",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Освин объяснил, что боится не реки, а деревенской паники."
+            }
+          ],
+          "next_event_id": "emma_elder_delivery_done"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_elder_delivery_done",
+    "category": "story",
+    "location_id": null,
+    "title": "Дом старосты Освина: поручение закрыто",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Запись сделана. Мука принята. Освин закрывает книгу так, будто вместе с ней можно закрыть и все неудобные вопросы утра.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "return_from_oswin",
+        "text": "Вернуться на улицу",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма спускается с крыльца. За спиной дом старосты снова выглядит безупречно, но теперь эта безупречность кажется частью разговора.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oswin_done",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delivery_oswin_needed",
+              "value": false
+            },
+            {
+              "type": "return_to_local_map",
+              "message": "Освин получил муку. Можно выбрать следующее поручение."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_mill_after_morning",
+    "category": "story",
+    "location_id": null,
+    "title": "Мельница и дом Эммы",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Мельница за спиной дома гудит ровно, почти сонно. Отец снова занят жерновами и делает вид, что не поглядывает в окно каждый раз, когда Эмма проходит мимо двора. На пороге пахнет тёплой крупой, мокрым деревом и мукой — запахом, который не спрашивает, хочешь ли ты помнить детство.\n\nКорзина с поручениями напоминает о себе тяжестью. Деревня ждёт не героизма, а доставки: Марта будет ругаться, если мука опоздает; Хаген будет ругаться в любом случае; Орен поблагодарит слишком тихо; Освин найдёт способ сделать даже благодарность похожей на налог.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "check_flour_list",
+        "text": "Проверить список поручений",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма пересчитывает узлы: трактир, кузница, храм, дом старосты. Всё на месте. Если выполнить поручения без лишнего шума, отец, может быть, впервые за неделю сядет ужинать до темноты.",
+          "effects": [
+            {
+              "type": "journal_entry",
+              "text": "В корзине Эммы остаются поручения по муке для трактира, кузницы, храма и старосты."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_marta_delivery",
+    "category": "story",
+    "location_id": null,
+    "title": "Трактир Марты",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Трактир Марты ещё не был полон, но уже звучал так, будто день давно начался. На кухне стучали ножи, в зале кто-то спорил о цене овса, а сама Марта стояла у стойки с рукавами, закатанными выше локтей. Она умела смотреть на человека так, словно заранее знала, сколько тот должен, сколько врёт и сколько сможет съесть.\n\n— Мука? — спросила она, хотя прекрасно видела корзину. — Хорошо. Значит, блины сегодня будут не из обещаний.\n\nНа столе у окна двое возчиков обсуждали дорогу к мосту и смеялись слишком громко. Один сказал, что ночью у реки снова видели серебристую полоску на воде. Второй велел ему меньше пить и больше смотреть под ноги.",
+    "text_variants": [
+      {
+        "condition": {
+          "flag": "silver_trace_seen"
+        },
+        "text": "Трактир Марты пахнет кислым тестом, жареным луком и чужими новостями. Когда Эмма вносит муку, Марта смотрит не на корзину, а на её лицо.\n\n— Ты уже что-то видела, — говорит она негромко. — Не рассказывай при возчиках. Они из серебряной пыли сделают серебряного демона до полудня.\n\nУ окна спорят о дороге к мосту. Кто-то упоминает тонкую светлую полоску на воде, и Эмма невольно вспоминает след у отцовского запястья."
+      }
+    ],
+    "choices": [
+      {
+        "id": "deliver_flour_warmly",
+        "text": "Отдать муку и помочь Марте на кухне",
+        "condition": {
+          "item": "flour_sacks",
+          "not_flag": "marta_flour_delivered"
+        },
+        "check": null,
+        "success": {
+          "text": "Марта принимает узел, но не отпускает Эмму сразу: просит подержать противень, переставить кувшин, передать соль. Помощи выходит на несколько минут, зато кухня перестаёт казаться полем боя.\n\n— У твоего отца честная мука, — говорит Марта. — Это редкость. Сейчас даже зерно иногда ведёт себя так, будто у него есть хозяин побогаче.\n\nОна говорит это как шутку, но после смотрит в сторону окна, где виден кусок дороги к мосту.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "marta_flour_delivered",
+              "value": true
+            },
+            {
+              "type": "inc_flag",
+              "flag": "marta_relation",
+              "value": 2
+            },
+            {
+              "type": "inc_flag",
+              "flag": "village_trust",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_kindness",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма доставила муку Марте и помогла на кухне трактира."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ask_marta_rumors",
+        "text": "Расспросить о слухах у реки",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Марта вытирает руки о фартук и делает вид, что думает только о тесте.\n\n— Слухи — это когда человек видел одно, понял другое, а рассказывает третье. Но у реки правда что-то не так: рыбаки стали возвращаться раньше, а дети перестали спорить, кто первым добежит до берега.\n\nОна наклоняется ближе:\n\n— Если пойдёшь туда, не делай из этого представление. Деревня боится громких людей сильнее тихой воды.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "marta_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_suspicion",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "old_secrets_interest",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Марта предупредила Эмму: у реки ходят странные слухи, но деревне не нужна паника."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "marta_already_delivered",
+        "text": "Спросить, всё ли в порядке с мукой",
+        "condition": {
+          "flag": "marta_flour_delivered"
+        },
+        "check": null,
+        "success": {
+          "text": "— Иди уже, — Марта машет ложкой, но улыбается краем рта. — Если задержишься, Хаген решит, что я переманила тебя в трактир. А он ревнует даже к мешкам.",
+          "effects": [],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_hagen_delivery",
+    "category": "story",
+    "location_id": null,
+    "title": "Кузница Хагена",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Кузница Хагена стояла чуть в стороне от рыночного шума, потому что даже деревенский шум уважал молот. У дверей висели подковы, крюки, петли, ножи для жатвы и одна старая цепь, которую никто не покупал, но все почему-то замечали.\n\nХаген был не местным дворфом из песен, а человеком широким, седым и упрямым, как наковальня. Он взял у Эммы узел муки, понюхал его и кивнул так, будто мука выдержала испытание огнём.\n\n— Для замазки, — сказал он. — Не для пирогов. Хотя пироги из твоей мельницы тоже держали бы стену лучше, чем освинские обещания.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "deliver_flour_to_hagen",
+        "text": "Отдать муку для кузницы",
+        "condition": {
+          "item": "flour_sacks",
+          "not_flag": "hagen_flour_delivered"
+        },
+        "check": null,
+        "success": {
+          "text": "Хаген убирает муку на полку, где рядом лежат мел, уголь и бутылка масла. На верстаке Эмма замечает железную пластину с едва видной светлой царапиной. Хаген перехватывает её взгляд и накрывает пластину ладонью.\n\n— Не всякая царапина просит, чтобы её рассматривали, — говорит он. — Но если увидишь такую на мосту, не трогай голыми руками.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "hagen_flour_delivered",
+              "value": true
+            },
+            {
+              "type": "inc_flag",
+              "flag": "hagen_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "village_trust",
+              "value": 1
+            },
+            {
+              "type": "set_flag",
+              "flag": "hagen_warning_unlocked",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Хаген принял муку и предупредил Эмму не трогать странные следы на железе."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ask_hagen_about_bridge",
+        "text": "Спросить, что он знает о мосте",
+        "condition": {
+          "flag": "hagen_warning_unlocked"
+        },
+        "check": null,
+        "success": {
+          "text": "Хаген долго проверяет клещи, хотя они и так лежат ровно.\n\n— Мост старше деревни. А старые вещи не становятся добрее от того, что мы ходим по ним каждый день. Иногда они просто терпят.\n\nОн смотрит на Эмму пристально:\n\n— Это не повод бояться каждого скрипа. Но повод слушать, когда железо вдруг перестаёт звучать.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "hagen_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "old_secrets_interest",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Хаген сказал, что мост старше деревни и не всякая тишина у железа бывает обычной."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "hagen_practical_answer",
+        "text": "Попросить простой совет",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "— Простой совет? — Хаген хмыкает. — Не стой под телегой, не спорь с пьяным возчиком, не верь старосте до завтрака и не ищи тайну там, где хватает глупости.\n\nПотом он добавляет уже тише:\n\n— Но если тайна сама выйдет на дорогу — не отворачивайся первой.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "hagen_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_pragmatism",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_oren_delivery",
+    "category": "story",
+    "location_id": null,
+    "title": "Храм Орена",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Храм Орена был меньше старого амбара и тише кладовой. Его называли храмом из уважения к привычке: внутри стоял деревянный стол, три скамьи, глиняная чаша для мёда и резной знак Витаэль, потемневший от ладоней.\n\nОрен, храмовник без важности и почти без голоса, подметал пол короткой метлой. Он всегда двигался так, будто боялся потревожить пыль, у которой тоже могли быть свои молитвы.\n\n— Для утреннего хлеба? — спросил он, увидев муку. — Хорошо. Людям легче благодарить богов, когда благодарность можно испечь.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "deliver_flour_to_oren",
+        "text": "Передать муку для храмового хлеба",
+        "condition": {
+          "item": "flour_sacks",
+          "not_flag": "oren_flour_delivered"
+        },
+        "check": null,
+        "success": {
+          "text": "Орен принимает муку обеими руками и ставит её у чаши с мёдом. Он не произносит длинной молитвы, только закрывает глаза на несколько ударов сердца.\n\n— Передай отцу спасибо. Его мука хорошо поднимается. Это редкий талант — помогать вещам становиться легче.\n\nЭмма замечает на столе список имён: больные, должники, одинокие. Деревня не выглядит несчастной, если смотреть с площади. На бумаге она кажется гораздо честнее.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "oren_flour_delivered",
+              "value": true
+            },
+            {
+              "type": "inc_flag",
+              "flag": "oren_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "village_trust",
+              "value": 1
+            },
+            {
+              "type": "set_flag",
+              "flag": "oren_confidence",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Орен принял муку для храмового хлеба и показал Эмме тихую сторону деревенских забот."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ask_oren_about_fear",
+        "text": "Спросить, чего сейчас боится деревня",
+        "condition": {
+          "flag": "oren_confidence"
+        },
+        "check": null,
+        "success": {
+          "text": "Орен не отвечает сразу. Снаружи кто-то смеётся, и этот смех делает паузу между словами ещё глубже.\n\n— Бедности, — говорит он наконец. — Налогов. Болезни. Того, что дети уйдут и не вернутся. Нового урожая. Старого моста. Но больше всего — признать, что страх уже сидит за столом, а мы всё ещё называем его гостем.\n\nОн смущённо улыбается, будто сказал слишком много для утра.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "oren_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_fear",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "old_secrets_interest",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Орен сказал, что деревня боится признать собственный страх."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_oswin_delivery",
+    "category": "story",
+    "location_id": null,
+    "title": "Дом старосты Освина",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Дом Освина был крепче соседских домов и как будто знал об этом. У крыльца стояла чистая бочка для дождевой воды, на двери висел свежий веник, а ставни были выкрашены так ровно, будто порядок можно было прибить гвоздями.\n\nСтароста Освин встретил Эмму не у стола, а на пороге: так проще принять поручение и не пригласить человека внутрь. Его жилет был застёгнут до горла, голос — до вежливости.\n\n— Мука от мельницы? Хорошо. Передай отцу, что запись по оплате я сделаю вечером. И что разговоры о реке лучше оставлять тем, у кого нет работы.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "deliver_flour_politely",
+        "text": "Вежливо передать муку и не спорить",
+        "condition": {
+          "item": "flour_sacks",
+          "not_flag": "oswin_flour_delivered"
+        },
+        "check": null,
+        "success": {
+          "text": "Эмма отдаёт мешочек и отвечает ровно. Освин явно ожидал вопроса или претензии; отсутствие и того и другого сбивает его сильнее, чем грубость.\n\n— Разумно, — говорит он. — В деревне сейчас слишком много языков и слишком мало дела.\n\nОн закрывает дверь не резко, но быстро. На крыльце остаётся ощущение разговора, в котором главные слова так и не произнесли.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "oswin_flour_delivered",
+              "value": true
+            },
+            {
+              "type": "inc_flag",
+              "flag": "oswin_relation",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_pragmatism",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма доставила муку старосте Освину и не стала спорить на пороге."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "press_oswin_about_river",
+        "text": "Спросить, почему он запрещает разговоры о реке",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 11
+        },
+        "success": {
+          "text": "Освин смотрит на Эмму так, будто только что обнаружил в муке камень.\n\n— Я запрещаю не разговоры, а панику. Между ними, девочка, разница величиной с деревню.\n\nОн понижает голос:\n\n— Если люди решат, что у реки дурной знак, завтра никто не выйдет чинить берег. А если берег не чинить, вода заберёт больше, чем слухи.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "oswin_relation",
+              "value": -1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_suspicion",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "village_denial_level",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Освин считает разговоры о реке опасной паникой и пытается удержать деревню в порядке."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Освин мягко улыбается, и от этого улыбка становится неприятнее.\n\n— Потому что у реки мокро, у мельницы пыльно, а у молодых людей слишком много вопросов. Передай отцу, что муку приняли.\n\nДверь закрывается. Ответа Эмма не получила, но молчание тоже иногда бывает уликой.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "oswin_relation",
+              "value": -1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "village_denial_level",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_fear",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_bridge_flour_walk",
+    "category": "story",
+    "location_id": null,
+    "title": "Железный мост",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Железный мост не выглядел тайной. Он выглядел работой: заклёпки, настил, мокрые следы колёс, старые перила, на которых дети выцарапывали имена, пока взрослые делали вид, что не замечают. Под ним шла мутная река, несла щепки и серую пену, а на другом берегу дорога уходила к тракту.\n\nПо мосту прошла телега. Железо ответило привычным глухим звоном. Эмма почти успела успокоиться, когда заметила у основания перил тонкую светлую линию. Не трещину. Не ржавчину. Просто след, который исчезал, если смотреть прямо, и возвращался краем глаза.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "touch_nothing",
+        "text": "Не трогать след, только запомнить",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма убирает руку прежде, чем пальцы касаются железа. День слишком обычный, чтобы портить его глупой смелостью, и слишком странный, чтобы притворяться слепой.\n\nОна запоминает место: третья стойка от деревни, нижняя заклёпка, линия тоньше волоса. Если Хаген говорил правду, это может быть важно.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "bridge_strangeness_seen",
+              "value": true
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_suspicion",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма заметила тонкий светлый след на железе моста и не стала его трогать."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "inspect_bridge_mark",
+        "text": "Рассмотреть след внимательнее",
+        "condition": null,
+        "check": {
+          "stat": "perception",
+          "dc": 10
+        },
+        "success": {
+          "text": "Если смотреть не на саму линию, а рядом, становится видно: след не лежит на железе. Он будто проходит под поверхностью, как жилка в камне. На миг Эмме кажется, что линия повторяет изгиб речной воды под мостом.\n\nПотом телега на дальнем конце скрипит, и всё снова становится просто старым металлом.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "bridge_strangeness_seen",
+              "value": true
+            },
+            {
+              "type": "inc_flag",
+              "flag": "old_secrets_interest",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "След на мосту будто проходил под поверхностью железа."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Эмма щурится, но мост отвечает только обычной ржавчиной и мокрым блеском. Может, след ей показался. Может, глаза устали от мучной пыли.\n\nНо почему тогда так не хочется поворачиваться к нему спиной?",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "emma_fear",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ignore_bridge",
+        "text": "Не задерживаться у моста",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма уходит, не проверяя перила. Иногда осторожность похожа на равнодушие, но это не одно и то же. Мост остаётся за спиной и звенит под чужими колёсами совершенно обычно.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "village_denial_level",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_pragmatism",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_river_bank_morning",
+    "category": "story",
+    "location_id": null,
+    "title": "Речной берег",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Берег у мельницы был низким и вязким. Здесь стирали, спорили, чистили рыбу и вытаскивали из воды всё, что деревня случайно теряла: щепки, ведра, детские палки, иногда чужие секреты. Сегодня река несла мутную пену и лениво билась о корни.\n\nУ самой воды лежала дохлая рыбёшка. Такое случалось после дождя. Но рядом с ней тянулась тонкая серебристая дорожка, похожая на рассыпанную пыль. Вода касалась её и не смывала.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "cover_river_trace",
+        "text": "Засыпать странный след грязью",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма берёт палку и осторожно поддевает мокрую землю. Серебристая полоска скрывается под грязью, но на конце палки остаётся светлый блеск. Он исчезает через несколько вдохов.\n\nЭто не решение. Скорее привычка: если что-то тревожит двор, сначала его прикрывают, а уже потом зовут взрослых.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "river_wrongness",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "silver_trace_seen",
+              "value": true
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_pragmatism",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма нашла у реки серебристый след, который вода не смывала."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "study_river_trace",
+        "text": "Наклониться и рассмотреть след",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 10
+        },
+        "success": {
+          "text": "Вблизи серебристая пыль не блестит, а словно помнит свет, которого здесь нет. Эмма задерживает дыхание и вдруг слышит не голос, не шёпот — просто паузу в шуме воды.\n\nПотом река снова плещет, гуси кричат у дороги, и мир возвращает себе звуки.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "river_wrongness",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "silver_trace_seen",
+              "value": true
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_suspicion",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "old_secrets_interest",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "У реки Эмма почувствовала странную паузу в шуме воды."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Эмма наклоняется слишком близко, и на миг ей кажется, что вода смотрит вверх. Она резко отступает. Сердце стучит глупо и громко, будто её кто-то поймал за запретным делом.\n\nНа берегу ничего не меняется. Именно это и пугает.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "river_wrongness",
+              "value": true
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_fear",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "leave_river_quickly",
+        "text": "Уйти от воды",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма отходит от берега. Не потому что испугалась — так она сказала бы вслух. Просто у неё есть мука, поручения и достаточно обычных причин не стоять над мутной водой.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "village_denial_level",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_leave_village_slice_01",
+    "category": "story",
+    "location_id": null,
+    "title": "Выйти к тракту",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Дорога за деревней выглядит буднично: колеи, мокрая трава, дальняя полоска тракта и редкие птицы над полем. Никакая судьба не стоит у ворот и не требует решения.\n\nНо за спиной остаются поручения, отец у мельницы и люди, которые ждут муку не меньше, чем спокойный день. Уйти можно. Просто это будет уже другой выбор.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "mark_roads_and_return",
+        "text": "Запомнить дорогу и вернуться к поручениям",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма смотрит, где тракт уходит к Астервальду и где боковая дорога тянется к Блэкторну. Пути есть. Они никуда не денутся за одно утро.\n\nОна возвращается в деревню с тем редким спокойствием, которое даёт знание: выход существует, даже если ты пока остаёшься.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "asterwald_road"
+            },
+            {
+              "type": "reveal_node",
+              "node_id": "blackthorn"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма запомнила дороги из Железного моста, но вернулась к утренним поручениям."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "think_about_leaving",
+        "text": "Подумать, что было бы уйти прямо сейчас",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Мысль оказывается легче, чем ожидалось, и от этого немного стыдно. За дорогой есть места, где никто не знает ни отца, ни мельницу, ни старые долги, ни то, как Эмма в детстве боялась переходить мост в туман.\n\nПотом ветер приносит запах муки с её рукава. Утро всё ещё держит её здесь.",
+          "effects": [
+            {
+              "type": "inc_flag",
+              "flag": "emma_recklessness",
+              "value": 1
+            },
+            {
+              "type": "inc_flag",
+              "flag": "emma_fear",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_morning_home",
+    "category": "story",
+    "location_id": null,
+    "title": "Утро в доме Эммы",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Утро началось не с дурного знака и не с крика.\n\nОно началось с холода на полу, с запаха вчерашней золы в печи и с того, что в ставню снова стучала ветка старой груши. Эмма лежала ещё несколько мгновений, считая удары: три быстрых, один медленный. Так дерево стучало каждую ветреную неделю, сколько она себя помнила.\n\nЗа стеной кашлянула мать. На дворе кто-то гнал гусей к воде и ругался так буднично, что от этого становилось почти спокойно. Где-то дальше звякнула первая тележная цепь. Деревня Железного моста просыпалась, не подозревая, что должна быть частью какой-то большой истории.\n\nНа лавке у двери лежали пустые вёдра. В печи — холодные угли. На столе — мешочек крупы, три луковицы и деревянная ложка с трещиной на ручке.\n\nОбычный день. Такой обычный, что его даже жалко было начинать.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "fetch_water",
+        "text": "Взять вёдра и пойти к колодцу",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма берёт вёдра. Дужка одного неприятно холодит ладонь, но это всего лишь утренний металл. За дверью пахнет сырой землёй, дымом и хлебом, который кто-то уже успел поставить в печь.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_started_morning_chores",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_well_morning"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "make_breakfast_first",
+        "text": "Сначала растопить печь и приготовить завтрак",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма разгребает золу, находит в глубине печи крошечный живой уголёк и осторожно раздувает его. Огонь появляется не сразу — сперва только краснеет точка, потом тонкая жёлтая линия, потом слабое тепло.\n\nВ такие минуты кажется, что весь мир держится не на клятвах королей, а на людях, которые по утрам не дают огню умереть.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_made_breakfast",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма начала день с обычных домашних дел."
+            }
+          ],
+          "next_event_id": "emma_well_morning"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "check_mother",
+        "text": "Заглянуть к матери",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Мать не спит. Она сидит на краю постели, завязывает платок и делает вид, что кашель был случайным. На подоконнике перед ней стоит маленький глиняный знак Витаэль — древо с раскрытыми ветвями.\n\n— Не смотри так, — говорит она. — Я не умираю. Я просто старая раньше времени.\n\nПотом, мягче:\n\n— Сходи за водой, Эмма. И на рынок зайди. У Ольмы, говорят, снова спор с возчиками. Хоть кто-то должен сегодня ругаться красиво.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_checked_mother",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Мать попросила Эмму сходить за водой и на рынок."
+            }
+          ],
+          "next_event_id": "emma_well_morning"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_well_morning",
+    "category": "story",
+    "location_id": null,
+    "title": "У колодца",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "У колодца уже стояли две женщины с вёдрами и старик Мирон, который каждое утро приходил сюда не столько за водой, сколько за правом первым рассказать новости.\n\n— В Ривенхолле опять подняли сбор за проезд, — говорил он, пока ворот колодца скрипел под чьими-то руками. — А в Вайтфордже, слышал, кузнецы отказались продавать стражникам подковы без предоплаты. Вот до чего мир дошёл: даже лошади теперь в долгах.\n\nЖенщины смеялись. Не потому что было смешно, а потому что утро без смеха считалось плохой приметой.\n\nВода в ведре была тёмной и холодной. Нормальной. Колодезной. На поверхности качалось отражение неба, края сруба и лица Эммы.\n\nНа миг отражение будто запоздало за ней на пол-движения. Потом всё стало как обычно.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "ignore_reflection",
+        "text": "Не обращать внимания и набрать воду",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма моргает, и отражение снова становится обычным. Вода тяжело плещется в вёдрах. Мирон всё ещё спорит о подковах, женщины обсуждают цену яиц, и никто не выглядит так, будто только что видел что-то странное.\n\nМожет, ничего и не было. Утром глаза часто обманывают.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_ignored_well_reflection",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_market_morning"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "look_again",
+        "text": "Посмотреть в воду внимательнее",
+        "condition": null,
+        "check": {
+          "stat": "perception",
+          "dc": 10
+        },
+        "success": {
+          "text": "Эмма наклоняется ниже. В отражении всё на месте: её лицо, край платка, серое утро. Только за её плечом на миг проступает тёмная вертикальная линия — как силуэт человека, стоящего слишком близко.\n\nОна резко оборачивается.\n\nПозади никого. Только Мирон, женщины и гуси, которые с важным видом переходят дорогу.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_saw_well_shadow",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "У колодца Эмме показалось, что в воде отразился кто-то за её спиной."
+            }
+          ],
+          "next_event_id": "emma_market_morning"
+        },
+        "fail": {
+          "text": "Эмма смотрит в воду дольше, чем нужно. Ничего. Только собственное лицо и мутная глубина. Старик Мирон замечает её взгляд и ухмыляется:\n\n— Не ищи там жениха, девка. Колодец честный, кого попало не покажет.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_market_morning"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ask_miron_news",
+        "text": "Спросить Мирона о новостях",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Мирон доволен, что его спросили. Он расправляет плечи, будто сейчас будет говорить не у колодца, а перед королевским советом.\n\n— Новости? А какие у нас новости? У Лиски коза снова забралась в капусту. У старосты Бренна с утра лицо такое, будто налоги пришли пешком и с палкой. А ещё Тимо, малой прачкин, вчера хвастался, что видел у старой статуи белую птицу с чёрными глазами.\n\nОдна из женщин цыкает:\n\n— Не слушай его. Мирон из воробья сделает дракона, если дать ему кружку пива.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_heard_about_white_bird",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Мирон рассказал, что Тимо видел у старой статуи белую птицу с чёрными глазами."
+            }
+          ],
+          "next_event_id": "emma_market_morning"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_market_morning",
+    "category": "story",
+    "location_id": null,
+    "title": "Рынок",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Рыночная площадь в Железном мосту была слишком маленькой, чтобы называться площадью, и слишком шумной, чтобы называться улицей.\n\nНа трёх лавках продавали всё, что деревня считала торговлей: яйца, лук, ткань, дешёвые иглы, копчёную рыбу, соль в серых комках и ленточки для волос, которые выцветали быстрее, чем их успевали подарить.\n\nКузнец Ольма спорила с возчиком у своей двери. Возчик размахивал руками, Ольма стояла неподвижно, и уже по этому было ясно, кто побеждает.\n\nУ подножия старой статуи Витаэль девочка оставляла кусочек хлеба. Рядом сидел Тимо, болтал ногами и делал вид, что ему совершенно не интересно, смотрит ли кто-нибудь на него.\n\nОбычное утро продолжалось.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "buy_food",
+        "text": "Купить крупу и лук",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Торговка взвешивает крупу так медленно, будто от каждой горсти зависит судьба её рода. Она добавляет лишнюю щепоть и подмигивает Эмме.\n\n— Для твоей матери. Только не говори, что я добрая. У меня репутация.\n\nЛук оказывается мелким, зато крепким. Обычная покупка. Обычная доброта. Такие вещи редко попадают в песни, но без них песни некому было бы слушать.",
+          "effects": [
+            {
+              "type": "add_item",
+              "item_id": "grain_small_bag"
+            },
+            {
+              "type": "add_item",
+              "item_id": "onions"
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_bought_food",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_old_statue"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "talk_to_olma_argument",
+        "text": "Послушать спор Ольмы с возчиком",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "— Я тебе говорю, железо не моё, — возчик тычет пальцем в телегу. — Мне сказали довезти, я довёз.\n\nОльма берёт один из прутьев, подносит к свету и хмурится.\n\n— Железо не поёт.\n\n— Чего?\n\n— Хорошее железо звенит. Плохое железо хрипит. А это молчит.\n\nВозчик смотрит на неё так, как смотрят на людей, которые слишком долго разговаривают с вещами. Ольма замечает Эмму и коротко кивает:\n\n— Потом зайди. Не за работой. За разговором.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_olma_wants_talk",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Ольма заметила странное железо у возчика и попросила Эмму зайти позже."
+            }
+          ],
+          "next_event_id": "emma_old_statue"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "watch_timo",
+        "text": "Понаблюдать за Тимо",
+        "condition": null,
+        "check": {
+          "stat": "perception",
+          "dc": 9
+        },
+        "success": {
+          "text": "Тимо делает вид, что ковыряет землю палкой. На самом деле он смотрит на статую.\n\nНе на лицо Витаэль, не на хлеб у её ног, а на каменную ладонь. В ладони статуи обычно лежали цветы, ленточки, иногда мелкие монеты. Сегодня там сидела белая птица.\n\nОна была совершенно неподвижна.\n\nПотом птица повернула голову. Глаза у неё были чёрными, как мокрые семена.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_saw_timo_watch_statue",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма заметила, что Тимо смотрит на белую птицу у статуи Витаэль."
+            }
+          ],
+          "next_event_id": "emma_old_statue"
+        },
+        "fail": {
+          "text": "Тимо замечает взгляд Эммы и тут же начинает изображать скуку с таким усердием, что становится ясно: ему есть что скрывать.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_timo_acting_strange",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_old_statue"
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_old_statue",
+    "category": "story",
+    "location_id": null,
+    "title": "Старая статуя",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Старая статуя Витаэль стояла у края рыночной площади столько лет, что деревня давно перестала смотреть на неё как на святыню.\n\nДети прятались за её постаментом. Старики сидели рядом в жару. Женщины оставляли у её ног хлеб, мёд, ленты, иногда первые яблоки. Не потому что были особенно набожны. Просто так делали матери, бабки и прабабки.\n\nВитаэль была вырезана грубо: лицо почти стёрлось, руки раскрыты, на груди — знак древа. В каменной ладони действительно сидела белая птица.\n\nОна не боялась людей. Это уже было чуть странно. Но ещё не настолько, чтобы кто-то закричал.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "leave_bread",
+        "text": "Оставить у статуи кусочек хлеба",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма кладёт хлеб к подножию. Белая птица смотрит на неё чёрным глазом, потом наклоняет голову и клюёт не хлеб, а старую засохшую каплю мёда на камне.\n\nТимо за спиной шепчет:\n\n— Она вчера тоже так делала.\n\nКогда Эмма оборачивается, мальчик уже делает вид, что ничего не говорил.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_left_bread_at_statue",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "timo_mentions_bird",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_timo_first_meeting"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "inspect_bird",
+        "text": "Рассмотреть белую птицу",
+        "condition": null,
+        "check": {
+          "stat": "perception",
+          "dc": 11
+        },
+        "success": {
+          "text": "Птица выглядит как голубь, если смотреть быстро. Но перья у неё слишком ровные, будто каждое вырезано из тонкой кости. На лапке нет грязи, хотя площадь после ночного дождя вся в мокрой земле.\n\nКогда Эмма делает шаг ближе, птица раскрывает клюв.\n\nЗвука нет.\n\nТолько Тимо вдруг вздрагивает, будто услышал что-то один.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_saw_wrong_bird",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Белая птица у статуи Витаэль выглядела неправильно."
+            }
+          ],
+          "next_event_id": "emma_timo_first_meeting"
+        },
+        "fail": {
+          "text": "Обычная белая птица. Может, больная. Может, ручная. Может, просто слишком глупая, чтобы бояться людей.\n\nТимо всё равно смотрит на неё так, будто она знает его имя.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "timo_afraid_of_bird",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_timo_first_meeting"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "pray_shortly",
+        "text": "Коротко помолиться Витаэль",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма не была особенно набожной. В деревне вообще редко молились красиво. Тут молились как умели: чтобы корова не сдохла, чтобы ребёнок не кашлял, чтобы дождь пришёл вовремя, чтобы муж вернулся трезвым.\n\nОна касается пальцами холодного камня и просит ничего особенного.\n\nПросто обычного дня.\n\nКамень под пальцами на миг оказывается тёплым.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_prayed_to_vitael",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "У старой статуи Витаэль камень на миг показался тёплым."
+            }
+          ],
+          "next_event_id": "emma_timo_first_meeting"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_timo_first_meeting",
+    "category": "story",
+    "location_id": null,
+    "title": "Первый разговор с Тимо",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Тимо сидел на краю постамента, хотя его мать наверняка запретила ему лезть на святыню. Он был в том возрасте, когда дети уже знают, что мир опасен, но ещё считают, что опасность обязана играть по правилам.\n\n— Она не ест хлеб, — сказал он, не глядя на Эмму. — Только мёд. И иногда смотрит туда.\n\nОн кивнул в сторону тропы, уходящей за деревню, к старому ольшаннику.\n\n— Я вчера пошёл посмотреть. Не далеко. Почти не далеко.\n\nЭто “почти” прозвучало хуже всего.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "ask_timo_calmly",
+        "text": "Спокойно расспросить Тимо",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 9
+        },
+        "success": {
+          "text": "Эмма садится рядом, но не слишком близко. Дети чаще говорят правду, когда их не загоняют в угол.\n\n— Я видел там козу Мартены, — признаётся Тимо. — Белку. Ну, козу. Она пропала позавчера, а вчера стояла у ольшанника. Только не ела. Просто стояла и смотрела между деревьев.\n\nОн сглатывает.\n\n— А потом из леса кто-то свистнул. Как пастух. Но у нас никто так не свистит.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_timo_told_about_goat",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_knows_forest_edge_clue",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Тимо рассказал о пропавшей козе у края ольшанника."
+            }
+          ],
+          "next_event_id": "emma_village_disturbance"
+        },
+        "fail": {
+          "text": "Тимо пожимает плечами слишком резко.\n\n— Ничего я не видел.\n\nОн соскакивает с постамента и убегает к дому прачки, но на полпути оглядывается на статую. Белая птица всё ещё сидит в каменной ладони.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_timo_hid_truth",
+              "value": true
+            },
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_village_disturbance"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "joke_with_timo",
+        "text": "Попробовать отшутиться",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "— Если это птица собирает налоги, скажи ей, что мы уже бедные, — говорит Эмма.\n\nТимо фыркает. Не смеётся, но фыркает — для испуганного мальчишки это почти доверие.\n\n— Она не налоговая. Налоговые громче.\n\nОн наконец смотрит на Эмму.\n\n— Только ты не говори маме. Она запрёт меня дома. А коза Мартены правда там. Или была. Я не придумал.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_timo_soft_trust",
+              "value": true
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_knows_forest_edge_clue",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Тимо сказал, что у края леса видел пропавшую козу Мартены."
+            }
+          ],
+          "next_event_id": "emma_village_disturbance"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "tell_timo_go_home",
+        "text": "Сказать Тимо идти домой",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "— Домой, — говорит Эмма. — И без героизма.\n\nТимо открывает рот, чтобы спорить, но потом смотрит на птицу и передумывает.\n\n— Ты тоже туда не ходи одна, — бурчит он.\n\nЭто должно было прозвучать дерзко. Получилось почти заботливо.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_sent_timo_home",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_village_disturbance"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_village_disturbance",
+    "category": "story",
+    "location_id": null,
+    "title": "Небольшая деревенская тревога",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Тревога пришла не криком.\n\nОна пришла через Мартену, которая вышла на площадь с пустой верёвкой в руках.\n\n— Белка не вернулась, — сказала она.\n\nКоза была старая, упрямая и злая. Она бодала детей, воровала капусту и один раз съела половину праздничной ленты у статуи. В деревне её не любили, но все знали. Поэтому новость не была страшной.\n\nСначала.\n\nПотом Мартена добавила:\n\n— И мой младший пошёл её искать. Час назад.\n\nНа площади стало тише.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "offer_to_search",
+        "text": "Согласиться помочь с поисками",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма отдаёт вёдра ближайшей женщине и спрашивает, куда пошёл мальчик. Мартена показывает на тропу к ольшаннику.\n\n— Только до края леса, — говорит она. — Он боится дальше. Он всегда боялся.\n\nНо это звучит так, будто она пытается убедить не Эмму, а себя.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_searching_for_martena_child",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма согласилась помочь найти ребёнка Мартены у края леса."
+            }
+          ],
+          "next_event_id": "emma_forest_edge_search"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ask_for_help",
+        "text": "Собрать ещё людей",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 11
+        },
+        "success": {
+          "text": "Эмма говорит громко и без паники. Это помогает. Двое мужчин берут палки, Ольма выходит из кузницы с молотком в руке, а староста Бренн, услышав шум, мрачнеет и велит никому не расходиться.\n\nСтрах не исчезает. Но теперь он хотя бы идёт не один.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_search_party",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма собрала нескольких жителей для поиска у края леса."
+            }
+          ],
+          "next_event_id": "emma_forest_edge_search"
+        },
+        "fail": {
+          "text": "Люди начинают говорить все сразу. Кто-то вспоминает волков, кто-то — разбойников, кто-то требует позвать старосту. За шумом теряется главное: ребёнок всё ещё где-то у леса.\n\nОльма коротко бросает:\n\n— Хватит. Иди, Эмма. Я догоню.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_forest_edge_search"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "go_to_elder_first",
+        "text": "Сначала сказать старосте",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Староста Бренн слушает молча. Чем дольше Эмма говорит, тем глубже становятся складки у него между бровей.\n\n— К ольшаннику не ходят после дождя, — наконец произносит он.\n\n— Почему?\n\nБренн смотрит в сторону старой статуи, где белая птица всё ещё сидит в ладони Витаэль.\n\n— Потому что раньше не ходили. Иногда этого достаточно.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "brenn_warned_about_alders",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Бренн предупредил Эмму не ходить к ольшаннику после дождя."
+            }
+          ],
+          "next_event_id": "emma_forest_edge_search"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_forest_edge_search",
+    "category": "story",
+    "location_id": null,
+    "title": "Край ольшанника",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Ольшанник начинался там, где деревенская тропа становилась уже, а трава — выше. Деревья стояли близко друг к другу, тонкие, тёмные, с мокрой корой. После дождя от них пахло прелыми листьями и речной глиной.\n\nНа земле были следы козы.\n\nРядом — маленькие детские следы.\n\nОни шли не в глубину леса. Сначала нет. Они кружили у края, будто ребёнок остановился, передумал, снова пошёл, снова остановился.\n\nА потом следы резко обрывались у белого пня.\n\nНа пне сидела та же птица. Или очень похожая.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "call_child_name",
+        "text": "Позвать ребёнка по имени",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 10
+        },
+        "success": {
+          "text": "Эмма зовёт. Один раз. Второй.\n\nИз леса отвечает тонкий голос:\n\n— Я здесь.\n\nГолос детский. Но произносит слова слишком ровно, будто повторяет их с чужого урока.\n\nОльма, если она рядом, тихо ругается. Если Эмма пришла одна, ругательство всё равно словно звучит у неё в голове.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_heard_child_in_forest",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_first_wrong_thing"
+        },
+        "fail": {
+          "text": "Эмма зовёт, но голос срывается. Ольшанник отвечает шелестом, похожим на тихий смех. Белая птица на пне не двигается.",
+          "effects": [
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_first_wrong_thing"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "inspect_tracks",
+        "text": "Осмотреть следы",
+        "condition": null,
+        "check": {
+          "stat": "perception",
+          "dc": 11
+        },
+        "success": {
+          "text": "Следы ребёнка не исчезли. Они стали другими.\n\nБудто в какой-то момент он пошёл дальше на цыпочках. Не от страха. От осторожности. Рядом в мягкой земле отпечатались тонкие линии, похожие на следы птичьих лап.\n\nТолько слишком большие.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_saw_large_bird_tracks",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "У края ольшанника Эмма нашла странные следы рядом со следами ребёнка."
+            }
+          ],
+          "next_event_id": "emma_first_wrong_thing"
+        },
+        "fail": {
+          "text": "Земля мокрая, следов много, а сердце стучит слишком громко. Эмма понимает только одно: ребёнок был здесь.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_first_wrong_thing"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "take_white_feather",
+        "text": "Поднять белое перо у пня",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Перо кажется мягким, пока Эмма не берёт его в пальцы. Тогда оно становится жёстким, почти острым, как тонкая костяная пластинка.\n\nНа миг в голове возникает чужая мысль:\n\nне больно если не сопротивляться\n\nПотом мысль исчезает.",
+          "effects": [
+            {
+              "type": "add_item",
+              "item_id": "white_bone_feather"
+            },
+            {
+              "type": "personal_decay",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма нашла у пня белое перо, похожее на тонкую кость."
+            }
+          ],
+          "next_event_id": "emma_first_wrong_thing"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_first_wrong_thing",
+    "category": "story",
+    "location_id": null,
+    "title": "Первая неправильная встреча",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Ребёнок нашёлся за третьим рядом деревьев.\n\nОн стоял босиком в мокрой траве и держал козу за верёвку. Белка была рядом — живая, целая, недовольная. На первый взгляд всё было почти смешно: ребёнок, старая коза, перепуганные взрослые, слишком много шума из-за обычной деревенской глупости.\n\nПотом коза повернула голову.\n\nГлаза у неё были чёрными. Не тёмными. Не больными. Именно чёрными, как две мокрые ямки в живой морде.\n\nРебёнок улыбнулся и сказал:\n\n— Она теперь тихая.\n\nИз-за его плеча поднялась белая птица. Не одна. Три. Пять. Семь. Они сидели на ветках, и ни одна ветка под ними не сгибалась.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "pull_child_back",
+        "text": "Медленно отвести ребёнка назад",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 11
+        },
+        "success": {
+          "text": "Эмма не хватает ребёнка. Не кричит. Просто протягивает руку и говорит так, как говорят у печи, когда зовут к завтраку.\n\n— Пойдём. Твоя мать ждёт.\n\nРебёнок моргает. Улыбка сползает с его лица, как чужая маска. Он делает шаг. Потом ещё один.\n\nКоза тихо блеет. Белые птицы смотрят молча.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_saved_child_calmly",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма вывела ребёнка из ольшанника без крика и крови."
+            }
+          ],
+          "next_event_id": "emma_return_from_forest"
+        },
+        "fail": {
+          "text": "Ребёнок смотрит на Эмму так, будто не узнаёт слов. Потом коза дёргает верёвку, и он едва не падает.\n\nПриходится действовать быстрее.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_return_from_forest_tense"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "cut_goat_rope",
+        "text": "Перерезать верёвку козы",
+        "condition": null,
+        "check": {
+          "stat": "agility",
+          "dc": 10
+        },
+        "success": {
+          "text": "Нож проходит по верёвке легко. Слишком легко.\n\nКоза делает шаг назад, потом ещё один, и вдруг бросается между деревьев. Белые птицы взлетают разом, но без звука.\n\nРебёнок начинает плакать. Обычным, живым, испуганным плачем. Это почти облегчение.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_cut_goat_rope",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма перерезала верёвку козы в ольшаннике."
+            }
+          ],
+          "next_event_id": "emma_return_from_forest"
+        },
+        "fail": {
+          "text": "Верёвка скользит в пальцах. Коза поворачивается к Эмме, и её чёрные глаза на миг становятся слишком человеческими.\n\nПотом ребёнок вскрикивает.",
+          "effects": [
+            {
+              "type": "hp",
+              "target": "hero",
+              "value": -2
+            },
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_return_from_forest_tense"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "pray_to_vitael",
+        "text": "Позвать Витаэль",
+        "condition": {
+          "flag": "emma_prayed_to_vitael"
+        },
+        "check": {
+          "stat": "will",
+          "dc": 12
+        },
+        "success": {
+          "text": "Эмма не знает правильных слов. Поэтому говорит неправильные.\n\n— Верни его матери.\n\nВ лесу становится тепло. Не сильно. Как от угля, который утром удалось раздуть в печи.\n\nБелые птицы впервые двигаются беспокойно. Ребёнок вздрагивает, будто проснулся стоя.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "vitael_warmth_answered",
+              "value": true
+            },
+            {
+              "type": "world_decay",
+              "value": -1
+            },
+            {
+              "type": "journal_entry",
+              "text": "В ольшаннике молитва Витаэль ответила слабым теплом."
+            }
+          ],
+          "next_event_id": "emma_return_from_forest"
+        },
+        "fail": {
+          "text": "Эмма пытается вспомнить молитву, но слова путаются. В лесу становится не теплее, а тише.\n\nОдна из птиц раскрывает клюв. Звука нет. Но ребёнок улыбается шире.",
+          "effects": [
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_return_from_forest_tense"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "throw_stone_at_birds",
+        "text": "Бросить камень в птиц",
+        "condition": null,
+        "check": {
+          "stat": "strength",
+          "dc": 9
+        },
+        "success": {
+          "text": "Камень попадает в ветку рядом с птицами. Они взлетают все сразу.\n\nИ только тогда становится ясно, что их крылья не шумят.\n\nРебёнок кричит. Коза рвётся в сторону. Это уже не тихая странность, а обычный страх — с ним хотя бы понятно, что делать.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_scared_birds_away",
+              "value": true
+            },
+            {
+              "type": "sin",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма отогнала белых птиц камнем."
+            }
+          ],
+          "next_event_id": "emma_return_from_forest_tense"
+        },
+        "fail": {
+          "text": "Камень уходит мимо. Птицы даже не поворачивают голов.\n\nОдна из них смотрит прямо на Эмму. И в этот миг она понимает: это не животное. Или не совсем животное.",
+          "effects": [
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_return_from_forest_tense"
+        },
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_return_from_forest",
+    "category": "story",
+    "location_id": null,
+    "title": "Возвращение из леса",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Когда они вернулись к деревне, площадь всё ещё была на месте.\n\nКолодец. Лавки. Кузница. Старая статуя. Люди, которые ждали новостей и боялись получить их слишком много.\n\nМартена бросилась к ребёнку так резко, что едва не сбила его с ног. Он заплакал уже по-настоящему — громко, некрасиво, живо. Кто-то рядом перекрестился знаком Витаэль. Кто-то сказал, что всё обошлось.\n\nИ почти все с радостью сделали вид, что это правда.\n\nТолько Тимо стоял у статуи и смотрел на пустую каменную ладонь. Белой птицы там больше не было.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "say_nothing",
+        "text": "Ничего не рассказывать лишнего",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма говорит только то, что люди готовы услышать: ребёнок заблудился, коза увела его к ольшаннику, теперь всё хорошо.\n\nЭто ложь не полностью. Поэтому её легче произнести.\n\nСтароста Бренн смотрит на Эмму дольше остальных. Он понимает, что в рассказе не хватает главного, но не спрашивает при людях.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_hid_forest_truth",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма скрыла подробности случившегося у ольшанника."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "tell_brenn_privately",
+        "text": "Попросить старосту поговорить наедине",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Бренн не спорит. Он только кивает и ведёт Эмму к своему дому.\n\nЗа закрытой дверью он долго молчит, пока она рассказывает про птиц, козу, чёрные глаза и ребёнка, который говорил не совсем своим голосом.\n\nКогда она заканчивает, староста выглядит не удивлённым. Он выглядит старым.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "brenn_knows_forest_truth",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма рассказала Бренну правду о случившемся у ольшанника."
+            }
+          ],
+          "next_event_id": "emma_brenn_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "go_to_statue_again",
+        "text": "Вернуться к статуе Витаэль",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "У подножия статуи лежит кусочек хлеба. Тот самый, что Эмма оставила утром, или другой — теперь уже не понять.\n\nКаменная ладонь пуста.\n\nНо на сером камне остался тонкий белый след, похожий на птичью лапу.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_found_white_mark_on_statue",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "На ладони статуи Витаэль остался белый след."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_return_from_forest_tense",
+    "category": "story",
+    "location_id": null,
+    "title": "Возвращение из леса — напряжённое",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Они вернулись не как люди, которые нашли ребёнка.\n\nОни вернулись как люди, которые принесли с собой вопрос.\n\nМартена плакала, ребёнок молчал, Ольма, если была рядом, держала молот так крепко, что побелели костяшки. На площади никто не спрашивал сразу. В деревнях умеют чувствовать, когда ответ может испортить день окончательно.\n\nСтарая статуя Витаэль стояла как стояла.\n\nТолько хлеб у её ног исчез.\n\nИ никто не видел, кто его взял.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "calm_people",
+        "text": "Попытаться успокоить людей",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 12
+        },
+        "success": {
+          "text": "Эмма говорит спокойно. Не обещает, что всё хорошо. Не врёт слишком явно. Просто просит людей разойтись, дать ребёнку воды, позвать мать, закрыть козу и не превращать страх в базар.\n\nЭто срабатывает не полностью. Но достаточно.",
+          "effects": [
+            {
+              "type": "reputation",
+              "target": "Венценосные Земли",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма удержала деревню от паники после возвращения из ольшанника."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_after_forest"
+        },
+        "fail": {
+          "text": "Слова тонут в чужом страхе. Люди начинают говорить громче, чем думать. Кто-то требует идти к мосту, кто-то — к старосте, кто-то шепчет про дурную птицу.\n\nСтрах ещё не стал бедой. Но уже ищет дорогу.",
+          "effects": [
+            {
+              "type": "world_decay",
+              "value": 1
+            },
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_after_forest"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "take_child_to_mother",
+        "text": "Отвести ребёнка к матери",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Мартена забирает ребёнка обеими руками, будто боится, что его снова украдут прямо из воздуха.\n\n— Спасибо, — говорит она.\n\nСлово маленькое. Совсем не подходящее к тому, что произошло. Но других у неё нет.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "martena_grateful",
+              "value": true
+            },
+            {
+              "type": "journal_entry",
+              "text": "Мартена благодарна Эмме за возвращение ребёнка."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_iron_bridge_village_after_forest",
+    "category": "story",
+    "location_id": null,
+    "title": "Деревня после ольшанника",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "После случившегося деревня не изменилась внешне.\n\nКузница всё ещё дымила. Колодец всё ещё скрипел. Гуси всё ещё считали дорогу своей. Но люди стали чаще смотреть на край ольшанника, а у старой статуи Витаэль теперь никто не задерживался надолго.\n\nДень продолжался.\n\nТолько обычность стала тоньше.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "talk_to_brenn_after_forest",
+        "text": "Поговорить со старостой Бренном",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма идёт к старосте. Теперь разговор уже не будет похож на обычную деревенскую жалобу.",
+          "effects": [],
+          "next_event_id": "emma_brenn_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "talk_to_olma_after_forest",
+        "text": "Зайти к кузнецу Ольме",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "У Ольмы в кузнице всё ещё жарко. После ольшанника это кажется почти защитой.",
+          "effects": [],
+          "next_event_id": "emma_olma_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "check_statue_after_forest",
+        "text": "Осмотреть статую Витаэль",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Старая статуя молчит. Но теперь её молчание кажется не пустым, а усталым.",
+          "effects": [],
+          "next_event_id": "emma_statue_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "go_to_bridge_after_forest",
+        "text": "Пройтись к Железному мосту",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Мост стоит на месте, как стоял всегда. После леса это почему-то не успокаивает.",
+          "effects": [],
+          "next_event_id": "emma_bridge_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "leave_village_after_forest",
+        "text": "Выйти к тракту",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма понимает: можно остаться и делать вид, что день был почти обычным. А можно пойти дальше и узнать, почему обычные дни начали давать трещины.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "asterwald_road"
+            },
+            {
+              "type": "reveal_node",
+              "node_id": "blackthorn"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_olma_first_talk",
+    "category": "story",
+    "location_id": null,
+    "title": "Ольма у горна",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "В кузнице жарко и почти уютно. Ольма не спрашивает, зачем Эмма пришла: она ставит на край верстака кружку воды и кивает на странный прут железа.\n\n— Утро как утро, — говорит она. — Только железо сегодня молчит. Если услышишь на рынке, что я сошла с ума, знай: это возчики экономят на правде.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "listen_olma",
+        "text": "Выслушать Ольму",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Ольма говорит о металле как о живом деле, но не пугает Эмму. Пока это просто странная деталь обычного утра: плохая партия железа, спор с возчиком и просьба зайти позже, если день станет ещё глупее.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_olma_wants_talk",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_bridge_normal_day",
+    "category": "story",
+    "location_id": null,
+    "title": "Железный мост",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Железный мост стоит над мутной рекой спокойно и тяжело. По нему проходят телеги, дети бегают слишком близко к перилам, а старики ворчат, что раньше железо было честнее.\n\nСегодня мост не шепчет, не зовёт и не раскрывает тайн. Он просто часть деревни — старая, нужная, немного пугающая, как все вещи, которые пережили тех, кто их построил.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "watch_bridge",
+        "text": "Постоять у моста",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма смотрит на воду под пролётом. Ничего не происходит. И именно это пока важно: день ещё держится за обычность.",
+          "effects": [],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_river_path",
+    "category": "story",
+    "location_id": null,
+    "title": "Тропа к реке",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Тропа к реке пахнет мокрой травой и илом. Здесь удобно прятаться от домашних поручений и неудобных разговоров, но сегодня даже река кажется занятой своим делом: несёт листья, щепки и чужие отражения дальше по течению.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "return_from_river",
+        "text": "Вернуться в деревню",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма возвращается к домам. За спиной остаётся плеск воды — самый обычный звук этого утра.",
+          "effects": [],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_leave_village",
+    "category": "story",
+    "location_id": null,
+    "title": "Выйти к тракту",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "За последними домами начинается дорога. Не приключение, не пророчество, не зов судьбы — просто тракт, по которому возят соль, зерно, долги и новости.\n\nЕсли уйти сейчас, деревня останется за спиной со своими гусьми, дымом и вопросами.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "leave_to_roads",
+        "text": "Открыть дороги за деревней",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма запоминает развилки и возвращается взглядом к деревне. Когда она будет готова, путь к тракту и Блэкторну уже не потеряется.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "asterwald_road"
+            },
+            {
+              "type": "reveal_node",
+              "node_id": "blackthorn"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_brenn_after_forest",
+    "category": "story",
+    "location_id": null,
+    "title": "Бренн после ольшанника",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Бренн слушает так, как умеют слушать люди, которые уже однажды приняли плохое решение и теперь узнают его шаги. Он не произносит больших слов, не говорит о проклятиях и не пугает Эмму.\n\n— Деревне нужен день, — наконец говорит он. — Один обычный день. Иногда это всё, что староста может попросить у мира.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "leave_brenn_after",
+        "text": "Вернуться на площадь",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма выходит от Бренна с ощущением, что старик знает больше, чем сказал. Но сегодня он выбрал удержать людей от паники.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "brenn_after_forest_talk",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_olma_after_forest",
+    "category": "story",
+    "location_id": null,
+    "title": "Ольма после ольшанника",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Ольма молчит дольше обычного. Молот лежит рядом с наковальней, но она не берёт его в руки.\n\n— Если вещь выглядит как коза, это ещё не значит, что она коза, — говорит она наконец. — Запомни это. И держи нож острым, даже если очень хочется верить в мирное утро.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "leave_olma_after",
+        "text": "Вернуться на площадь",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "В кузнице снова становится слышен огонь. После леса этот звук кажется почти обещанием.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "olma_after_forest_talk",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_statue_after_forest",
+    "category": "story",
+    "location_id": null,
+    "title": "Статуя после ольшанника",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Витаэль молчит каменным лицом. Подношения у её ног выглядят бедно: хлеб, лента, капля мёда, чья-то детская пуговица.\n\nНа ладони, где сидела птица, осталась тонкая белая царапина. Она похожа на след когтя или на ветку маленького дерева.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "leave_statue_after",
+        "text": "Отойти от статуи",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма отходит. Камень больше не кажется тёплым, но и холодным — тоже.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_checked_statue_after_forest",
+              "value": true
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_bridge_after_forest",
+    "category": "story",
+    "location_id": null,
+    "title": "Мост после ольшанника",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Железный мост стоит тихо. После белых птиц и чёрных глаз его обычность кажется не простой, а нарочно удержанной.\n\nПо настилу проходит возчик, ругает колесо, плюёт в реку и едет дальше. Мир всё ещё умеет быть грубым, живым и не таинственным.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "leave_bridge_after",
+        "text": "Вернуться в деревню",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма возвращается от моста. Если в нём и есть тайна, сегодня она не первая.",
+          "effects": [],
+          "next_event_id": "emma_iron_bridge_village_after_forest"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_iron_bridge_village_hub",
+    "category": "story",
+    "location_id": null,
+    "title": "Деревня Железного моста",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Деревня живёт почти обычной жизнью. У кузницы звенит молот, у колодца спорят женщины, за домами кричат гуси. Только старый мост за рекой будто ждёт, когда на него снова посмотрят.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "hub_go_to_bridge",
+        "text": "Вернуться к мосту",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма снова идёт к старому железному мосту.",
+          "effects": [],
+          "next_event_id": "emma_intro_bridge_whisper"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "hub_talk_to_elder",
+        "text": "Поговорить со старостой Бренном",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма идёт к дому старосты.",
+          "effects": [],
+          "next_event_id": "emma_elder_brenn_talk"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "hub_find_timo",
+        "text": "Найти мальчика Тимо",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма находит Тимо за домом прачки.",
+          "effects": [],
+          "next_event_id": "emma_timo_testimony"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "hub_visit_olma",
+        "text": "Зайти к кузнецу Ольме",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма идёт к кузнице.",
+          "effects": [],
+          "next_event_id": "emma_olma_black_iron"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "hub_go_under_bridge",
+        "text": "Спуститься под мост",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма спускается к старым опорам моста.",
+          "effects": [],
+          "next_event_id": "emma_bridge_storehouse"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "hub_leave_village",
+        "text": "Покинуть деревню",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма оставляет деревню за спиной. Старый мост тихо звенит на ветру, почти как обычный.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "asterwald_road"
+            },
+            {
+              "type": "reveal_node",
+              "node_id": "blackthorn"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_intro_bridge_whisper",
+    "category": "story",
+    "location_id": null,
+    "title": "Первый шёпот у моста",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Утро начинается почти обычно. Мельница скрипит, у кузницы спорят о цене угля, кто-то ругает гусей у колодца. Только мост молчит. Обычно старое железо звенит на ветру. Сегодня — нет. Когда Эмма проходит мимо реки, под настилом тихо стучит одинокий звук. Раз. Пауза. Раз. Пауза. Будто кто-то снизу проверяет, слышат ли его наверху.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "inspect_bridge",
+        "text": "Осмотреть мост",
+        "condition": null,
+        "check": {
+          "stat": "perception",
+          "dc": 9
+        },
+        "success": {
+          "text": "Эмма замечает между заклёпками тонкую чёрную линию. Не трещину — скорее знак, слишком ровный для случайной ржавчины.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "asterwald_road"
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_saw_black_line"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма заметила странную чёрную линию на железе моста."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": {
+          "text": "На первый взгляд мост выглядит старым, но обычным. Только звук снизу повторяется ещё раз — тише, будто с насмешкой.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ask_villagers",
+        "text": "Расспросить жителей",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 10
+        },
+        "success": {
+          "text": "Люди отвечают неохотно, но одна прачка крестится и говорит, что ночью мост “позвал” мальчика Тимо.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_heard_about_timo"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Жители говорят, что ночью мост звал мальчика Тимо."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": {
+          "text": "Разговоры обрываются. В деревне не любят тех, кто вытаскивает страх на свет.",
+          "effects": [
+            {
+              "type": "reputation",
+              "target": "current_region",
+              "value": -1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "go_to_elder",
+        "text": "Пойти к старосте",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Староста Бренн встречает Эмму у порога и сразу понимает, зачем она пришла. Это видно по тому, как он не смотрит в сторону моста.",
+          "effects": [],
+          "next_event_id": "emma_elder_brenn_talk"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ignore_and_leave",
+        "text": "Не вмешиваться и уйти к тракту",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма уходит от моста. За спиной железо тихо звенит. Не громко. Не угрожающе. Почти обиженно.",
+          "effects": [
+            {
+              "type": "world_decay",
+              "value": 1
+            },
+            {
+              "type": "reveal_node",
+              "node_id": "asterwald_road"
+            },
+            {
+              "type": "set_flag",
+              "flag": "iron_bridge_unresolved"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма решила не вмешиваться в странность у Железного моста."
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_elder_brenn_talk",
+    "category": "story",
+    "location_id": null,
+    "title": "Разговор со старостой",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "В доме старосты пахнет сухими травами, старой бумагой и печным дымом. Бренн закрывает дверь раньше, чем Эмма успевает сесть. — Не надо будить деревню раньше времени, — говорит он. — Мост старый. Старые вещи иногда звучат. На столе перед ним лежит связка ключей. Один ключ потемнел так, будто его держали в огне.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "press_elder_truth",
+        "text": "Потребовать правду",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 11
+        },
+        "success": {
+          "text": "Бренн долго молчит. Потом снимает с кольца чёрный ключ и кладёт на стол. “Под мостом есть старая кладовая. Её не открывали с тех пор, как исчез Радан.”",
+          "effects": [
+            {
+              "type": "add_item",
+              "item_id": "black_bridge_key"
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_has_bridge_key"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Староста дал Эмме ключ от старой кладовой под мостом."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": {
+          "text": "Бренн становится жёстче. “Правда иногда убивает быстрее беды. Иди домой, Эмма.”",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            },
+            {
+              "type": "set_flag",
+              "flag": "brenn_refused_key"
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "speak_calmly",
+        "text": "Говорить спокойно",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 10
+        },
+        "success": {
+          "text": "Бренн устало прикрывает глаза. “Я не хочу второй пропажи. Если полезешь туда — не одна.” Он разрешает поговорить с Тимо и Ольмой.",
+          "effects": [
+            {
+              "type": "reveal_npc_clue",
+              "npc_id": "npc_timo"
+            },
+            {
+              "type": "reveal_npc_clue",
+              "npc_id": "npc_olma"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Бренн советует поговорить с Тимо и кузнецом Ольмой."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": {
+          "text": "Староста отвечает вежливо, но пусто. Он умеет закрывать разговоры лучше, чем двери.",
+          "effects": [
+            {
+              "type": "reputation",
+              "target": "current_region",
+              "value": -1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "steal_key",
+        "text": "Попробовать украсть ключ",
+        "condition": null,
+        "check": {
+          "stat": "agility",
+          "dc": 13
+        },
+        "success": {
+          "text": "Ключ исчезает в рукаве Эммы. Бренн ничего не замечает — или делает вид, что не замечает.",
+          "effects": [
+            {
+              "type": "add_item",
+              "item_id": "black_bridge_key"
+            },
+            {
+              "type": "sin",
+              "value": 1
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_stole_bridge_key"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма украла чёрный ключ у старосты."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": {
+          "text": "Бренн перехватывает её взгляд и накрывает ключ ладонью. “Не начинай путь с этого.”",
+          "effects": [
+            {
+              "type": "sin",
+              "value": 1
+            },
+            {
+              "type": "reputation",
+              "target": "current_region",
+              "value": -1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "leave_elder",
+        "text": "Уйти",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Бренн не останавливает Эмму. Только говорит ей в спину: “Если мост позовёт тебя по имени — не отвечай.”",
+          "effects": [
+            {
+              "type": "journal_entry",
+              "text": "Бренн предупредил: если мост позовёт по имени, нельзя отвечать."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_timo_testimony",
+    "category": "story",
+    "location_id": null,
+    "title": "Мальчик, который слышал имя",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Тимо сидит на перевёрнутом ведре за домом прачки и ковыряет палкой землю. Увидев Эмму, он сразу говорит: — Я не врал. Потом тише: — Оно знало моё имя.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "comfort_timo",
+        "text": "Успокоить Тимо",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 9
+        },
+        "success": {
+          "text": "Тимо достаёт из кармана маленькую железную монету. На ней нет лица, только круг с трещиной. “Я нашёл её под мостом. После этого оно и заговорило.”",
+          "effects": [
+            {
+              "type": "add_item",
+              "item_id": "cracked_iron_coin"
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_has_iron_coin"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Тимо отдал Эмме железную монету с трещиной в круге."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": {
+          "text": "Тимо сжимает кулак и мотает головой. Страх сильнее доверия.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "scare_timo",
+        "text": "Припугнуть его",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 10
+        },
+        "success": {
+          "text": "Тимо быстро рассказывает, где именно стоял ночью. Но после этого он больше не смотрит Эмме в глаза.",
+          "effects": [
+            {
+              "type": "reveal_clue",
+              "clue_id": "bridge_north_support"
+            },
+            {
+              "type": "sin",
+              "value": 1
+            },
+            {
+              "type": "journal_entry",
+              "text": "Тимо рассказал о северной опоре моста."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": {
+          "text": "Мальчик убегает. Где-то в доме прачка начинает кричать на Эмму.",
+          "effects": [
+            {
+              "type": "sin",
+              "value": 1
+            },
+            {
+              "type": "reputation",
+              "target": "current_region",
+              "value": -1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "ask_what_voice_said",
+        "text": "Спросить, что сказал голос",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Тимо шепчет: “Он сказал, что мост помнит всех, кто уходил и обещал вернуться.”",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "voice_remembers_promises"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Голос под мостом говорил о тех, кто обещал вернуться."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "leave_timo_alone",
+        "text": "Оставить мальчика в покое",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Тимо облегчённо выдыхает. Иногда милосердие — это не вопрос, а молчание.",
+          "effects": [
+            {
+              "type": "reputation",
+              "target": "current_region",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_olma_black_iron",
+    "category": "story",
+    "location_id": null,
+    "title": "Кузнец и чёрное железо",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Кузница Ольмы жаркая, шумная и почти успокаивающая. Здесь железо ведёт себя честно: краснеет, гнётся, остывает. Почти всё железо. На верстаке лежит заклёпка с моста. Она не ржавая. Она чёрная внутри, будто металл что-то впитал. Ольма кивает на неё: — Если скажешь, что это проклятие, я тебя выгоню. Если скажешь, что это плохое железо, тоже выгоню. Это что-то третье.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "ask_for_tools",
+        "text": "Попросить инструменты",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 10
+        },
+        "success": {
+          "text": "Ольма даёт Эмме крюк, короткую верёвку и старую рукавицу. “Если полезешь под мост, хотя бы не делай это голыми руками.”",
+          "effects": [
+            {
+              "type": "add_item",
+              "item_id": "hook_and_rope"
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_has_rope"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Ольма дала Эмме крюк и верёвку."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": {
+          "text": "Ольма качает головой. “Нет. Сначала пойми, куда лезешь.”",
+          "effects": [],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "study_black_iron",
+        "text": "Осмотреть чёрную заклёпку",
+        "condition": null,
+        "check": {
+          "stat": "intellect",
+          "dc": 11
+        },
+        "success": {
+          "text": "Эмма замечает: чёрный цвет не лежит на металле. Он повторяет форму знака, похожего на трещину в круге.",
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "emma_understands_black_iron_pattern"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Чёрное железо повторяет знак трещины в круге."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": {
+          "text": "Чем дольше Эмма смотрит на заклёпку, тем сильнее кажется, что внутри металла что-то медленно поворачивается.",
+          "effects": [
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "tell_olma_about_coin",
+        "text": "Показать железную монету",
+        "condition": {
+          "item": "cracked_iron_coin"
+        },
+        "check": null,
+        "success": {
+          "text": "Ольма перестаёт улыбаться. “Это не деревенская работа. И не королевская.” Она заворачивает монету в ткань, но ткань сразу темнеет.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "asterwald_road"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Ольма не смогла определить происхождение железной монеты."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "leave_forge",
+        "text": "Уйти",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "За спиной снова звенит молот. На этот раз его звук кажется слишком похожим на стук под мостом.",
+          "effects": [],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_bridge_storehouse",
+    "category": "story",
+    "location_id": null,
+    "title": "Старая кладовая под мостом",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Под мостом холоднее, чем должно быть. Река течёт рядом, но её почти не слышно. Между каменными опорами видна низкая железная дверь, наполовину скрытая корнями и илом. На двери нет замка в обычном месте. Только круглая выемка, похожая на след от монеты.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "open_with_key",
+        "text": "Открыть дверь чёрным ключом",
+        "condition": {
+          "item": "black_bridge_key"
+        },
+        "check": null,
+        "success": {
+          "text": "Ключ входит не в замок, а в узкую щель между заклёпками. Дверь открывается без скрипа. Внутри пахнет сухим железом и старой водой.",
+          "effects": [],
+          "next_event_id": "emma_storehouse_inside"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "use_iron_coin",
+        "text": "Вставить железную монету в выемку",
+        "condition": {
+          "item": "cracked_iron_coin"
+        },
+        "check": null,
+        "success": {
+          "text": "Монета ложится в круг идеально. Чёрная трещина на ней на мгновение становится глубже. Дверь открывается, но Эмма чувствует, будто кто-то запомнил её руку.",
+          "effects": [
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_storehouse_inside"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "force_door",
+        "text": "Попытаться открыть силой",
+        "condition": null,
+        "check": {
+          "stat": "strength",
+          "dc": 13
+        },
+        "success": {
+          "text": "Железо сопротивляется, но сдаётся. Дверь открывается рывком, и изнутри вырывается сухой холод.",
+          "effects": [
+            {
+              "type": "fatigue",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_storehouse_inside"
+        },
+        "fail": {
+          "text": "Дверь не двигается. Зато мост над головой тихо отвечает одним ударом.",
+          "effects": [
+            {
+              "type": "fatigue",
+              "value": 1
+            },
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "step_back",
+        "text": "Отступить",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Эмма отходит от двери. Иногда здравый смысл звучит как трусость, но живые часто путают эти вещи.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "asterwald_road"
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "emma_storehouse_inside",
+    "category": "story",
+    "location_id": null,
+    "title": "Внутри кладовой",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Кладовая оказывается меньше, чем казалась снаружи. Каменные стены сухие, хотя за ними река. На полу лежат старые инструменты, связка сгнивших верёвок и деревянная табличка с выцветшим именем: РАДАН. Под табличкой кто-то недавно процарапал свежую строку: “Я вернулся, но не целиком.” В дальней стене видна узкая трещина. Из неё тянет воздухом, пахнущим дождём и золой.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "take_radan_tag",
+        "text": "Взять табличку с именем",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Дерево тёплое, будто его держали в руках совсем недавно. Снаружи кто-то проходит по мосту, но шагов не слышно.",
+          "effects": [
+            {
+              "type": "add_item",
+              "item_id": "radan_nameplate"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма нашла табличку с именем Радан."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "inspect_crack",
+        "text": "Осмотреть трещину в стене",
+        "condition": null,
+        "check": {
+          "stat": "will",
+          "dc": 12
+        },
+        "success": {
+          "text": "Эмма смотрит в трещину и видит не проход, а отражение моста в дождливую ночь. Кто-то стоит на середине и ждёт.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "blackthorn"
+            },
+            {
+              "type": "journal_entry",
+              "text": "В трещине под мостом Эмма увидела дорогу к востоку."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": {
+          "text": "На мгновение Эмме кажется, что трещина смотрит в ответ. Она отступает, чувствуя вкус ржавчины на языке.",
+          "effects": [
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "cover_crack",
+        "text": "Завалить трещину камнями",
+        "condition": null,
+        "check": {
+          "stat": "strength",
+          "dc": 10
+        },
+        "success": {
+          "text": "Камни ложатся неровно, но холод становится слабее. Это не решение. Но, возможно, отсрочка.",
+          "effects": [
+            {
+              "type": "world_decay",
+              "value": -1
+            },
+            {
+              "type": "fatigue",
+              "value": 1
+            },
+            {
+              "type": "set_flag",
+              "flag": "emma_delayed_bridge_rift"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма временно закрыла трещину под мостом."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": {
+          "text": "Камень выскальзывает из рук и падает в темноту. Звука удара нет.",
+          "effects": [
+            {
+              "type": "world_decay",
+              "value": 1
+            },
+            {
+              "type": "fatigue",
+              "value": 1
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "leave_storehouse",
+        "text": "Выйти наружу",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Снаружи день кажется обычным. Кто-то зовёт кур, на дороге ругается возчик, а старый мост снова тихо звенит на ветру. Почти как раньше.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "asterwald_road"
+            },
+            {
+              "type": "reveal_node",
+              "node_id": "blackthorn"
+            },
+            {
+              "type": "journal_entry",
+              "text": "Эмма вышла из кладовой под Железным мостом."
+            }
+          ],
+          "next_event_id": "emma_iron_bridge_village_hub"
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "iron_bridge_intro",
+    "category": "intro",
+    "location_id": null,
+    "title": "Первый шёпот у моста",
+    "biome": "village",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Над Железным мостом висит холодный туман. Река под ним течёт слишком тихо, будто боится разбудить то, что лежит на дне.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "inspect_bridge",
+        "text": "Осмотреть мост",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "На старом железе ты находишь знак, похожий на трещину в круге.",
+          "effects": [
+            {
+              "type": "world_decay",
+              "value": 1
+            },
+            {
+              "type": "reveal_node",
+              "node_id": "asterwald_road"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "return_to_village",
+        "text": "Уйти в деревню",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Люди закрывают ставни, когда ты проходишь мимо. Здесь уже знают, что ночами лучше не смотреть на реку.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "silverglade_intro",
+    "category": "intro",
+    "location_id": null,
+    "title": "Красота под серебром",
+    "biome": "city",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Сильверглейд сияет холодным светом. Всё здесь слишком прекрасно, слишком тихо и слишком правильно.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "go_to_platforms",
+        "text": "Пойти к древним платформам",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Старые деревья скрипят, хотя ветра нет. Где-то высоко плачет статуя.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "moon_road"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "listen_to_young_elves",
+        "text": "Слушать разговоры молодых эльфов",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Они говорят об Обновлении так, будто это праздник. Но один из них дрожит.",
+          "effects": [
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "hargan_intro",
+    "category": "intro",
+    "location_id": null,
+    "title": "Цена свободного порта",
+    "biome": "port",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Свободный порт Харган пахнет солью, дымом, пряностями и страхом. Здесь продают всё, что не смогли удержать другие.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "ask_sailors",
+        "text": "Расспросить моряков о Разломах",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Один моряк говорит, что видел остров, которого не было на карте. Второй сразу велит ему заткнуться.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "inner_sea_route"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "buy_dirty_truth",
+        "text": "Купить информацию у контрабандиста",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Информация оказывается правдивой, но продавец слишком долго держит твою руку.",
+          "effects": [
+            {
+              "type": "sin",
+              "value": 1
+            },
+            {
+              "type": "reveal_node",
+              "node_id": "smugglers_cove"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "golden_web_intro",
+    "category": "intro",
+    "location_id": null,
+    "title": "Долг под камнем",
+    "biome": "underground_city",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Золотая Паутина гудит молотами, счётными машинами и тихими клятвами. Здесь даже пепел заносят в долговые книги.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "go_to_forges",
+        "text": "Пойти к кузням",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "В огне на мгновение появляется лицо, похожее на твоё, только старше и злее.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "iron_spine_pass"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "check_debt_records",
+        "text": "Проверить долговые записи",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Одно имя в книге выцарапано так глубоко, будто писарь пытался убить бумагу.",
+          "effects": [
+            {
+              "type": "personal_decay",
+              "value": 1
+            },
+            {
+              "type": "reveal_node",
+              "node_id": "deep_roads"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "shaeliri_intro",
+    "category": "intro",
+    "location_id": null,
+    "title": "Врата нижних домов",
+    "biome": "underground_gate",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Нижние Врата Ша’Элири открываются без скрипа. Тот, кто смазал петли, явно хотел, чтобы пленники не слышали, когда за ними приходят.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "lie_to_guard",
+        "text": "Солгать стражнице о приказе дома",
+        "condition": null,
+        "check": {
+          "stat": "charisma",
+          "dc": 10
+        },
+        "success": {
+          "text": "Она улыбается. Не потому что поверила. Потому что ложь была достаточно красивой.",
+          "effects": [
+            {
+              "type": "sin",
+              "value": 1
+            },
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": {
+          "text": "Она улыбается всё равно. Но теперь эта улыбка принадлежит не тебе.",
+          "effects": [
+            {
+              "type": "trace",
+              "value": 1
+            },
+            {
+              "type": "personal_decay",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "go_to_surface",
+        "text": "Идти к поверхности",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Позади остаётся подземный смех. Впереди — сырой воздух и чужое небо.",
+          "effects": [
+            {
+              "type": "reveal_node",
+              "node_id": "black_cavern_road"
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  },
+  {
+    "id": "blackthorn_intro",
+    "category": "intro",
+    "location_id": null,
+    "title": "Город чёрного терновника",
+    "biome": "frontier_town",
+    "biomes": [],
+    "type": null,
+    "background": null,
+    "npc": null,
+    "text": "Блэкторн встречает тебя грязью, дымом и взглядом людей, которые давно решили: первыми выживают не праведные, а быстрые.",
+    "text_variants": [],
+    "choices": [
+      {
+        "id": "hide_weapon",
+        "text": "Спрятать оружие",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "На улице это считают слабостью. Но один старик у ворот едва заметно кивает.",
+          "effects": [
+            {
+              "type": "reputation",
+              "target": "Восточные Марки",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      },
+      {
+        "id": "show_blade",
+        "text": "Держать клинок на виду",
+        "condition": null,
+        "check": null,
+        "success": {
+          "text": "Люди отводят глаза. Это проще, чем уважение, но почти так же полезно.",
+          "effects": [
+            {
+              "type": "sin",
+              "value": 1
+            },
+            {
+              "type": "trace",
+              "value": 1
+            }
+          ],
+          "next_event_id": null
+        },
+        "fail": null,
+        "effects": [],
+        "next_event_id": null
+      }
+    ]
+  }
+]
