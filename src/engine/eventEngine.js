@@ -52,6 +52,11 @@ export function isConditionMet(gameState, condition) {
   if (condition.notItem && hasAnyValue(inventory, condition.notItem)) return false;
   if (condition.flag && !hasAllFlags(flags, condition.flag)) return false;
   if (condition.notFlag && hasAnyFlag(flags, condition.notFlag)) return false;
+  if (condition.flagMin) {
+    for (const [flag, minValue] of Object.entries(condition.flagMin)) {
+      if ((Number(flags[flag]) || 0) < minValue) return false;
+    }
+  }
   return true;
 }
 
@@ -100,7 +105,7 @@ export function resolveEventChoice(gameState, choiceId) {
   state.activeMessage = `${branch.text}${choice.check ? ` (d20: ${checkResult.roll}, итог: ${checkResult.total}, DC ${choice.check.dc})` : ""}`;
   state.journal.push(`${event.title}: ${state.activeMessage}`);
   if (nextEventId) return startEvent(state, nextEventId);
-  if (state.mode === "location") state.activeMessage = null;
+  if (state.mode === "location") state.activeMessage = branch.locationMessage ?? null;
   return state;
 }
 
@@ -116,7 +121,16 @@ export function applyEffects(gameState, effects = []) {
     if (effect.type === "personal_decay") state.personalDecay = clampValue((state.personalDecay || 0) + effect.value, 0, 100);
     if (effect.type === "add_item" && !state.hero.inventory.includes(effect.itemId)) state.hero.inventory.push(effect.itemId);
     if (effect.type === "set_flag") state.flags[effect.flag] = effect.value ?? true;
+    if (effect.type === "inc_flag") state.flags[effect.flag] = (Number(state.flags[effect.flag]) || 0) + (effect.value ?? 1);
     if (effect.type === "journal_entry") state.journal.push(effect.text);
+    if (effect.type === "enter_location") {
+      state.mode = "location";
+      if (effect.locationId) state.hero.location = effect.locationId;
+      state.hero.cityLocation = null;
+      state.currentCity = null;
+      state.activeEvent = null;
+      state.activeMessage = effect.message ?? null;
+    }
     if (effect.type === "reveal_clue") state.flags[effect.clueId] = true;
     if (effect.type === "reveal_npc_clue") state.flags[effect.npcId] = true;
     if (effect.type === "start_event") {

@@ -45,6 +45,7 @@ button:disabled { cursor: not-allowed; opacity: 0.55; }
 .panel-body { display: grid; gap: 0.6rem; padding: 0.85rem; }
 .panel-body h2 { margin: 0; }
 .panel-body p { margin: 0; line-height: 1.45; }
+.event-text { white-space: pre-line; }
 .panel-hint { color: #d7c991; font-size: 0.92rem; }
 
 .portrait-button { position: relative; display: block; width: 100%; padding: 0; overflow: hidden; border-radius: 14px; background: transparent; }

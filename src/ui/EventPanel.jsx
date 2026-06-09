@@ -22,7 +22,7 @@ export default function EventPanel({ gameState, collapsed, onToggle, onChoice, o
       {!collapsed && (
         <div className="panel-body">
           <h2>{title}</h2>
-          {gameState.activeEvent ? <p>{getEventText(gameState, gameState.activeEvent)}</p> : <><p>{message}</p>{travelMessage && gameState.activeMessage && <p className="panel-hint">{travelMessage}</p>}</>}
+          {gameState.activeEvent ? <p className="event-text">{getEventText(gameState, gameState.activeEvent)}</p> : <><p>{message}</p>{travelMessage && gameState.activeMessage && <p className="panel-hint">{travelMessage}</p>}</>}
           {gameState.activeEvent?.choices
             ?.filter((choice) => isChoiceAvailable(gameState, choice))
             .map((choice) => <button key={choice.id} onClick={() => onChoice(choice.id)}>{choice.label}</button>)}

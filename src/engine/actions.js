@@ -22,12 +22,13 @@ export const actions = {
     }
 
     if (character.id === "emma") {
-      return {
+      state = {
         ...state,
-        mode: "location",
+        mode: "story",
         activeEvent: null,
-        activeMessage: "Утро в Деревне Железного моста. Выбери, с чего начнётся день.",
+        activeMessage: null,
       };
+      return startEvent(state, "emma_mill_morning");
     }
 
     if (node?.introEventId) {
