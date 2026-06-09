@@ -1,8 +1,9 @@
-const PLACEHOLDER_PORTRAIT = "/assets/characters/placeholders/portrait_placeholder.png";
+import { useState } from "react";
 
 export function getCharacterPortrait(character = {}) {
-  const characterId = character.id || "lorien_elf";
+  if (character.portrait) return character.portrait;
 
+  const characterId = character.id || "lorien_elf";
   if ((character.hp || 0) < (character.maxHp || 1) * 0.3) return `/assets/characters/${characterId}_badly_wounded.png`;
   if (character.body?.leftArm?.status === "severe") return `/assets/characters/${characterId}_left_arm_wounded.png`;
   if (character.body?.rightArm?.status === "severe") return `/assets/characters/${characterId}_right_arm_wounded.png`;
@@ -13,16 +14,13 @@ export function getCharacterPortrait(character = {}) {
 }
 
 export default function CharacterPortrait({ character, size = "small", onClick }) {
-  const image = (
-    <img
-      className={`portrait portrait-${size}`}
-      src={getCharacterPortrait(character)}
-      alt={character?.name || "Портрет персонажа"}
-      onError={(event) => {
-        if (event.currentTarget.src.endsWith(PLACEHOLDER_PORTRAIT)) return;
-        event.currentTarget.src = PLACEHOLDER_PORTRAIT;
-      }}
-    />
+  const [failed, setFailed] = useState(false);
+  const className = `portrait portrait-${size}`;
+  const name = character?.name || "Портрет персонажа";
+  const image = failed ? (
+    <div className={`${className} portrait-fallback`} aria-label={name}>{name}</div>
+  ) : (
+    <img className={className} src={getCharacterPortrait(character)} alt={name} onError={() => setFailed(true)} />
   );
 
   if (!onClick) return image;
