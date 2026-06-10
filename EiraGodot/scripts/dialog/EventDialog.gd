@@ -30,7 +30,7 @@ func clear_choices() -> void:
 		child.queue_free()
 
 func add_choice(choice_data: Dictionary) -> void:
-	var button := preload("res://scenes/dialog/ChoiceButton.tscn").instantiate()
+	var button = preload("res://scenes/dialog/ChoiceButton.tscn").instantiate()
 	choices_container.add_child(button)
 	button.setup(choice_data, Callable(self, "_on_choice_selected"))
 

@@ -24,11 +24,11 @@ func load_json(file_path: String) -> Variant:
 	if not FileAccess.file_exists(file_path):
 		push_error("JSON file not found: %s" % file_path)
 		return null
-	var file := FileAccess.open(file_path, FileAccess.READ)
+	var file: FileAccess = FileAccess.open(file_path, FileAccess.READ)
 	if file == null:
 		push_error("Cannot open JSON file: %s" % file_path)
 		return null
-	var text := file.get_as_text()
+	var text: String = file.get_as_text()
 	var parsed: Variant = JSON.parse_string(text)
 	if parsed == null:
 		push_error("Cannot parse JSON file: %s" % file_path)
@@ -66,7 +66,7 @@ func get_character(id: String) -> Dictionary:
 	return characters_by_id.get(id, {})
 
 func _index_by_id(items_array: Array) -> Dictionary:
-	var result := {}
+	var result: Dictionary = {}
 	for item in items_array:
 		if item is Dictionary and item.has("id"):
 			result[item["id"]] = item

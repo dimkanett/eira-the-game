@@ -45,12 +45,12 @@ func arrive_at_location(location_id: String) -> void:
 	start_location_event(location_id)
 
 func start_location_event(location_id: String) -> void:
-	var location := DataLoader.get_location(location_id)
-	var event_id := str(location.get("first_event_id", ""))
+	var location: Dictionary = DataLoader.get_location(location_id)
+	var event_id: String = str(location.get("first_event_id", ""))
 	if event_id != "" and not DataLoader.get_event(event_id).is_empty():
 		start_event(event_id)
 		return
-	var fallback := {
+	var fallback: Dictionary = {
 		"id": "fallback_%s" % location_id,
 		"title": location.get("name", location_id),
 		"text": "Вы прибыли в %s. Здесь пока нет отдельного события." % location.get("name", location_id),
@@ -59,7 +59,7 @@ func start_location_event(location_id: String) -> void:
 	show_event_data(fallback)
 
 func start_event(event_id: String) -> void:
-	var event_data := DataLoader.get_event(event_id)
+	var event_data: Dictionary = DataLoader.get_event(event_id)
 	if event_data.is_empty():
 		print("Missing event, using fallback: ", event_id)
 		show_event_data({"id": event_id, "title": "Событие не найдено", "text": "Событие %s пока отсутствует." % event_id, "choices": []})
@@ -81,10 +81,10 @@ func resolve_choice(choice_data: Dictionary) -> void:
 	EventResolver.resolve_choice(active_event, choice_data, self)
 
 func _is_neighbor(from_id: String, target_id: String) -> bool:
-	var from_location := DataLoader.get_location(from_id)
+	var from_location: Dictionary = DataLoader.get_location(from_id)
 	return from_location.get("neighbors", []).has(target_id)
 
 func _reveal_neighbors(location_id: String) -> void:
-	var location := DataLoader.get_location(location_id)
+	var location: Dictionary = DataLoader.get_location(location_id)
 	for neighbor in location.get("neighbors", []):
 		GameState.reveal_location(str(neighbor))

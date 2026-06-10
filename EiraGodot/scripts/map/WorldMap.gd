@@ -1,9 +1,9 @@
 extends Control
 
-const MAP_SIZE := Vector2(1402, 1122)
+const MAP_SIZE: Vector2 = Vector2(1402, 1122)
 
 var controller: Node = null
-var node_scene := preload("res://scenes/map/MapNode.tscn")
+var node_scene: PackedScene = preload("res://scenes/map/MapNode.tscn")
 
 @onready var scroll: ScrollContainer = $ScrollContainer
 @onready var canvas: Control = $ScrollContainer/Canvas
@@ -25,15 +25,15 @@ func rebuild() -> void:
 		child.queue_free()
 	for child in routes_layer.get_children():
 		child.queue_free()
-	var current_id := GameState.current_location_id
-	var current_location := DataLoader.get_location(current_id)
+	var current_id: String = GameState.current_location_id
+	var current_location: Dictionary = DataLoader.get_location(current_id)
 	var neighbors: Array = current_location.get("neighbors", [])
 	_draw_routes(current_location)
 	for location in DataLoader.locations:
-		var location_id := str(location.get("id", ""))
+		var location_id: String = str(location.get("id", ""))
 		if not GameState.is_location_known(location_id):
 			continue
-		var position := _location_position(location)
+		var position: Vector2 = _location_position(location)
 		var node = node_scene.instantiate()
 		nodes_layer.add_child(node)
 		node.position = position - Vector2(8, 8)
@@ -41,16 +41,16 @@ func rebuild() -> void:
 	player_marker.position = _location_position(current_location) - player_marker.size / 2.0
 
 func move_player_to(location_id: String) -> void:
-	var location := DataLoader.get_location(location_id)
+	var location: Dictionary = DataLoader.get_location(location_id)
 	player_marker.move_to_location(location_id, _location_position(location))
 
 func _draw_routes(current_location: Dictionary) -> void:
-	var from := _location_position(current_location)
+	var from: Vector2 = _location_position(current_location)
 	for neighbor_id in current_location.get("neighbors", []):
 		if not GameState.is_location_known(str(neighbor_id)):
 			continue
-		var neighbor := DataLoader.get_location(str(neighbor_id))
-		var line := Line2D.new()
+		var neighbor: Dictionary = DataLoader.get_location(str(neighbor_id))
+		var line: Line2D = Line2D.new()
 		line.width = 2.0
 		line.default_color = Color(0.55, 0.75, 1.0, 0.75)
 		line.points = PackedVector2Array([from, _location_position(neighbor)])

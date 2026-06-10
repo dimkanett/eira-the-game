@@ -8,7 +8,7 @@ func setup(controller_ref: Node) -> void:
 
 func move_to_location(location_id: String, target_position: Vector2) -> void:
 	target_location_id = location_id
-	var tween := create_tween()
+	var tween: Tween = create_tween()
 	tween.tween_property(self, "position", target_position - size / 2.0, 0.45).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.finished.connect(_on_move_finished)
 

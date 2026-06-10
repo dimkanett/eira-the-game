@@ -9,7 +9,7 @@ static func apply_effects(effects: Array) -> void:
 	SignalBus.state_changed.emit()
 
 static func _apply_effect(effect: Dictionary) -> void:
-	var effect_type := str(effect.get("type", ""))
+	var effect_type: String = str(effect.get("type", ""))
 	match effect_type:
 		"set_flag":
 			GameState.set_flag(str(effect.get("flag", "")), effect.get("value", true))
@@ -28,10 +28,10 @@ static func _apply_effect(effect: Dictionary) -> void:
 		"sin":
 			GameState.sin = clamp(GameState.sin + int(effect.get("value", 0)), 0, 100)
 		"reveal", "reveal_node":
-			var location_id := str(effect.get("location_id", effect.get("node_id", "")))
+			var location_id: String = str(effect.get("location_id", effect.get("node_id", "")))
 			GameState.reveal_location(location_id)
 		"add_item":
-			var item_id := str(effect.get("item_id", ""))
+			var item_id: String = str(effect.get("item_id", ""))
 			if item_id != "" and not GameState.inventory.has(item_id):
 				GameState.inventory.append(item_id)
 				GameState.add_journal_entry("Получен предмет: %s" % item_id)

@@ -25,7 +25,7 @@ var visited_locations: Array[String] = []
 var revealed_locations: Array[String] = []
 
 func initialize_from_data() -> void:
-	var template := DataLoader.world_state
+	var template: Dictionary = DataLoader.world_state
 	day = int(template.get("day", 1))
 	actions_max = int(template.get("actions_max", 1))
 	actions_left = int(template.get("actions_left", actions_max))
@@ -43,7 +43,7 @@ func initialize_from_data() -> void:
 	inventory = []
 	for item in current_character.get("inventory", []):
 		inventory.append(str(item))
-	var start_location := str(current_character.get("start_location_id", ""))
+	var start_location: String = str(current_character.get("start_location_id", ""))
 	if start_location == "" and DataLoader.locations.size() > 0:
 		start_location = str(DataLoader.locations[0].get("id", ""))
 	set_current_location(start_location)
@@ -92,6 +92,6 @@ func get_stat(stat_name: String) -> int:
 	return int(character_stats.get(stat_name, 0))
 
 func _reveal_neighbors(location_id: String) -> void:
-	var location := DataLoader.get_location(location_id)
+	var location: Dictionary = DataLoader.get_location(location_id)
 	for neighbor in location.get("neighbors", []):
 		reveal_location(str(neighbor))
