@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/core/GameController.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/map/WorldMap.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/dialog/EventDialog.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PlayerHUD.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/JournalPanel.tscn" id="5"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1")
+
+[node name="WorldMap" parent="." instance=ExtResource("2")]
+
+[node name="EventDialog" parent="." instance=ExtResource("3")]
+
+[node name="PlayerHUD" parent="." instance=ExtResource("4")]
+
+[node name="JournalPanel" parent="." instance=ExtResource("5")]

@@ -1,0 +1,199 @@
+[
+  {
+    "id": "ancient_temple_ruins",
+    "name": "Руины Древнего Храма",
+    "background": "/assets/locations/ruin_drevniy_hram.png",
+    "fallback_background": null,
+    "width": 1200,
+    "height": 900,
+    "start_node": "temple_entrance",
+    "nodes": [
+      {
+        "id": "temple_entrance",
+        "name": "Вход в руины",
+        "type": "entrance",
+        "position": {
+          "x": 180,
+          "y": 720
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Сломанные ступени уходят под корни древних деревьев.",
+        "conditions": []
+      },
+      {
+        "id": "temple_hall",
+        "name": "Главный зал",
+        "type": "explore",
+        "position": {
+          "x": 560,
+          "y": 430
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Зал без крыши, где свет луны падает прямо на расколотый пол.",
+        "conditions": []
+      },
+      {
+        "id": "temple_altar",
+        "name": "Старый алтарь",
+        "type": "quest",
+        "position": {
+          "x": 780,
+          "y": 240
+        },
+        "event_id": null,
+        "action": null,
+        "description": "Алтарь покрыт символами, которые не похожи на современное письмо эльфов.",
+        "conditions": []
+      }
+    ]
+  },
+  {
+    "id": "iron_bridge_village",
+    "name": "Деревня Железного моста",
+    "background": "/assets/locations/iron_bridge_village_map.png",
+    "fallback_background": null,
+    "width": 1200,
+    "height": 800,
+    "start_node": null,
+    "nodes": [
+      {
+        "id": "emma_mill",
+        "name": "Мельница / дом Эммы",
+        "type": null,
+        "position": {
+          "x": 250,
+          "y": 520
+        },
+        "event_id": "emma_mill_after_morning",
+        "action": null,
+        "description": null,
+        "conditions": [
+          {
+            "flag": "emma_delivery_started"
+          }
+        ]
+      },
+      {
+        "id": "marta_tavern",
+        "name": "Трактир Марты",
+        "type": null,
+        "position": {
+          "x": 430,
+          "y": 430
+        },
+        "event_id": "emma_tavern_marta_flour",
+        "action": null,
+        "description": null,
+        "conditions": [
+          {
+            "flag": "emma_delivery_started"
+          }
+        ]
+      },
+      {
+        "id": "hagen_forge",
+        "name": "Кузница Хагена",
+        "type": null,
+        "position": {
+          "x": 820,
+          "y": 360
+        },
+        "event_id": "emma_forge_hagen_flour",
+        "action": null,
+        "description": null,
+        "conditions": [
+          {
+            "flag": "emma_delivery_started"
+          }
+        ]
+      },
+      {
+        "id": "oren_temple",
+        "name": "Храм Орена",
+        "type": null,
+        "position": {
+          "x": 690,
+          "y": 430
+        },
+        "event_id": "emma_temple_oren_flour",
+        "action": null,
+        "description": null,
+        "conditions": [
+          {
+            "flag": "emma_delivery_started"
+          }
+        ]
+      },
+      {
+        "id": "oswin_house",
+        "name": "Дом старосты Освина",
+        "type": null,
+        "position": {
+          "x": 570,
+          "y": 310
+        },
+        "event_id": "emma_elder_oswin_flour",
+        "action": null,
+        "description": null,
+        "conditions": [
+          {
+            "flag": "emma_delivery_started"
+          }
+        ]
+      },
+      {
+        "id": "iron_bridge",
+        "name": "Железный мост",
+        "type": null,
+        "position": {
+          "x": 910,
+          "y": 570
+        },
+        "event_id": "emma_bridge_flour_walk",
+        "action": null,
+        "description": null,
+        "conditions": [
+          {
+            "flag": "emma_delivery_finished"
+          }
+        ]
+      },
+      {
+        "id": "river_bank",
+        "name": "Речной берег",
+        "type": null,
+        "position": {
+          "x": 1010,
+          "y": 680
+        },
+        "event_id": "emma_river_bank_morning",
+        "action": null,
+        "description": null,
+        "conditions": [
+          {
+            "flag": "emma_delivery_finished"
+          }
+        ]
+      },
+      {
+        "id": "leave_village",
+        "name": "Выйти к тракту",
+        "type": null,
+        "position": {
+          "x": 1120,
+          "y": 420
+        },
+        "event_id": "emma_leave_village_slice_01",
+        "action": null,
+        "description": null,
+        "conditions": [
+          {
+            "flag": "emma_can_leave_village"
+          }
+        ]
+      }
+    ]
+  }
+]

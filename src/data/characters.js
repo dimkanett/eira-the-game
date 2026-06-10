@@ -1,3 +1,178 @@
-export const characters = {
-  lorien_elf: { id: "lorien_elf", name: "Эльф Лориэна", portrait: "/assets/characters/lorien_elf_default.png" },
-};
+export const playableCharacters = [
+  {
+    id: "emma",
+    name: "Эмма",
+    race: "Человек",
+    startLocationId: "iron_bridge_village",
+    portrait: "/assets/characters/emma.jpg",
+    shortDescription:
+      "Молодая женщина из деревни Железного моста. Её путь начинается далеко от больших дворов и великих интриг, но именно такие люди первыми чувствуют, когда мир начинает гнить.",
+    stats: {
+      strength: 2,
+      agility: 3,
+      defense: 2,
+      perception: 3,
+      charisma: 3,
+      will: 4,
+      intellect: 3,
+    },
+    start: {
+      hp: 38,
+      maxHp: 38,
+      fatigue: 0,
+      trace: 0,
+      actionsMax: 1,
+      actionsLeft: 1,
+      equipment: { mainHand: "knife", offHand: null, armor: null, accessory: null },
+      inventory: ["ration_1", "simple_cloak"],
+    },
+  },
+  {
+    id: "lirael",
+    name: "Лираэль",
+    race: "Эльф",
+    startLocationId: "silverglade",
+    portrait: "/assets/characters/lirael.jpg",
+    shortDescription:
+      "Эльфийка из Сильверглейда. Холодная, собранная и опасная. Её путь начинается в Серебряном Пределе, среди красоты, древней гордыни и гниющей чистоты.",
+    stats: {
+      strength: 2,
+      agility: 5,
+      defense: 2,
+      perception: 5,
+      charisma: 3,
+      will: 4,
+      intellect: 4,
+    },
+    start: {
+      hp: 42,
+      maxHp: 42,
+      fatigue: 0,
+      trace: 0,
+      actionsMax: 1,
+      actionsLeft: 1,
+      equipment: { mainHand: "short_bow", offHand: null, armor: null, accessory: null },
+      inventory: ["elven_cloak", "short_bow", "ration_1", "ration_2"],
+    },
+  },
+  {
+    id: "liria",
+    name: "Лирия",
+    race: "Человек",
+    startLocationId: "free_port_hargan",
+    portrait: "/assets/characters/liria.jpg",
+    shortDescription:
+      "Человек из Свободного порта Харган. Вольные Архипелаги учат быстро понимать цену людей, сделок и предательств.",
+    stats: {
+      strength: 2,
+      agility: 4,
+      defense: 2,
+      perception: 4,
+      charisma: 5,
+      will: 3,
+      intellect: 4,
+    },
+    start: {
+      hp: 36,
+      maxHp: 36,
+      fatigue: 0,
+      trace: 0,
+      actionsMax: 1,
+      actionsLeft: 1,
+      equipment: { mainHand: "dagger", offHand: null, armor: null, accessory: null },
+      inventory: ["dagger", "false_pass", "ration_1"],
+    },
+  },
+  {
+    id: "hagen",
+    name: "Хаген Железный",
+    race: "Дворф",
+    startLocationId: "golden_web",
+    portrait: "/assets/characters/hagen.jpg",
+    shortDescription:
+      "Дворф из Золотой Паутины. Старый кузнец, привыкший платить за каждую клятву железом, кровью и памятью.",
+    stats: {
+      strength: 5,
+      agility: 1,
+      defense: 5,
+      perception: 3,
+      charisma: 2,
+      will: 5,
+      intellect: 4,
+    },
+    start: {
+      hp: 50,
+      maxHp: 50,
+      fatigue: 0,
+      trace: 0,
+      actionsMax: 1,
+      actionsLeft: 1,
+      equipment: { mainHand: "axe", offHand: null, armor: "leather_apron", accessory: null },
+      inventory: ["axe", "smith_token", "ration_1"],
+    },
+  },
+  {
+    id: "selenira",
+    name: "Селенира",
+    race: "Дроу",
+    startLocationId: "shaeliri_lower_gate",
+    portrait: "/assets/characters/selenira.jpg",
+    shortDescription:
+      "Дроу из нижних Домов Ша’Элири. Её путь начинается у подземных врат, где интрига, боль и власть считаются не пороками, а языком выживания.",
+    stats: {
+      strength: 3,
+      agility: 5,
+      defense: 3,
+      perception: 4,
+      charisma: 4,
+      will: 4,
+      intellect: 4,
+    },
+    start: {
+      hp: 40,
+      maxHp: 40,
+      fatigue: 0,
+      trace: 0,
+      actionsMax: 1,
+      actionsLeft: 1,
+      equipment: { mainHand: "curved_blade", offHand: null, armor: "dark_leather", accessory: null },
+      inventory: ["curved_blade", "black_silk", "ration_1"],
+    },
+  },
+  {
+    id: "mara",
+    name: "Мара",
+    race: "Человек",
+    startLocationId: "blackthorn",
+    portrait: "/assets/characters/mara.jpg",
+    shortDescription:
+      "Человек из Блэкторна. Она начинает путь там, где страх давно стал частью повседневности, а клинок в руке иногда честнее молитвы.",
+    stats: {
+      strength: 4,
+      agility: 3,
+      defense: 4,
+      perception: 3,
+      charisma: 2,
+      will: 5,
+      intellect: 2,
+    },
+    start: {
+      hp: 44,
+      maxHp: 44,
+      fatigue: 0,
+      trace: 0,
+      actionsMax: 1,
+      actionsLeft: 1,
+      equipment: { mainHand: "short_sword", offHand: null, armor: "worn_armor", accessory: null },
+      inventory: ["short_sword", "old_charm", "ration_1"],
+    },
+  },
+];
+
+export const playableCharacterById = Object.fromEntries(
+  playableCharacters.map((character) => [character.id, character])
+);
+
+export const characters = Object.fromEntries(
+  playableCharacters.map((character) => [character.id, character])
+);
