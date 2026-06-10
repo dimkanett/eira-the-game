@@ -1,0 +1,54 @@
+{
+  "body_parts": [
+    "head",
+    "torso",
+    "leftArm",
+    "rightArm",
+    "leftLeg",
+    "rightLeg"
+  ],
+  "injury_types": {
+    "light_left_arm_cut": {
+      "id": "light_left_arm_cut",
+      "name": "Лёгкий порез левой руки",
+      "body_part": "leftArm",
+      "severity": "light",
+      "effects": [
+        {
+          "type": "stat_modifier",
+          "stat": "strength",
+          "value": -1
+        },
+        {
+          "type": "attack_modifier",
+          "value": -1
+        }
+      ]
+    },
+    "sprained_right_leg": {
+      "id": "sprained_right_leg",
+      "name": "Растяжение правой ноги",
+      "body_part": "rightLeg",
+      "severity": "light",
+      "effects": [
+        {
+          "type": "movement_modifier",
+          "value": 1
+        }
+      ]
+    },
+    "heavy_torso_wound": {
+      "id": "heavy_torso_wound",
+      "name": "Тяжёлая рана корпуса",
+      "body_part": "torso",
+      "severity": "severe",
+      "effects": [
+        {
+          "type": "stat_modifier",
+          "stat": "defense",
+          "value": -2
+        }
+      ]
+    }
+  }
+}

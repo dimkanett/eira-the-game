@@ -1,0 +1,3545 @@
+[
+  {
+    "id": "silverglade",
+    "name": "Сильверглейд / Лунный Трон",
+    "type": "city",
+    "region": "Серебряный Предел",
+    "danger": 1,
+    "position": {
+      "x": 266,
+      "y": 166
+    },
+    "neighbors": [
+      "eternal_moon_temple",
+      "old_forest",
+      "eternal_mist_hills",
+      "ancient_temple_ruins",
+      "moon_road",
+      "silver_tears_forest"
+    ],
+    "first_event_id": "silverglade_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "ancient_temple_ruins",
+    "name": "Руины Древнего Храма",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 4,
+    "position": {
+      "x": 154,
+      "y": 148
+    },
+    "neighbors": [
+      "silver_tears_forest",
+      "north_coast_1",
+      "silverglade",
+      "silver_cascades"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "silver_tears_forest",
+    "name": "Лес Серебряных Слёз",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 3,
+    "position": {
+      "x": 138,
+      "y": 205
+    },
+    "neighbors": [
+      "ancient_temple_ruins",
+      "silver_cascades",
+      "silverglade",
+      "eternal_moon_temple"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "silver_cascades",
+    "name": "Серебряные Каскады",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 2,
+    "position": {
+      "x": 173,
+      "y": 285
+    },
+    "neighbors": [
+      "silver_tears_forest",
+      "silver_wall_west",
+      "eternal_moon_temple",
+      "ancient_temple_ruins"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "eternal_mist_hills",
+    "name": "Холмы Вечного Тумана",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 3,
+    "position": {
+      "x": 311,
+      "y": 75
+    },
+    "neighbors": [
+      "old_forest",
+      "silverglade",
+      "eliandor",
+      "moon_meadow"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "old_forest",
+    "name": "Старая лесная тропа",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 3,
+    "position": {
+      "x": 364,
+      "y": 153
+    },
+    "neighbors": [
+      "eliandor",
+      "moon_meadow",
+      "eternal_mist_hills",
+      "silverglade",
+      "renewal_grove"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "eliandor",
+    "name": "Элиандор",
+    "type": "city",
+    "region": "Серебряный Предел",
+    "danger": 1,
+    "position": {
+      "x": 406,
+      "y": 151
+    },
+    "neighbors": [
+      "old_forest",
+      "moon_meadow",
+      "renewal_grove",
+      "moon_road",
+      "eternal_mist_hills"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "renewal_grove",
+    "name": "Роща Обновления",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 2,
+    "position": {
+      "x": 489,
+      "y": 107
+    },
+    "neighbors": [
+      "eliandor",
+      "whispering_trees_valley",
+      "old_forest",
+      "moon_meadow",
+      "north_forest"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "north_forest",
+    "name": "Северная чаща",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 3,
+    "position": {
+      "x": 604,
+      "y": 204
+    },
+    "neighbors": [
+      "tenebris_forest_deep",
+      "tenebris_forest_edge",
+      "whispering_trees_valley",
+      "renewal_grove"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "moon_road",
+    "name": "Тракт Вечной Луны",
+    "type": "road",
+    "region": "Серебряный Предел",
+    "danger": 2,
+    "position": {
+      "x": 360,
+      "y": 250
+    },
+    "neighbors": [
+      "moon_meadow",
+      "eternal_moon_temple",
+      "mirven",
+      "seven_stars_glade",
+      "eliandor",
+      "silverglade"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "moon_meadow",
+    "name": "Лунная Поляна",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 2,
+    "position": {
+      "x": 384,
+      "y": 210
+    },
+    "neighbors": [
+      "moon_road",
+      "old_forest",
+      "eliandor",
+      "mirven",
+      "renewal_grove",
+      "eternal_mist_hills"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "eternal_moon_temple",
+    "name": "Храм Вечной Луны",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 2,
+    "position": {
+      "x": 285,
+      "y": 231
+    },
+    "neighbors": [
+      "silverglade",
+      "moon_road",
+      "silver_cascades",
+      "silver_tears_forest"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "whispering_trees_valley",
+    "name": "Долина Шепчущих Деревьев",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 3,
+    "position": {
+      "x": 492,
+      "y": 219
+    },
+    "neighbors": [
+      "mirven",
+      "tenebris_forest_deep",
+      "renewal_grove",
+      "north_forest"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "tenebris_forest_edge",
+    "name": "Край Леса Тенебрис",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 4,
+    "position": {
+      "x": 598,
+      "y": 307
+    },
+    "neighbors": [
+      "tenebris_forest_deep",
+      "silverka_ford",
+      "north_forest",
+      "rivenholl"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "tenebris_forest_deep",
+    "name": "Проклятый Лес Тенебрис",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 6,
+    "position": {
+      "x": 578,
+      "y": 255
+    },
+    "neighbors": [
+      "tenebris_forest_edge",
+      "north_forest",
+      "whispering_trees_valley",
+      "silverka_ford"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "mirven",
+    "name": "Мирвэн",
+    "type": "city",
+    "region": "Серебряный Предел",
+    "danger": 1,
+    "position": {
+      "x": 443,
+      "y": 290
+    },
+    "neighbors": [
+      "seven_stars_glade",
+      "silver_wall_east",
+      "whispering_trees_valley",
+      "moon_road",
+      "moon_meadow"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "seven_stars_glade",
+    "name": "Поляна Семи Звёзд",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 3,
+    "position": {
+      "x": 404,
+      "y": 340
+    },
+    "neighbors": [
+      "mirven",
+      "silver_wall_east",
+      "moon_road",
+      "south_forest_path"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "silver_wall_west",
+    "name": "Серебряная Стена: запад",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 3,
+    "position": {
+      "x": 190,
+      "y": 376
+    },
+    "neighbors": [
+      "silver_cascades"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "silver_wall_east",
+    "name": "Серебряная Стена: восток",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 3,
+    "position": {
+      "x": 474,
+      "y": 367
+    },
+    "neighbors": [
+      "vaitfordj",
+      "seven_stars_glade",
+      "crow_hills",
+      "mirven",
+      "silverka_ford",
+      "south_forest_path"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "silverka_ford",
+    "name": "Брод через Серебрянку",
+    "type": "road",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 576,
+      "y": 384
+    },
+    "neighbors": [
+      "crow_hills",
+      "tenebris_forest_edge",
+      "silver_wall_east",
+      "rivenholl",
+      "tenebris_forest_deep"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "crow_hills",
+    "name": "Холмы Ворона",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 3,
+    "position": {
+      "x": 522,
+      "y": 427
+    },
+    "neighbors": [
+      "vaitfordj",
+      "silverka_ford",
+      "silver_wall_east",
+      "three_names_castle",
+      "west_a_sterwald_road"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "south_forest_path",
+    "name": "Южная лесная тропа",
+    "type": "forest",
+    "region": "Серебряный Предел",
+    "danger": 3,
+    "position": {
+      "x": 380,
+      "y": 441
+    },
+    "neighbors": [
+      "red_wine_village",
+      "vaitfordj",
+      "seven_stars_glade",
+      "silver_wall_east"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "north_coast_1",
+    "name": "Северный берег",
+    "type": "sea",
+    "region": "Внутреннее море",
+    "danger": 2,
+    "position": {
+      "x": 95,
+      "y": 90
+    },
+    "neighbors": [
+      "ancient_temple_ruins",
+      "west_cliffs_1"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "west_cliffs_1",
+    "name": "Западные утёсы",
+    "type": "sea",
+    "region": "Внутреннее море",
+    "danger": 3,
+    "position": {
+      "x": 55,
+      "y": 230
+    },
+    "neighbors": [
+      "north_coast_1",
+      "inner_sea_north"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "rivenholl",
+    "name": "Ривенхолл",
+    "type": "city",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 682,
+      "y": 379
+    },
+    "neighbors": [
+      "north_a_sterwald_road",
+      "silverka_ford",
+      "tenebris_forest_edge",
+      "west_a_sterwald_road",
+      "asterwald"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "vaitfordj",
+    "name": "Вайтфордж",
+    "type": "city",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 455,
+      "y": 439
+    },
+    "neighbors": [
+      "crow_hills",
+      "silver_wall_east",
+      "south_forest_path",
+      "three_names_castle",
+      "red_wine_village"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "red_wine_village",
+    "name": "Деревня Красного Вина",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 386,
+      "y": 507
+    },
+    "neighbors": [
+      "south_forest_path",
+      "three_names_castle",
+      "vaitfordj",
+      "forgotten_oaths_forest"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "three_names_castle",
+    "name": "Замок Трёх Имён",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 3,
+    "position": {
+      "x": 480,
+      "y": 521
+    },
+    "neighbors": [
+      "vaitfordj",
+      "red_wine_village",
+      "crow_hills",
+      "forgotten_oaths_forest",
+      "lanvill"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "forgotten_oaths_forest",
+    "name": "Лес Забытых Клятв",
+    "type": "forest",
+    "region": "Венценосные земли",
+    "danger": 4,
+    "position": {
+      "x": 384,
+      "y": 608
+    },
+    "neighbors": [
+      "coast_fort",
+      "red_wine_village",
+      "three_names_castle"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "lanvill",
+    "name": "Ланвилл",
+    "type": "city",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 558,
+      "y": 640
+    },
+    "neighbors": [
+      "south_a_sterwald_road",
+      "four_winds_crossroad",
+      "eshwood",
+      "west_a_sterwald_road",
+      "three_names_castle"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "four_winds_crossroad",
+    "name": "Перекрёсток Четырёх Ветров",
+    "type": "road",
+    "region": "Венценосные земли",
+    "danger": 3,
+    "position": {
+      "x": 561,
+      "y": 726
+    },
+    "neighbors": [
+      "lanvill",
+      "eshwood",
+      "whispering_blood_lake",
+      "black_bog_north",
+      "south_a_sterwald_road"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "eshwood",
+    "name": "Эшвуд",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 3,
+    "position": {
+      "x": 648,
+      "y": 681
+    },
+    "neighbors": [
+      "golden_river_bank",
+      "secret_valley",
+      "south_a_sterwald_road",
+      "four_winds_crossroad",
+      "lanvill"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "golden_river_bank",
+    "name": "Берег Золотой Реки",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 680,
+      "y": 636
+    },
+    "neighbors": [
+      "eshwood",
+      "secret_valley"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "asterwald",
+    "name": "Астервальд",
+    "type": "city",
+    "region": "Венценосные земли",
+    "danger": 1,
+    "position": {
+      "x": 696,
+      "y": 538
+    },
+    "neighbors": [
+      "east_a_sterwald_road",
+      "west_a_sterwald_road",
+      "south_a_sterwald_road",
+      "golden_ford",
+      "north_a_sterwald_road",
+      "rivenholl"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "secret_valley",
+    "name": "Секретная Долина",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 3,
+    "position": {
+      "x": 740,
+      "y": 681
+    },
+    "neighbors": [
+      "golden_ford",
+      "golden_river_bank",
+      "burning_hearth_village",
+      "eshwood",
+      "razlomgrad",
+      "valdek"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "golden_ford",
+    "name": "Золотой Брод",
+    "type": "road",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 775,
+      "y": 637
+    },
+    "neighbors": [
+      "secret_valley",
+      "blakthorn",
+      "east_a_sterwald_road",
+      "quiet_ashes",
+      "burning_hearth_village",
+      "asterwald",
+      "roshefort"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "roshefort",
+    "name": "Рошефорт",
+    "type": "city",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 836,
+      "y": 520
+    },
+    "neighbors": [
+      "weeping_widows_hill",
+      "east_a_sterwald_road",
+      "quiet_ashes",
+      "gray_stone_village",
+      "golden_ford",
+      "north_a_sterwald_road"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "gray_stone_village",
+    "name": "Деревня Серых Камней",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 3,
+    "position": {
+      "x": 880,
+      "y": 443
+    },
+    "neighbors": [
+      "weeping_widows_hill",
+      "red_rill_source",
+      "roshefort",
+      "iron_bridge_village",
+      "north_a_sterwald_road"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "weeping_widows_hill",
+    "name": "Холм Плачущих Вдов",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 4,
+    "position": {
+      "x": 897,
+      "y": 512
+    },
+    "neighbors": [
+      "roshefort",
+      "gray_stone_village",
+      "quiet_ashes",
+      "east_a_sterwald_road"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "quiet_ashes",
+    "name": "Тихий Пепел",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 4,
+    "position": {
+      "x": 867,
+      "y": 600
+    },
+    "neighbors": [
+      "blakthorn",
+      "roshefort",
+      "weeping_widows_hill",
+      "golden_ford",
+      "raider_camp"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "blakthorn",
+    "name": "Блэкторн",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 4,
+    "position": {
+      "x": 861,
+      "y": 656
+    },
+    "neighbors": [
+      "quiet_ashes",
+      "warm_river_bank",
+      "golden_ford",
+      "black_tent"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "valdek",
+    "name": "Вальдек",
+    "type": "city",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 820,
+      "y": 785
+    },
+    "neighbors": [
+      "burning_hearth_village",
+      "warm_river_bank",
+      "razlomgrad",
+      "heart_rift",
+      "secret_valley"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "burning_hearth_village",
+    "name": "Деревня Пылающего Очага",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 4,
+    "position": {
+      "x": 784,
+      "y": 752
+    },
+    "neighbors": [
+      "valdek",
+      "razlomgrad",
+      "secret_valley",
+      "golden_ford"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "warm_river_bank",
+    "name": "Берег Реки Тёплой",
+    "type": "plain",
+    "region": "Венценосные земли",
+    "danger": 3,
+    "position": {
+      "x": 866,
+      "y": 725
+    },
+    "neighbors": [
+      "blakthorn",
+      "valdek"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "west_a_sterwald_road",
+    "name": "Западный тракт Астервальда",
+    "type": "road",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 614,
+      "y": 520
+    },
+    "neighbors": [
+      "south_a_sterwald_road",
+      "asterwald",
+      "crow_hills",
+      "lanvill",
+      "rivenholl"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "north_a_sterwald_road",
+    "name": "Северный тракт Астервальда",
+    "type": "road",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 736,
+      "y": 413
+    },
+    "neighbors": [
+      "rivenholl",
+      "asterwald",
+      "east_a_sterwald_road",
+      "roshefort",
+      "gray_stone_village"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "east_a_sterwald_road",
+    "name": "Восточный тракт Астервальда",
+    "type": "road",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 767,
+      "y": 548
+    },
+    "neighbors": [
+      "asterwald",
+      "roshefort",
+      "golden_ford",
+      "weeping_widows_hill",
+      "north_a_sterwald_road"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "south_a_sterwald_road",
+    "name": "Южный тракт Астервальда",
+    "type": "road",
+    "region": "Венценосные земли",
+    "danger": 2,
+    "position": {
+      "x": 596,
+      "y": 601
+    },
+    "neighbors": [
+      "lanvill",
+      "west_a_sterwald_road",
+      "eshwood",
+      "asterwald",
+      "four_winds_crossroad"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "mountain_gate",
+    "name": "Врата Подгорья",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 4,
+    "position": {
+      "x": 872,
+      "y": 279
+    },
+    "neighbors": [
+      "iron_bridge_village",
+      "khar_west_pass",
+      "steel_hall",
+      "dead_hooves_pass",
+      "khar_gholm"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "iron_bridge_village",
+    "name": "Деревня Железного моста",
+    "type": "village",
+    "region": "Венценосные Земли",
+    "danger": 2,
+    "position": {
+      "x": 610,
+      "y": 560
+    },
+    "neighbors": [
+      "asterwald_road",
+      "blackthorn"
+    ],
+    "first_event_id": "emma_morning_home",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "dead_hooves_pass",
+    "name": "Перевал Мёртвых Копыт",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 5,
+    "position": {
+      "x": 776,
+      "y": 185
+    },
+    "neighbors": [
+      "thunder_echo_hills",
+      "mountain_gate"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "thunder_echo_hills",
+    "name": "Холмы Громовых Эхо",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 4,
+    "position": {
+      "x": 757,
+      "y": 108
+    },
+    "neighbors": [
+      "dead_hooves_pass"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "khar_gholm",
+    "name": "Кхар-Гхолм",
+    "type": "city",
+    "region": "Кхардунские подгорные царства",
+    "danger": 2,
+    "position": {
+      "x": 954,
+      "y": 159
+    },
+    "neighbors": [
+      "khar_west_pass",
+      "kharadun_beard",
+      "steel_hall",
+      "mountain_gate",
+      "iron_root"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "kharadun_beard",
+    "name": "Борода Кхардуна",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 4,
+    "position": {
+      "x": 1026,
+      "y": 205
+    },
+    "neighbors": [
+      "iron_root",
+      "khar_gholm",
+      "steel_hall",
+      "khar_west_pass"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "steel_hall",
+    "name": "Сталь-Холл",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 3,
+    "position": {
+      "x": 976,
+      "y": 279
+    },
+    "neighbors": [
+      "dark_smith",
+      "deep_forge",
+      "kharadun_beard",
+      "mountain_gate",
+      "khar_gholm"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "dark_smith",
+    "name": "Тёмный Коваль",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 4,
+    "position": {
+      "x": 1008,
+      "y": 304
+    },
+    "neighbors": [
+      "steel_hall",
+      "deep_forge",
+      "khar_east_pass"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "deep_forge",
+    "name": "Глубокая Кузня",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 5,
+    "position": {
+      "x": 996,
+      "y": 347
+    },
+    "neighbors": [
+      "dark_smith",
+      "red_rill_source",
+      "steel_hall"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "iron_root",
+    "name": "Железный Корень",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 4,
+    "position": {
+      "x": 1087,
+      "y": 222
+    },
+    "neighbors": [
+      "bloody_granite_west",
+      "khar_east_pass",
+      "kharadun_beard",
+      "khar_gholm"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "bloody_granite_west",
+    "name": "Кровавый Гранит: запад",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 6,
+    "position": {
+      "x": 1120,
+      "y": 255
+    },
+    "neighbors": [
+      "iron_root",
+      "khar_east_pass",
+      "golden_web"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "bloody_granite_east",
+    "name": "Кровавый Гранит: восток",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 6,
+    "position": {
+      "x": 1320,
+      "y": 180
+    },
+    "neighbors": [
+      "golden_web"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "golden_web",
+    "name": "Золотая Паутина",
+    "type": "underground_city",
+    "region": "Кхардунские Подгорные Царства",
+    "danger": 2,
+    "position": {
+      "x": 980,
+      "y": 360
+    },
+    "neighbors": [
+      "iron_spine_pass",
+      "deep_roads"
+    ],
+    "first_event_id": "golden_web_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "stone_shelter",
+    "name": "Каменный Приют",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 3,
+    "position": {
+      "x": 1248,
+      "y": 360
+    },
+    "neighbors": [
+      "golden_web"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "khar_west_pass",
+    "name": "Западный горный ход",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 4,
+    "position": {
+      "x": 935,
+      "y": 240
+    },
+    "neighbors": [
+      "mountain_gate",
+      "khar_gholm",
+      "kharadun_beard"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "khar_east_pass",
+    "name": "Восточный горный ход",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 5,
+    "position": {
+      "x": 1081,
+      "y": 284
+    },
+    "neighbors": [
+      "bloody_granite_west",
+      "iron_root",
+      "dark_smith"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "red_rill_source",
+    "name": "Исток Кровавого Ручья",
+    "type": "mountain",
+    "region": "Кхардунские подгорные царства",
+    "danger": 5,
+    "position": {
+      "x": 944,
+      "y": 393
+    },
+    "neighbors": [
+      "deep_forge",
+      "gray_stone_village",
+      "iron_bridge_village"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "veysmar",
+    "name": "Вейсмар",
+    "type": "city",
+    "region": "Восточные Марки",
+    "danger": 3,
+    "position": {
+      "x": 1033,
+      "y": 560
+    },
+    "neighbors": [
+      "east_dry_steppe_1",
+      "raider_camp",
+      "east_salt_road",
+      "east_dry_steppe_2",
+      "east_pass"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "east_pass",
+    "name": "Кровавый перевал",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 5,
+    "position": {
+      "x": 1172,
+      "y": 535
+    },
+    "neighbors": [
+      "east_dry_steppe_2",
+      "east_dry_steppe_1",
+      "veysmar",
+      "blood_sand"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "hargan",
+    "name": "Свободный Порт Харган",
+    "type": "city",
+    "region": "Восточные Марки",
+    "danger": 3,
+    "position": {
+      "x": 1348,
+      "y": 459
+    },
+    "neighbors": [
+      "blood_sand"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "blood_sand",
+    "name": "Кровавый Песок",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 6,
+    "position": {
+      "x": 1329,
+      "y": 532
+    },
+    "neighbors": [
+      "hargan",
+      "east_pass"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "raider_camp",
+    "name": "Лагерь Разорителей",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 6,
+    "position": {
+      "x": 964,
+      "y": 623
+    },
+    "neighbors": [
+      "black_tent",
+      "veysmar",
+      "quiet_ashes"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "black_tent",
+    "name": "Чёрный Шатёр",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 5,
+    "position": {
+      "x": 948,
+      "y": 697
+    },
+    "neighbors": [
+      "broken_oaths_village",
+      "raider_camp",
+      "blakthorn",
+      "east_salt_road"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "broken_oaths_village",
+    "name": "Деревня Сломанных Клятв",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 5,
+    "position": {
+      "x": 974,
+      "y": 743
+    },
+    "neighbors": [
+      "black_tent",
+      "dust_pit",
+      "east_salt_road"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "dust_pit",
+    "name": "Пыльная Яма",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 5,
+    "position": {
+      "x": 1068,
+      "y": 746
+    },
+    "neighbors": [
+      "east_salt_road",
+      "broken_oaths_village",
+      "bandit_stan",
+      "cursed_village"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "bandit_stan",
+    "name": "Стан Разбойников",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 6,
+    "position": {
+      "x": 1162,
+      "y": 688
+    },
+    "neighbors": [
+      "cursed_village",
+      "east_dry_steppe_2",
+      "east_salt_road",
+      "dust_pit"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "cursed_village",
+    "name": "Деревня Проклятых",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 6,
+    "position": {
+      "x": 1201,
+      "y": 761
+    },
+    "neighbors": [
+      "bandit_stan",
+      "gallows_hills",
+      "dust_pit",
+      "forgotten_oasis"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "gallows_hills",
+    "name": "Холмы Висельников",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 5,
+    "position": {
+      "x": 1210,
+      "y": 845
+    },
+    "neighbors": [
+      "cursed_village",
+      "forgotten_oasis"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "forgotten_oasis",
+    "name": "Оазис Забытых",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 3,
+    "position": {
+      "x": 1328,
+      "y": 841
+    },
+    "neighbors": [
+      "gallows_hills",
+      "cursed_village"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "east_dry_steppe_1",
+    "name": "Сухая степь",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 4,
+    "position": {
+      "x": 1091,
+      "y": 503
+    },
+    "neighbors": [
+      "veysmar",
+      "east_pass",
+      "east_dry_steppe_2"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "east_dry_steppe_2",
+    "name": "Пыльные холмы",
+    "type": "desert",
+    "region": "Восточные Марки",
+    "danger": 4,
+    "position": {
+      "x": 1168,
+      "y": 601
+    },
+    "neighbors": [
+      "east_pass",
+      "bandit_stan",
+      "east_dry_steppe_1",
+      "veysmar"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "east_salt_road",
+    "name": "Соляной тракт",
+    "type": "road",
+    "region": "Восточные Марки",
+    "danger": 4,
+    "position": {
+      "x": 1064,
+      "y": 695
+    },
+    "neighbors": [
+      "dust_pit",
+      "bandit_stan",
+      "broken_oaths_village",
+      "black_tent",
+      "veysmar"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "riftlands_edge",
+    "name": "Край Разломных земель",
+    "type": "rift",
+    "region": "Разломный край",
+    "danger": 7,
+    "position": {
+      "x": 1103,
+      "y": 896
+    },
+    "neighbors": [
+      "dead_voices_bog"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "swamp_edge",
+    "name": "Край Чёрных Болот",
+    "type": "swamp",
+    "region": "Чёрные Болота",
+    "danger": 5,
+    "position": {
+      "x": 240,
+      "y": 947
+    },
+    "neighbors": [
+      "blood_mires",
+      "black_bog_west"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "misty_backwater",
+    "name": "Туманная Заводь",
+    "type": "swamp",
+    "region": "Чёрные Болота",
+    "danger": 5,
+    "position": {
+      "x": 389,
+      "y": 889
+    },
+    "neighbors": [
+      "blood_mires",
+      "nameless_temple",
+      "black_bog_north",
+      "black_bog_west",
+      "black_bog_south"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "blood_mires",
+    "name": "Кровавые Трясины",
+    "type": "swamp",
+    "region": "Чёрные Болота",
+    "danger": 6,
+    "position": {
+      "x": 339,
+      "y": 933
+    },
+    "neighbors": [
+      "misty_backwater",
+      "black_bog_west",
+      "nameless_temple",
+      "swamp_edge"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "nameless_temple",
+    "name": "Храм Безымянного",
+    "type": "swamp",
+    "region": "Чёрные Болота",
+    "danger": 6,
+    "position": {
+      "x": 432,
+      "y": 959
+    },
+    "neighbors": [
+      "black_bog_south",
+      "misty_backwater",
+      "blood_mires",
+      "black_bog_west",
+      "cursed_thicket"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "cursed_thicket",
+    "name": "Проклятая Чаща",
+    "type": "swamp",
+    "region": "Чёрные Болота",
+    "danger": 6,
+    "position": {
+      "x": 543,
+      "y": 957
+    },
+    "neighbors": [
+      "black_bog_south",
+      "nameless_temple",
+      "whispering_blood_lake"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "whispering_blood_lake",
+    "name": "Озеро Шепчущей Крови",
+    "type": "swamp",
+    "region": "Чёрные Болота",
+    "danger": 7,
+    "position": {
+      "x": 591,
+      "y": 837
+    },
+    "neighbors": [
+      "four_winds_crossroad",
+      "flesh_island",
+      "black_bog_north",
+      "cursed_thicket"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "flesh_island",
+    "name": "Остров Плоти",
+    "type": "swamp",
+    "region": "Чёрные Болота",
+    "danger": 7,
+    "position": {
+      "x": 661,
+      "y": 931
+    },
+    "neighbors": [
+      "whispering_blood_lake"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "razlomgrad",
+    "name": "Разломград",
+    "type": "city",
+    "region": "Великий Южный Разлом",
+    "danger": 7,
+    "position": {
+      "x": 740,
+      "y": 805
+    },
+    "neighbors": [
+      "burning_hearth_village",
+      "valdek",
+      "heart_rift",
+      "secret_valley",
+      "shadow_rift"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "heart_rift",
+    "name": "Разлом Сердца",
+    "type": "rift",
+    "region": "Великий Южный Разлом",
+    "danger": 9,
+    "position": {
+      "x": 772,
+      "y": 886
+    },
+    "neighbors": [
+      "shadow_rift",
+      "razlomgrad",
+      "valdek",
+      "bloody_rift"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "shadow_rift",
+    "name": "Теневой Разлом",
+    "type": "rift",
+    "region": "Великий Южный Разлом",
+    "danger": 9,
+    "position": {
+      "x": 784,
+      "y": 943
+    },
+    "neighbors": [
+      "heart_rift",
+      "bloody_rift",
+      "razlomgrad",
+      "ancient_rift_ruins"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "bloody_rift",
+    "name": "Кровавый Разлом",
+    "type": "rift",
+    "region": "Великий Южный Разлом",
+    "danger": 9,
+    "position": {
+      "x": 778,
+      "y": 1007
+    },
+    "neighbors": [
+      "shadow_rift",
+      "rift_edge",
+      "heart_rift"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "ancient_rift_ruins",
+    "name": "Руины Древнего Разлома",
+    "type": "rift",
+    "region": "Великий Южный Разлом",
+    "danger": 8,
+    "position": {
+      "x": 939,
+      "y": 928
+    },
+    "neighbors": [
+      "bloody_factories",
+      "shadow_rift"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "dead_voices_bog",
+    "name": "Топь Мёртвых Голосов",
+    "type": "swamp",
+    "region": "Чёрные Болота",
+    "danger": 7,
+    "position": {
+      "x": 1053,
+      "y": 968
+    },
+    "neighbors": [
+      "bloody_factories",
+      "riftlands_edge"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "bloody_factories",
+    "name": "Кровавые Заводы",
+    "type": "rift",
+    "region": "Великий Южный Разлом",
+    "danger": 8,
+    "position": {
+      "x": 977,
+      "y": 982
+    },
+    "neighbors": [
+      "ancient_rift_ruins",
+      "dead_voices_bog"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "rift_edge",
+    "name": "Край Разлома",
+    "type": "rift",
+    "region": "Разломный край",
+    "danger": 8,
+    "position": {
+      "x": 856,
+      "y": 1066
+    },
+    "neighbors": [
+      "bloody_rift"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "black_bog_north",
+    "name": "Северные топи",
+    "type": "swamp",
+    "region": "Чёрные Болота",
+    "danger": 5,
+    "position": {
+      "x": 476,
+      "y": 804
+    },
+    "neighbors": [
+      "four_winds_crossroad",
+      "whispering_blood_lake",
+      "misty_backwater"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "black_bog_west",
+    "name": "Западные топи",
+    "type": "swamp",
+    "region": "Чёрные Болота",
+    "danger": 5,
+    "position": {
+      "x": 333,
+      "y": 1001
+    },
+    "neighbors": [
+      "blood_mires",
+      "swamp_edge",
+      "nameless_temple",
+      "misty_backwater",
+      "black_bog_south"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "black_bog_south",
+    "name": "Южные топи",
+    "type": "swamp",
+    "region": "Чёрные Болота",
+    "danger": 6,
+    "position": {
+      "x": 468,
+      "y": 1017
+    },
+    "neighbors": [
+      "nameless_temple",
+      "cursed_thicket",
+      "black_bog_west",
+      "misty_backwater"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "coast_fort",
+    "name": "Крепость Грейстоун",
+    "type": "city",
+    "region": "Внутреннее море",
+    "danger": 2,
+    "position": {
+      "x": 324,
+      "y": 568
+    },
+    "neighbors": [
+      "forgotten_oaths_forest"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "inner_sea_north",
+    "name": "Северный морской путь",
+    "type": "sea",
+    "region": "Внутреннее море",
+    "danger": 3,
+    "position": {
+      "x": 58,
+      "y": 396
+    },
+    "neighbors": [
+      "skull_reef",
+      "west_cliffs_1"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "skull_reef",
+    "name": "Черепной Риф",
+    "type": "sea",
+    "region": "Внутреннее море",
+    "danger": 6,
+    "position": {
+      "x": 98,
+      "y": 541
+    },
+    "neighbors": [
+      "anchor_island",
+      "inner_sea_north"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "anchor_island",
+    "name": "Остров Якорей",
+    "type": "sea",
+    "region": "Внутреннее море",
+    "danger": 3,
+    "position": {
+      "x": 118,
+      "y": 678
+    },
+    "neighbors": [
+      "pirate_bay",
+      "storm_island",
+      "skull_reef"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "storm_island",
+    "name": "Остров Бури",
+    "type": "sea",
+    "region": "Внутреннее море",
+    "danger": 5,
+    "position": {
+      "x": 231,
+      "y": 739
+    },
+    "neighbors": [
+      "southwest_sea_lane",
+      "archipelago_crossing",
+      "anchor_island",
+      "pirate_bay",
+      "coast_south_landing"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "pirate_bay",
+    "name": "Пиратская Бухта",
+    "type": "sea",
+    "region": "Вольные Архипелаги",
+    "danger": 6,
+    "position": {
+      "x": 90,
+      "y": 793
+    },
+    "neighbors": [
+      "anchor_island",
+      "archipelago_crossing",
+      "storm_island",
+      "tar_key"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "tar_key",
+    "name": "Смоляной Кей",
+    "type": "sea",
+    "region": "Вольные Архипелаги",
+    "danger": 4,
+    "position": {
+      "x": 138,
+      "y": 939
+    },
+    "neighbors": [
+      "rotten_rocks",
+      "archipelago_crossing",
+      "pirate_bay"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "rotten_rocks",
+    "name": "Гнилые Скалы",
+    "type": "sea",
+    "region": "Вольные Архипелаги",
+    "danger": 5,
+    "position": {
+      "x": 91,
+      "y": 1023
+    },
+    "neighbors": [
+      "tar_key"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "archipelago_crossing",
+    "name": "Архипелаговый переход",
+    "type": "sea",
+    "region": "Вольные Архипелаги",
+    "danger": 4,
+    "position": {
+      "x": 212,
+      "y": 834
+    },
+    "neighbors": [
+      "storm_island",
+      "southwest_sea_lane",
+      "tar_key",
+      "pirate_bay",
+      "coast_south_landing"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "southwest_sea_lane",
+    "name": "Юго-западный морской путь",
+    "type": "sea",
+    "region": "Вольные Архипелаги",
+    "danger": 4,
+    "position": {
+      "x": 299,
+      "y": 774
+    },
+    "neighbors": [
+      "storm_island",
+      "coast_south_landing",
+      "archipelago_crossing"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "coast_south_landing",
+    "name": "Южная пристань",
+    "type": "sea",
+    "region": "Внутреннее море",
+    "danger": 3,
+    "position": {
+      "x": 386,
+      "y": 794
+    },
+    "neighbors": [
+      "southwest_sea_lane",
+      "storm_island",
+      "archipelago_crossing"
+    ],
+    "first_event_id": null,
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "free_port_hargan",
+    "name": "Свободный порт Харган",
+    "type": "port",
+    "region": "Вольные Архипелаги",
+    "danger": 3,
+    "position": {
+      "x": 910,
+      "y": 820
+    },
+    "neighbors": [
+      "inner_sea_route",
+      "smugglers_cove"
+    ],
+    "first_event_id": "hargan_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "shaeliri_lower_gate",
+    "name": "Нижние Врата Ша’Элири",
+    "type": "underground_gate",
+    "region": "Подземные Домены Ша’Элири",
+    "danger": 4,
+    "position": {
+      "x": 820,
+      "y": 520
+    },
+    "neighbors": [
+      "deep_roads",
+      "black_cavern_road"
+    ],
+    "first_event_id": "shaeliri_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "blackthorn",
+    "name": "Блэкторн",
+    "type": "frontier_town",
+    "region": "Восточные Марки",
+    "danger": 4,
+    "position": {
+      "x": 690,
+      "y": 650
+    },
+    "neighbors": [
+      "iron_bridge_village",
+      "eastern_marks_road"
+    ],
+    "first_event_id": "blackthorn_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "asterwald_road",
+    "name": "Астервальдский тракт",
+    "type": "road",
+    "region": "Венценосные Земли",
+    "danger": 2,
+    "position": {
+      "x": 560,
+      "y": 500
+    },
+    "neighbors": [
+      "iron_bridge_village",
+      "silver_wall_east"
+    ],
+    "first_event_id": "road_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "inner_sea_route",
+    "name": "Путь Внутреннего моря",
+    "type": "sea",
+    "region": "Внутреннее море",
+    "danger": 3,
+    "position": {
+      "x": 850,
+      "y": 760
+    },
+    "neighbors": [
+      "free_port_hargan"
+    ],
+    "first_event_id": "inner_sea_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "smugglers_cove",
+    "name": "Бухта контрабандистов",
+    "type": "port",
+    "region": "Вольные Архипелаги",
+    "danger": 4,
+    "position": {
+      "x": 980,
+      "y": 890
+    },
+    "neighbors": [
+      "free_port_hargan"
+    ],
+    "first_event_id": "smugglers_cove_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "iron_spine_pass",
+    "name": "Перевал Железного Хребта",
+    "type": "mountain",
+    "region": "Кхардунские Подгорные Царства",
+    "danger": 3,
+    "position": {
+      "x": 910,
+      "y": 420
+    },
+    "neighbors": [
+      "golden_web"
+    ],
+    "first_event_id": "iron_spine_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "deep_roads",
+    "name": "Глубинные Пути",
+    "type": "underground",
+    "region": "Подземный мир",
+    "danger": 4,
+    "position": {
+      "x": 900,
+      "y": 470
+    },
+    "neighbors": [
+      "golden_web",
+      "shaeliri_lower_gate"
+    ],
+    "first_event_id": "deep_roads_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "black_cavern_road",
+    "name": "Чёрная каверновая дорога",
+    "type": "underground",
+    "region": "Подземные Домены Ша’Элири",
+    "danger": 5,
+    "position": {
+      "x": 780,
+      "y": 560
+    },
+    "neighbors": [
+      "shaeliri_lower_gate"
+    ],
+    "first_event_id": "black_cavern_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  },
+  {
+    "id": "eastern_marks_road",
+    "name": "Дорога Восточных Марок",
+    "type": "road",
+    "region": "Восточные Марки",
+    "danger": 4,
+    "position": {
+      "x": 760,
+      "y": 690
+    },
+    "neighbors": [
+      "blackthorn"
+    ],
+    "first_event_id": "eastern_marks_road_intro",
+    "event_pool": {
+      "arrival": [],
+      "rest": [],
+      "repeat": []
+    },
+    "state": {
+      "visited": false,
+      "known": false,
+      "revealed_by_rumor": false,
+      "corruption": 0,
+      "destroyed": false
+    }
+  }
+]
