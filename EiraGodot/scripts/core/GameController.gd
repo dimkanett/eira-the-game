@@ -21,6 +21,7 @@ func start_game() -> void:
 	world_map.rebuild()
 	player_hud.refresh()
 	print("Eira Godot ready: locations=%d events=%d characters=%d start_character=%s start_location=%s" % [DataLoader.locations.size(), DataLoader.events.size(), DataLoader.characters.size(), GameState.current_character_id, GameState.current_location_id])
+	start_location_event(GameState.current_location_id)
 
 func request_move_to(location_id: String) -> void:
 	if moving_to_location_id != "":
@@ -46,7 +47,8 @@ func arrive_at_location(location_id: String) -> void:
 
 func start_location_event(location_id: String) -> void:
 	var location: Dictionary = DataLoader.get_location(location_id)
-	var event_id: String = str(location.get("first_event_id", ""))
+	var event_id_value: Variant = location.get("first_event_id", null)
+	var event_id: String = "" if event_id_value == null else str(event_id_value)
 	if event_id != "" and not DataLoader.get_event(event_id).is_empty():
 		start_event(event_id)
 		return
