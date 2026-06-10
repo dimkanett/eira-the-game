@@ -1,0 +1,35 @@
+[
+  {
+    "id": "silverglade_history",
+    "title": "История Сильверглейда",
+    "description": "Фрагменты о происхождении Лунного Трона и Серебряного Предела.",
+    "fragment_ids": [
+      "silverglade_foundation_01",
+      "moon_throne_01"
+    ]
+  },
+  {
+    "id": "shadowed_lands",
+    "title": "Затенённые земли",
+    "description": "Предания и предупреждения о местах, куда луна заглядывает неохотно.",
+    "fragment_ids": [
+      "tenebris_warning_01"
+    ]
+  },
+  {
+    "id": "ancient_ruins",
+    "title": "Древние руины",
+    "description": "Разрозненные записи о храмах, алтарях и забытых письмах.",
+    "fragment_ids": [
+      "ancient_temple_01"
+    ]
+  },
+  {
+    "id": "rifts",
+    "title": "Разломы Эйры",
+    "description": "Слухи и архивные заметки о местах, где мир кажется надломленным.",
+    "fragment_ids": [
+      "southern_rift_01"
+    ]
+  }
+]
