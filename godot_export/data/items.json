@@ -1,0 +1,20 @@
+{
+  "elven_cloak": {
+    "id": "elven_cloak",
+    "name": "Эльфийский плащ",
+    "type": "clothing",
+    "description": "Лёгкий плащ, помогающий скрывать след."
+  },
+  "ration_1": {
+    "id": "ration_1",
+    "name": "Паёк",
+    "type": "consumable",
+    "description": "Дорожная еда на тяжёлый день."
+  },
+  "ration_2": {
+    "id": "ration_2",
+    "name": "Паёк",
+    "type": "consumable",
+    "description": "Дорожная еда на тяжёлый день."
+  }
+}

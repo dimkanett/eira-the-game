@@ -1,0 +1,230 @@
+[
+  {
+    "id": "emma",
+    "name": "Эмма",
+    "race": "Человек",
+    "origin": null,
+    "portrait": "/assets/characters/emma.jpg",
+    "short_description": "Молодая женщина из деревни Железного моста. Её путь начинается далеко от больших дворов и великих интриг, но именно такие люди первыми чувствуют, когда мир начинает гнить.",
+    "start_location_id": "iron_bridge_village",
+    "stats": {
+      "hp": 38,
+      "max_hp": 38,
+      "mana": 0,
+      "strength": 2,
+      "agility": 3,
+      "defense": 2,
+      "perception": 3,
+      "charisma": 3,
+      "will": 4,
+      "intellect": 3,
+      "sin": 0
+    },
+    "fatigue": 0,
+    "trace": 0,
+    "actions_max": 1,
+    "actions_left": 1,
+    "inventory": [
+      "ration_1",
+      "simple_cloak"
+    ],
+    "equipment": {
+      "main_hand": "knife",
+      "off_hand": null,
+      "armor": null,
+      "accessory": null
+    },
+    "flags": {}
+  },
+  {
+    "id": "lirael",
+    "name": "Лираэль",
+    "race": "Эльф",
+    "origin": null,
+    "portrait": "/assets/characters/lirael.jpg",
+    "short_description": "Эльфийка из Сильверглейда. Холодная, собранная и опасная. Её путь начинается в Серебряном Пределе, среди красоты, древней гордыни и гниющей чистоты.",
+    "start_location_id": "silverglade",
+    "stats": {
+      "hp": 42,
+      "max_hp": 42,
+      "mana": 0,
+      "strength": 2,
+      "agility": 5,
+      "defense": 2,
+      "perception": 5,
+      "charisma": 3,
+      "will": 4,
+      "intellect": 4,
+      "sin": 0
+    },
+    "fatigue": 0,
+    "trace": 0,
+    "actions_max": 1,
+    "actions_left": 1,
+    "inventory": [
+      "elven_cloak",
+      "short_bow",
+      "ration_1",
+      "ration_2"
+    ],
+    "equipment": {
+      "main_hand": "short_bow",
+      "off_hand": null,
+      "armor": null,
+      "accessory": null
+    },
+    "flags": {}
+  },
+  {
+    "id": "liria",
+    "name": "Лирия",
+    "race": "Человек",
+    "origin": null,
+    "portrait": "/assets/characters/liria.jpg",
+    "short_description": "Человек из Свободного порта Харган. Вольные Архипелаги учат быстро понимать цену людей, сделок и предательств.",
+    "start_location_id": "free_port_hargan",
+    "stats": {
+      "hp": 36,
+      "max_hp": 36,
+      "mana": 0,
+      "strength": 2,
+      "agility": 4,
+      "defense": 2,
+      "perception": 4,
+      "charisma": 5,
+      "will": 3,
+      "intellect": 4,
+      "sin": 0
+    },
+    "fatigue": 0,
+    "trace": 0,
+    "actions_max": 1,
+    "actions_left": 1,
+    "inventory": [
+      "dagger",
+      "false_pass",
+      "ration_1"
+    ],
+    "equipment": {
+      "main_hand": "dagger",
+      "off_hand": null,
+      "armor": null,
+      "accessory": null
+    },
+    "flags": {}
+  },
+  {
+    "id": "hagen",
+    "name": "Хаген Железный",
+    "race": "Дворф",
+    "origin": null,
+    "portrait": "/assets/characters/hagen.jpg",
+    "short_description": "Дворф из Золотой Паутины. Старый кузнец, привыкший платить за каждую клятву железом, кровью и памятью.",
+    "start_location_id": "golden_web",
+    "stats": {
+      "hp": 50,
+      "max_hp": 50,
+      "mana": 0,
+      "strength": 5,
+      "agility": 1,
+      "defense": 5,
+      "perception": 3,
+      "charisma": 2,
+      "will": 5,
+      "intellect": 4,
+      "sin": 0
+    },
+    "fatigue": 0,
+    "trace": 0,
+    "actions_max": 1,
+    "actions_left": 1,
+    "inventory": [
+      "axe",
+      "smith_token",
+      "ration_1"
+    ],
+    "equipment": {
+      "main_hand": "axe",
+      "off_hand": null,
+      "armor": "leather_apron",
+      "accessory": null
+    },
+    "flags": {}
+  },
+  {
+    "id": "selenira",
+    "name": "Селенира",
+    "race": "Дроу",
+    "origin": null,
+    "portrait": "/assets/characters/selenira.jpg",
+    "short_description": "Дроу из нижних Домов Ша’Элири. Её путь начинается у подземных врат, где интрига, боль и власть считаются не пороками, а языком выживания.",
+    "start_location_id": "shaeliri_lower_gate",
+    "stats": {
+      "hp": 40,
+      "max_hp": 40,
+      "mana": 0,
+      "strength": 3,
+      "agility": 5,
+      "defense": 3,
+      "perception": 4,
+      "charisma": 4,
+      "will": 4,
+      "intellect": 4,
+      "sin": 0
+    },
+    "fatigue": 0,
+    "trace": 0,
+    "actions_max": 1,
+    "actions_left": 1,
+    "inventory": [
+      "curved_blade",
+      "black_silk",
+      "ration_1"
+    ],
+    "equipment": {
+      "main_hand": "curved_blade",
+      "off_hand": null,
+      "armor": "dark_leather",
+      "accessory": null
+    },
+    "flags": {}
+  },
+  {
+    "id": "mara",
+    "name": "Мара",
+    "race": "Человек",
+    "origin": null,
+    "portrait": "/assets/characters/mara.jpg",
+    "short_description": "Человек из Блэкторна. Она начинает путь там, где страх давно стал частью повседневности, а клинок в руке иногда честнее молитвы.",
+    "start_location_id": "blackthorn",
+    "stats": {
+      "hp": 44,
+      "max_hp": 44,
+      "mana": 0,
+      "strength": 4,
+      "agility": 3,
+      "defense": 4,
+      "perception": 3,
+      "charisma": 2,
+      "will": 5,
+      "intellect": 2,
+      "sin": 0
+    },
+    "fatigue": 0,
+    "trace": 0,
+    "actions_max": 1,
+    "actions_left": 1,
+    "inventory": [
+      "short_sword",
+      "old_charm",
+      "ration_1"
+    ],
+    "equipment": {
+      "main_hand": "short_sword",
+      "off_hand": null,
+      "armor": "worn_armor",
+      "accessory": null
+    },
+    "flags": {}
+  }
+]

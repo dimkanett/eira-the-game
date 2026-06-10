@@ -24,7 +24,8 @@ export const worldNodes = [
       "ancient_temple_ruins",
       "moon_road",
       "silver_tears_forest"
-    ]
+    ],
+    "introEventId": "silverglade_intro"
   },
   {
     "id": "ancient_temple_ruins",
@@ -771,17 +772,17 @@ export const worldNodes = [
   },
   {
     "id": "iron_bridge_village",
-    "name": "Деревня Железного Моста",
-    "x": 862,
-    "y": 337,
-    "biome": "mountain",
-    "region": "Кхардунские подгорные царства",
-    "danger": 3,
+    "name": "Деревня Железного моста",
+    "x": 610,
+    "y": 560,
+    "biome": "village",
+    "region": "Венценосные Земли",
+    "danger": 2,
     "connections": [
-      "mountain_gate",
-      "red_rill_source",
-      "gray_stone_village"
-    ]
+      "asterwald_road",
+      "blackthorn"
+    ],
+    "introEventId": "emma_morning_home"
   },
   {
     "id": "dead_hooves_pass",
@@ -927,16 +928,16 @@ export const worldNodes = [
   {
     "id": "golden_web",
     "name": "Золотая Паутина",
-    "x": 1207,
-    "y": 281,
-    "biome": "mountain",
-    "region": "Кхардунские подгорные царства",
-    "danger": 5,
+    "x": 980,
+    "y": 360,
+    "biome": "underground_city",
+    "region": "Кхардунские Подгорные Царства",
+    "danger": 2,
     "connections": [
-      "stone_shelter",
-      "bloody_granite_west",
-      "bloody_granite_east"
-    ]
+      "iron_spine_pass",
+      "deep_roads"
+    ],
+    "introEventId": "golden_web_intro"
   },
   {
     "id": "stone_shelter",
@@ -1628,7 +1629,117 @@ export const worldNodes = [
       "storm_island",
       "archipelago_crossing"
     ]
-  }
+  },
+  {
+    id: "free_port_hargan",
+    name: "Свободный порт Харган",
+    x: 910,
+    y: 820,
+    biome: "port",
+    region: "Вольные Архипелаги",
+    danger: 3,
+    connections: ["inner_sea_route", "smugglers_cove"],
+    introEventId: "hargan_intro",
+  },
+  {
+    id: "shaeliri_lower_gate",
+    name: "Нижние Врата Ша’Элири",
+    x: 820,
+    y: 520,
+    biome: "underground_gate",
+    region: "Подземные Домены Ша’Элири",
+    danger: 4,
+    connections: ["deep_roads", "black_cavern_road"],
+    introEventId: "shaeliri_intro",
+  },
+  {
+    id: "blackthorn",
+    name: "Блэкторн",
+    x: 690,
+    y: 650,
+    biome: "frontier_town",
+    region: "Восточные Марки",
+    danger: 4,
+    connections: ["iron_bridge_village", "eastern_marks_road"],
+    introEventId: "blackthorn_intro",
+  },
+  {
+    id: "asterwald_road",
+    name: "Астервальдский тракт",
+    x: 560,
+    y: 500,
+    biome: "road",
+    region: "Венценосные Земли",
+    danger: 2,
+    connections: ["iron_bridge_village", "silver_wall_east"],
+    introEventId: "road_intro",
+  },
+  {
+    id: "inner_sea_route",
+    name: "Путь Внутреннего моря",
+    x: 850,
+    y: 760,
+    biome: "sea",
+    region: "Внутреннее море",
+    danger: 3,
+    connections: ["free_port_hargan"],
+    introEventId: "inner_sea_intro",
+  },
+  {
+    id: "smugglers_cove",
+    name: "Бухта контрабандистов",
+    x: 980,
+    y: 890,
+    biome: "port",
+    region: "Вольные Архипелаги",
+    danger: 4,
+    connections: ["free_port_hargan"],
+    introEventId: "smugglers_cove_intro",
+  },
+  {
+    id: "iron_spine_pass",
+    name: "Перевал Железного Хребта",
+    x: 910,
+    y: 420,
+    biome: "mountain",
+    region: "Кхардунские Подгорные Царства",
+    danger: 3,
+    connections: ["golden_web"],
+    introEventId: "iron_spine_intro",
+  },
+  {
+    id: "deep_roads",
+    name: "Глубинные Пути",
+    x: 900,
+    y: 470,
+    biome: "underground",
+    region: "Подземный мир",
+    danger: 4,
+    connections: ["golden_web", "shaeliri_lower_gate"],
+    introEventId: "deep_roads_intro",
+  },
+  {
+    id: "black_cavern_road",
+    name: "Чёрная каверновая дорога",
+    x: 780,
+    y: 560,
+    biome: "underground",
+    region: "Подземные Домены Ша’Элири",
+    danger: 5,
+    connections: ["shaeliri_lower_gate"],
+    introEventId: "black_cavern_intro",
+  },
+  {
+    id: "eastern_marks_road",
+    name: "Дорога Восточных Марок",
+    x: 760,
+    y: 690,
+    biome: "road",
+    region: "Восточные Марки",
+    danger: 4,
+    connections: ["blackthorn"],
+    introEventId: "eastern_marks_road_intro",
+  },
 ];
 
 export const worldNodeById = Object.fromEntries(
